@@ -6,3 +6,7 @@ __pycache__/
 .superpowers/
 .playwright-cli/
 .playwright-mcp/
+
+# 个人开发笔记（本地维护，不进公开仓）
+CLAUDE.md
+开发日志.md
