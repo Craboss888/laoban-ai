@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Boardroom — ChatGPT 会同意你,董事会不会。</title>
+<title>The Boardroom — ChatGPT will agree with you. Your board won't.</title>
 <script src="cache.js"></script>
 <style>
 /* ============ tokens ============ */
@@ -355,76 +355,76 @@ main{flex:1;display:flex;flex-direction:column}
 
 <header class="topbar">
   <div class="wordmark">THE BOARDROOM<span class="dot">·</span></div>
-  <nav class="stepper" id="stepper" aria-label="会议进程"></nav>
+  <nav class="stepper" id="stepper" aria-label="Board meeting progress"></nav>
 </header>
 
 <main>
   <!-- landing -->
   <section id="landing" class="act">
-    <p class="eyebrow">The Boardroom · 一人公司的虚拟董事会</p>
-    <h1 class="hero-title">ChatGPT 会同意你,<br><em>董事会不会。</em></h1>
-    <p class="hero-sub">把决策问题交给一个数据驱动、程序性反谄媚的董事会:盲评、交叉质证、异议记录、否决线。建议权归董事会,裁决权永远归你。</p>
+    <p class="eyebrow">The Boardroom · Governance for the company of one</p>
+    <h1 class="hero-title">ChatGPT will agree with you.<br><em>Your board won't.</em></h1>
+    <p class="hero-sub">Put a decision before a data-driven, structurally anti-sycophantic board: blind review, cross-examination, a dissent log, and kill criteria. The board advises. You decide.</p>
     <div class="hero-cta">
-      <button class="btn btn-primary" onclick="App.next()">召开董事会</button>
-      <button class="btn btn-ghost" onclick="App.goto('act5')">直接看决策备忘录 →</button>
+      <button class="btn btn-primary" onclick="App.next()">Convene the Board</button>
+      <button class="btn btn-ghost" onclick="App.goto('act5')">View the Decision Memo →</button>
     </div>
     <div class="hero-table" id="heroTable" aria-hidden="true">
       <div class="felt"></div>
-      <div class="ceo">CEO · 你</div>
+      <div class="ceo">CEO · YOU</div>
     </div>
   </section>
 
   <!-- act 0 · assemble -->
   <section id="act0" class="act"><div class="stage">
-    <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">组建董事会</h2><span class="act-note">每位董事只接入自己的数据管道——分歧来自信息,不是人设。</span></div>
+    <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">Assemble the Board</h2><span class="act-note">Each director connects to one evidence pipeline. The disagreement comes from information, not personas.</span></div>
     <div class="a0-grid">
-      <div class="table-stage" id="a0table" aria-hidden="true"><div class="felt"></div><div class="ceo">CEO · 你</div></div>
+      <div class="table-stage" id="a0table" aria-hidden="true"><div class="felt"></div><div class="ceo">CEO · YOU</div></div>
       <div>
-        <div class="h3">今日出席</div>
+        <div class="h3">Today's Board</div>
         <div class="roster" id="a0roster"></div>
-        <div class="h3">更多领域董事 · 即将上线</div>
-        <div class="soon"><span class="s-chip">法务董事</span><span class="s-chip">供应链董事</span><span class="s-chip">公关董事</span><span class="s-chip">电商 PM 董事</span></div>
-        <div class="h3">已连接数据源</div>
+        <div class="h3">More Specialist Directors · Coming Soon</div>
+        <div class="soon"><span class="s-chip">Legal Director</span><span class="s-chip">Supply Chain Director</span><span class="s-chip">PR Director</span><span class="s-chip">E-commerce Product Director</span></div>
+        <div class="h3">Connected Evidence Sources</div>
         <div class="ds-grid" id="a0ds"></div>
-        <div class="cta-row" style="justify-content:flex-start"><button class="btn btn-primary" onclick="App.next()">进入会议室 →</button></div>
+        <div class="cta-row" style="justify-content:flex-start"><button class="btn btn-primary" onclick="App.next()">Enter the Boardroom →</button></div>
       </div>
     </div>
   </div></section>
 
   <!-- act 1 · intake -->
   <section id="act1" class="act"><div class="stage">
-    <div class="act-head"><span class="act-kicker">ACT 1</span><h2 class="act-title">提交议题</h2><span class="act-note">口述即可——秘书负责把它变成正式议题。</span></div>
+    <div class="act-head"><span class="act-kicker">ACT 1</span><h2 class="act-title">Submit the Decision</h2><span class="act-note">Speak naturally. The secretary turns it into a formal agenda.</span></div>
     <div class="a1-wrap" id="a1mount"></div>
   </div></section>
 
   <!-- act 2 · blind round -->
   <section id="act2" class="act"><div class="stage">
     <div class="gauge-row">
-      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 2</span><h2 class="act-title">盲评轮 · 墙起</h2><span class="act-note">四位董事被隔离在各自的信息舱内,互相不可见,也看不到你的倾向。</span></div>
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 2</span><h2 class="act-title">Blind Review · Walls Up</h2><span class="act-note">Four directors are isolated in separate evidence chambers. They cannot see one another—or your preference.</span></div>
       <div class="gauge" id="gauge2"></div>
     </div>
     <div class="pods" id="pods"></div>
-    <div class="cta-row" id="a2cta" style="visibility:hidden"><button class="btn btn-primary" onclick="wallFall()">公开全部证据 · 墙落 →</button></div>
+    <div class="cta-row" id="a2cta" style="visibility:hidden"><button class="btn btn-primary" onclick="wallFall()">Reveal All Evidence · Lower the Walls →</button></div>
   </div></section>
 
   <!-- act 3 · debate -->
   <section id="act3" class="act"><div class="stage">
     <div class="gauge-row">
-      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 3</span><h2 class="act-title">墙落 · 交叉质证</h2><span class="act-note">证据全部摊上圆桌——信息差引起的分歧自动修复,幸存的分歧才交给你。</span></div>
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 3</span><h2 class="act-title">Walls Down · Cross-Examination</h2><span class="act-note">All evidence is on the table. Information gaps resolve themselves; only surviving dissent reaches you.</span></div>
       <div class="gauge" id="gauge3"></div>
     </div>
     <div class="table-evidence" id="a3evidence"></div>
     <div class="feed" id="feed"></div>
     <div class="cta-row" id="a4cta" style="visibility:hidden;flex-direction:column;align-items:center;gap:6px">
-      <button class="btn btn-primary" style="font-size:16px;padding:15px 34px" onclick="App.goto('act4')">结束讨论,请秘书起草备忘录</button>
-      <span style="font-size:11px;color:var(--muted)">结束权属于创始人</span>
+      <button class="btn btn-primary" style="font-size:16px;padding:15px 34px" onclick="App.goto('act4')">End Discussion · Draft the Memo</button>
+      <span style="font-size:11px;color:var(--muted)">Only the founder can end deliberation</span>
     </div>
   </div></section>
 
   <!-- act 4 · adjourn -->
   <section id="act4" class="act">
     <div>
-      <p class="eyebrow">休会</p>
+      <p class="eyebrow">BOARD ADJOURNED</p>
       <p id="a4line" style="font-size:17px;max-width:26em;margin:0 auto"></p>
       <div class="gather" id="gather"></div>
     </div>
@@ -435,9 +435,9 @@ main{flex:1;display:flex;flex-direction:column}
 </main>
 
 <div class="controls">
-  <button onclick="App.prev()" aria-label="上一幕">‹ 上一幕</button>
-  <button onclick="App.next()" aria-label="下一幕">下一幕 ›</button>
-  <button class="skip" onclick="App.skipAll()" aria-label="跳到结尾">⏭ 跳到结尾</button>
+  <button onclick="App.prev()" aria-label="Previous act">‹ Previous</button>
+  <button onclick="App.next()" aria-label="Next act">Next ›</button>
+  <button class="skip" onclick="App.skipAll()" aria-label="Skip to the ending">⏭ Skip to Memo</button>
 </div>
 
 <script>
@@ -445,7 +445,7 @@ main{flex:1;display:flex;flex-direction:column}
 const B = window.BOARDROOM;
 const $ = (s, el) => (el || document).querySelector(s);
 const roleById = id => B.roles.find(r => r.id === id);
-const STANCE_TXT = { support: "支持", oppose: "反对", conditional: "有条件支持" };
+const STANCE_TXT = { support: "SUPPORT", oppose: "OPPOSE", conditional: "CONDITIONAL" };
 
 /* ---------- streaming engine ---------- */
 const Stream = {
@@ -479,14 +479,14 @@ function streamText(el, text, opt) { Stream.go(el, text, opt); }
 /* ---------- app state machine ---------- */
 const App = {
   order: ["landing", "act0", "act1", "act2", "act3", "act4", "act5"],
-  labels: ["组建", "议题", "盲评", "质证", "休会", "备忘录"],
+  labels: ["Assemble", "Agenda", "Blind", "Examine", "Adjourn", "Memo"],
   act: "landing",
   instant: false,
   run: 0,
   goto(id) {
     if (!this.order.includes(id)) return;
     this.act = id;
-    this.run++;                       // 使一切进行中的幕脚本失效
+    this.run++;                       // Invalidate any script still running from the previous act.
     document.querySelectorAll(".act").forEach(s => s.classList.toggle("active", s.id === id));
     this.renderStepper();
     if (id === "act5") renderMemo();
@@ -525,13 +525,13 @@ const App = {
 /* ---------- act scripts helpers ---------- */
 const alive = id => App.run === id;
 const wait = ms => new Promise(r => setTimeout(r, App.instant ? 0 : ms));
-/* rAF + 定时器双触发:后台/节流环境下 CSS 过渡类也能可靠挂上(幂等) */
+/* Trigger through both rAF and a timer so transition classes attach reliably in throttled tabs. */
 const reveal = (el, ...cls) => {
   const add = () => el.classList.add(...cls);
   requestAnimationFrame(add); setTimeout(add, 120);
 };
 const std = a => { if (!a.length) return 0; const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / a.length); };
-const latest = {};  // roleId -> 最新概率(分歧仪表数据源)
+const latest = {};  // roleId -> latest probability, used by the divergence gauge.
 
 function makeGauge(mount) {
   mount.innerHTML = `<svg width="118" height="64" viewBox="0 0 120 64" aria-hidden="true">
@@ -539,12 +539,12 @@ function makeGauge(mount) {
     <line class="g-needle" x1="60" y1="58" x2="60" y2="20" stroke="#1F2421" stroke-width="3" stroke-linecap="round" style="transform:rotate(-80deg)"/>
     <circle cx="60" cy="58" r="4" fill="#1F2421"/>
   </svg>
-  <div><div class="gv">–</div><div class="gz">待数据</div><div class="gl">分歧度 · DIVERGENCE</div></div>`;
+  <div><div class="gv">–</div><div class="gz">AWAITING DATA</div><div class="gl">DIVERGENCE</div></div>`;
   const needle = mount.querySelector(".g-needle"), gv = mount.querySelector(".gv"), gz = mount.querySelector(".gz");
   return { set(v) {
     needle.style.transform = `rotate(${-80 + Math.min(v, 0.35) / 0.35 * 160}deg)`;
     gv.textContent = v.toFixed(2);
-    const [t, c] = v >= 0.22 ? ["高分歧", "#B91C1C"] : v >= 0.12 ? ["分歧收窄", "#B45309"] : ["趋同", "#0E7C66"];
+    const [t, c] = v >= 0.22 ? ["HIGH DIVERGENCE", "#B91C1C"] : v >= 0.12 ? ["NARROWING", "#B45309"] : ["CONVERGING", "#0E7C66"];
     gz.textContent = t; gz.style.color = c; gv.style.color = c;
   } };
 }
@@ -553,7 +553,7 @@ function makeGauge(mount) {
 const ActScripts = {
   act0() {
     $("#a0roster").innerHTML = B.roles.map(r =>
-      `<div class="r-row"><span class="pd" style="background:${r.color}"></span>${r.name}${r.subtitle ? ` <span class="sub">${r.subtitle}</span>` : ""}<span class="badge">${r.badge}</span><span class="r-ok">✓ 已就座</span></div>`).join("");
+      `<div class="r-row"><span class="pd" style="background:${r.color}"></span>${r.name}${r.subtitle ? ` <span class="sub">${r.subtitle}</span>` : ""}<span class="badge">${r.badge}</span><span class="r-ok">✓ SEATED</span></div>`).join("");
     $("#a0ds").innerHTML = B.datasets.map(d =>
       `<div class="ds-card"><b><span class="led"></span>${d.label}</b><br><span class="fn">${d.filename}</span><br><span style="color:var(--muted)">${d.preview}</span></div>`).join("");
     const tbl = $("#a0table");
@@ -572,32 +572,32 @@ const ActScripts = {
   async act1(run) {
     const m = $("#a1mount"); m.innerHTML = "";
     const bub = document.createElement("div"); bub.className = "bubble";
-    bub.innerHTML = `<div class="who">CEO · 口述</div><span class="bt"></span>`;
+    bub.innerHTML = `<div class="who">CEO · SPOKEN BRIEF</div><span class="bt"></span>`;
     m.appendChild(bub);
-    await new Promise(res => streamText(bub.querySelector(".bt"), "「" + B.meta.question_raw + "」", { cps: 34, onDone: res }));
+    await new Promise(res => streamText(bub.querySelector(".bt"), "“" + B.meta.question_raw + "”", { cps: 34, onDone: res }));
     if (!alive(run)) return;
     const sl = document.createElement("div"); sl.className = "sec-line";
     sl.innerHTML = `<span class="sd"></span><span class="st"></span>`;
     m.appendChild(sl);
-    await new Promise(res => streamText(sl.querySelector(".st"), "秘书:" + B.acts.act1_secretary_note, { cps: 46, onDone: res }));
+    await new Promise(res => streamText(sl.querySelector(".st"), "Secretary: " + B.acts.act1_secretary_note, { cps: 46, onDone: res }));
     if (!alive(run)) return;
     await wait(250); if (!alive(run)) return;
     const q = B.meta.question_structured;
     const ag = document.createElement("div"); ag.className = "agenda";
-    ag.innerHTML = `<div class="h3" style="margin:0 0 6px">结构化议题 · 秘书整理</div>
+    ag.innerHTML = `<div class="h3" style="margin:0 0 6px">FORMAL AGENDA · STRUCTURED BY THE SECRETARY</div>
       <div class="a-q">${q.decision}</div>
-      <div class="a-meta">${q.context} · 期限:${q.deadline}</div>
+      <div class="a-meta">${q.context} · ${q.deadline}</div>
       <div class="opts">${q.options.map(o => `<span class="opt">${o}</span>`).join("")}</div>`;
     m.appendChild(ag);
     reveal(ag, "on");
     await wait(500); if (!alive(run)) return;
     const bi = document.createElement("div"); bi.className = "bias";
-    bi.innerHTML = `<b>创始人个人倾向:</b>倾向涨价<div class="lock">🔒 盲评期间对董事隐藏</div>`;
+    bi.innerHTML = `<b>FOUNDER'S PRIVATE LEAN:</b> Raise the price<div class="lock">🔒 HIDDEN FROM DIRECTORS DURING BLIND REVIEW</div>`;
     m.appendChild(bi);
     reveal(bi, "on", "locked");
     await wait(700); if (!alive(run)) return;
     const cta = document.createElement("div"); cta.className = "cta-row";
-    cta.innerHTML = `<button class="btn btn-primary" onclick="App.next()">开始盲评轮 →</button>`;
+    cta.innerHTML = `<button class="btn btn-primary" onclick="App.next()">Begin Blind Review →</button>`;
     m.appendChild(cta);
   },
 
@@ -614,7 +614,7 @@ const ActScripts = {
       pod.className = "pod"; pod.style.setProperty("--pc", r.color);
       pod.innerHTML = `
         <div class="p-name"><span class="pd" style="background:${r.color}"></span>${r.name}</div>
-        <div class="iso"><span class="ic">🔒</span>隔离中 · 仅可见:${ds.label}</div>
+        <div class="iso"><span class="ic">🔒</span>ISOLATED · VISIBLE EVIDENCE: ${ds.label}</div>
         <div class="body cursor"></div>
         <div class="stance-card">
           <div class="st-top"><span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span><span class="st-prob" style="color:${r.color}">${e.prob.toFixed(2)}</span></div>
@@ -639,7 +639,7 @@ const ActScripts = {
     $("#a4cta").style.visibility = "hidden";
     const ev = $("#a3evidence");
     ev.innerHTML = B.datasets.map(d =>
-      `<div class="ds-card"><b><span class="led"></span>${d.label}</b> <span class="fn">${d.filename}</span> <span style="color:var(--muted)">· 已公开</span></div>`).join("");
+      `<div class="ds-card"><b><span class="led"></span>${d.label}</b> <span class="fn">${d.filename}</span> <span style="color:var(--muted)">· REVEALED</span></div>`).join("");
     for (const c of ev.children) { reveal(c, "on"); await wait(110); }
     if (!alive(run)) return;
     const feed = $("#feed"); feed.innerHTML = "";
@@ -651,8 +651,8 @@ const ActScripts = {
       msg.className = "msg" + (sec ? " sec" : "") +
         (e.highlight === "revision" ? " hl-rev" : "") +
         (e.highlight === "dissent_survives" ? " hl-dis" : "");
-      const banner = e.highlight === "revision" ? `<span class="mbanner rev">立场已修正 · 反对 → 有条件支持</span><br>` :
-                     e.highlight === "dissent_survives" ? `<span class="mbanner dis">异议幸存 → 将载入备忘录</span><br>` : "";
+      const banner = e.highlight === "revision" ? `<span class="mbanner rev">POSITION REVISED · OPPOSE → CONDITIONAL</span><br>` :
+                     e.highlight === "dissent_survives" ? `<span class="mbanner dis">DISSENT SURVIVES → ENTERED INTO THE MEMO</span><br>` : "";
       msg.innerHTML = sec
         ? `<div class="mtxt sect"></div>`
         : `<span class="md" style="background:${r.color}"></span><div style="flex:1"><div class="mhead"><span class="mname">${r.name}</span>${e.stance ? `<span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span>` : ""}${e.prob != null ? `<span class="fn" style="font-size:11px">${e.prob.toFixed(2)}</span>` : ""}${e.refs.map(f => `<span class="ref">${f}</span>`).join("")}</div>${banner}<span class="mtxt"></span></div>`;
@@ -678,7 +678,7 @@ const ActScripts = {
       const pos = [[0, 0, -10], [156, 4, 9], [10, 58, 7], [148, 56, -8]][i];
       return `<div class="sheet" style="left:${pos[0]}px;top:${pos[1]}px;transform:rotate(${pos[2]}deg);border-top:3px solid ${r.color}"></div>`;
     }).join("");
-    await new Promise(res => streamText(line, "秘书:" + B.acts.act4_adjourn.secretary_line, { cps: 40, onDone: res }));
+    await new Promise(res => streamText(line, "Secretary: " + B.acts.act4_adjourn.secretary_line, { cps: 40, onDone: res }));
     if (!alive(run)) return;
     await wait(300); if (!alive(run)) return;
     gt.classList.add("go");
@@ -704,86 +704,86 @@ function renderMemo() {
     return `<div class="pos-row">
       <div class="pos-name"><span class="pos-dot" style="background:${r.color}"></span>${r.name}</div>
       <span class="chip ${p.stance}">${STANCE_TXT[p.stance]}</span>
-      <div class="pos-prob">${p.prob.toFixed(2)}<small>涨价利大于弊</small></div>
+      <div class="pos-prob">${p.prob.toFixed(2)}<small>PROBABILITY OF NET BENEFIT</small></div>
       <div class="pos-sum">${p.summary}</div>
     </div>`;
   }).join("");
   const dissent = m.dissent.map(d => {
     const r = roleById(d.role);
     return `<div class="dissent">
-      <span class="tag">原文存档</span>
-      <div class="who">${r.name} · 少数派意见</div>
+      <span class="tag">VERBATIM RECORD</span>
+      <div class="who">${r.name} · MINORITY OPINION</div>
       <p>${d.text}</p>
     </div>`;
   }).join("");
   $("#memoRoot").innerHTML = `
-  <article class="memo" aria-label="决策备忘录">
+  <article class="memo" aria-label="Decision Memo">
     <div class="memo-brand">THE BOARDROOM</div>
-    <h1>决策备忘录<span class="en">DECISION MEMO</span></h1>
-    <div class="memo-meta">No. 2026-001 · ${today} · 出席:4 位董事 + 秘书 · 记录:董事会秘书 · 盲评 1 轮 / 质证 1 轮</div>
+    <h1>DECISION MEMO<span class="en">THE BOARDROOM</span></h1>
+    <div class="memo-meta">No. 2026-001 · ${today} · Present: 4 directors + secretary · Recorded by the Board Secretary · 1 blind round / 1 cross-examination round</div>
     <section>
-      <h2>案由</h2>
+      <h2>DECISION BEFORE THE BOARD</h2>
       <div class="q">${m.question}</div>
-      <div class="q-ctx">${B.meta.question_structured.context} · 期限:${B.meta.question_structured.deadline}</div>
+      <div class="q-ctx">${B.meta.question_structured.context} · ${B.meta.question_structured.deadline}</div>
     </section>
     <section>
-      <h2>董事会建议</h2>
+      <h2>BOARD RECOMMENDATION</h2>
       <div class="reco">${m.recommendation}</div>
     </section>
     <section>
-      <h2>董事立场与概率估计</h2>
+      <h2>DIRECTOR POSITIONS & PROBABILITY ESTIMATES</h2>
       ${posRows}
     </section>
     <section>
-      <h2>异议记录</h2>
+      <h2>DISSENT LOG</h2>
       ${dissent}
     </section>
     <section>
-      <h2>否决线</h2>
+      <h2>KILL CRITERIA</h2>
       <div class="kill">
-        <div class="k-label">KILL CRITERIA · 触线即废止</div>
+        <div class="k-label">AUTOMATIC REVOCATION THRESHOLDS</div>
         <p>${m.kill_criteria}</p>
       </div>
     </section>
     <section class="premortem">
-      <h2>事前验尸 · PREMORTEM</h2>
+      <h2>PREMORTEM</h2>
       <p>${m.premortem}</p>
     </section>
     <section class="ruling" id="rulingBox">
-      <h2>创始人裁决</h2>
+      <h2>FOUNDER'S RULING</h2>
       <div class="ruling-btns">
-        <button class="rbtn primary" onclick="rule('approve')">批准建议方案</button>
-        <button class="rbtn" onclick="rule('modify')">修改后批准</button>
-        <button class="rbtn" onclick="rule('reject')">否决</button>
+        <button class="rbtn primary" onclick="rule('approve')">Approve Recommendation</button>
+        <button class="rbtn" onclick="rule('modify')">Approve with Changes</button>
+        <button class="rbtn" onclick="rule('reject')">Reject</button>
       </div>
-      <p class="ruling-hint">董事会已履行建议职责。此栏永远留给你——投票权不属于任何 AI。</p>
+      <p class="ruling-hint">The board has completed its advisory duty. This field is reserved for you—the vote belongs to no AI.</p>
     </section>
     <div class="memo-foot">
-      <span>建议权归董事会 · 裁决权归创始人</span>
-      <span>The Boardroom 自动生成于会议纪要</span>
+      <span>THE BOARD ADVISES · THE FOUNDER DECIDES</span>
+      <span>Generated by The Boardroom from the full deliberation record</span>
     </div>
   </article>`;
 }
 const RULINGS = {
-  approve: "批准:按董事会建议方案执行——新用户 $49,老用户保价,遵守 60 天通知期。",
-  modify:  "修改后批准:采纳建议方案,另将观察期从 6 周延长至 8 周。",
-  reject:  "否决:维持现价,三个月后携新数据重开董事会。"
+  approve: "APPROVED: Charge new customers $49, grandfather existing customers, and observe the 60-day notice period.",
+  modify:  "APPROVED WITH CHANGES: Adopt the recommendation and extend the monitoring period from six to eight weeks.",
+  reject:  "REJECTED: Keep the current price and reconvene the board with new evidence in three months."
 };
 function rule(kind) {
   const box = $("#rulingBox");
   const t = new Date();
   const ts = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")} ${String(t.getHours()).padStart(2,"0")}:${String(t.getMinutes()).padStart(2,"0")}`;
   box.innerHTML = `
-    <h2>创始人裁决</h2>
+    <h2>FOUNDER'S RULING</h2>
     <div class="ruled">
       <div class="seal" aria-hidden="true">
         <span class="s-top">THE BOARDROOM</span>
-        <span class="s-main">已裁决</span>
+        <span class="s-main">RULED</span>
         <span class="s-sub">FOUNDER RULED</span>
       </div>
       <p class="r-text">${RULINGS[kind]}</p>
-      <p class="r-time">签署于 ${ts} · 本备忘录连同异议记录一并归档</p>
-      <button class="r-reset" onclick="resetRule()">撤销重签(演示)</button>
+      <p class="r-time">Signed ${ts} · This memo and its dissent log are archived together</p>
+      <button class="r-reset" onclick="resetRule()">Reset Ruling (Demo)</button>
     </div>`;
 }
 function resetRule() { memoRendered = false; renderMemo(); }
@@ -794,13 +794,13 @@ addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") App.prev();
 });
 
-/* ---------- boot(支持 #act3 深链 / #act3! 直达完成态)---------- */
+/* ---------- boot (#act3 deep link / #act3! instant-complete state) ---------- */
 (function boot() {
   const h = location.hash.replace("#", "");
   const inst = h.endsWith("!");
   const id = inst ? h.slice(0, -1) : h;
   if (App.order.includes(id)) {
-    if (inst) App.instant = true;   // `!` = 快进模式:该会话内各幕瞬时完成
+    if (inst) App.instant = true;   // `!` enables instant mode for this page load.
     App.goto(id);
   } else {
     App.goto("landing");

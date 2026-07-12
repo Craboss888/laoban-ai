@@ -1,19 +1,19 @@
-# 行业与竞品速览(2026-06 整理)
+# Market and Competitor Brief (June 2026)
 
-> demo 用 mock 行业资料,供市场董事专属引用
+> Mock market intelligence prepared exclusively for the Market Director in this demo.
 
-## 竞品定价
+## Competitor pricing
 
-| 产品 | 定价 | 备注 |
-|---|---|---|
-| 竞品 A(FlowMetric) | $59/月 | 功能对标,品牌更强,主打小团队 |
-| 竞品 B(DashKit) | $45/月 | 集成生态多,分析深度弱于我们 |
-| 竞品 C(LiteBoard) | $39/月 | 功能明显更弱,靠低价走量 |
+| Product | Price | Notes |
+|---|---:|---|
+| Competitor A (FlowMetric) | $59/month | Comparable feature set, stronger brand, aimed at small teams |
+| Competitor B (DashKit) | $45/month | Broader integration ecosystem, weaker analytics depth |
+| Competitor C (LiteBoard) | $39/month | Clearly weaker product, competes primarily on price |
 
-我们当前 $29/月,**低于赛道最低档竞品 26%**。
+Our current $29/month price is **26% below the cheapest competitor**.
 
-## 行业动态摘要
+## Industry signals
 
-- 2025–2026 独立开发者工具赛道普遍提价 **30–50%**(样本:12 款同类工具公开 changelog)。
-- 提价后 30 天内公开渠道抱怨达到峰值,但多数工具 90 天留存报告好于预期;**提价同时对存量用户保价(grandfathering)** 是最常见的缓冲策略,12 款中 9 款采用。
-- 赛道获客成本整体上行,低价获客红利消退;分析类工具的替代品(通用表格)转换成本随使用时长显著升高。
+- Independent-developer tools broadly raised prices by **30–50%** during 2025–2026 (sample: 12 comparable products with public changelogs).
+- Public complaints typically peaked within 30 days of a price increase, while most products reported better-than-expected 90-day retention. **Grandfathering existing customers** was the most common mitigation: 9 of 12 products used it.
+- Customer acquisition costs are rising across the category, eroding the low-price acquisition advantage. Switching costs for analytics tools also increase materially with tenure because the main substitute is a general-purpose spreadsheet.

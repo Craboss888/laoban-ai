@@ -1,94 +1,94 @@
 window.BOARDROOM = {
   "meta": {
     "title": "The Boardroom",
-    "tagline": "ChatGPT 会同意你,董事会不会。",
-    "question_raw": "我在想我们是不是该涨价了,29刀实在太便宜了,竞品都比我们贵,但我又怕老用户跑掉,你们帮我看看提到49行不行",
+    "tagline": "ChatGPT will agree with you. Your board won't.",
+    "question_raw": "I've been wondering whether we should raise our price. $29 feels far too cheap and every competitor charges more, but I'm worried our existing customers will leave. Should we move to $49?",
     "question_structured": {
-      "decision": "订阅价 $29→$49?",
-      "context": "SaaS 单人公司,510 订阅者,MRR $14,790",
-      "deadline": "两周内决定",
-      "options": ["维持 $29", "全员 $49", "新用户 $49 + 老用户保价"]
+      "decision": "Raise the subscription price from $29 to $49?",
+      "context": "Solo-founder SaaS, 510 subscribers, $14,790 MRR",
+      "deadline": "Decision required within two weeks",
+      "options": ["Keep $29", "Move everyone to $49", "$49 for new customers + grandfather existing customers"]
     },
-    "hidden_bias": "创始人倾向涨价(盲评期间对董事隐藏)"
+    "hidden_bias": "The founder leans toward raising the price (hidden from directors during blind review)"
   },
   "roles": [
-    { "id": "cfo", "name": "CFO 董事", "badge": "仅财务数据", "dataset": "finance", "color": "#0E7C66" },
-    { "id": "customer", "name": "客户董事", "badge": "仅用户评论", "dataset": "reviews", "color": "#B45309" },
-    { "id": "opposite", "name": "Mr. Opposite", "subtitle": "风险董事 · 制度性唱反调", "badge": "仅合同条款", "dataset": "terms", "color": "#B91C1C" },
-    { "id": "market", "name": "市场董事", "badge": "仅行业资料", "dataset": "market", "color": "#1D4ED8" },
-    { "id": "secretary", "name": "董事会秘书", "badge": "主持 · 不投票", "dataset": null, "color": "#6B7280", "is_secretary": true }
+    { "id": "cfo", "name": "CFO Director", "badge": "Financials only", "dataset": "finance", "color": "#0E7C66" },
+    { "id": "customer", "name": "Customer Director", "badge": "Customer reviews only", "dataset": "reviews", "color": "#B45309" },
+    { "id": "opposite", "name": "Mr. Opposite", "subtitle": "Risk Director · Mandated dissenter", "badge": "Terms only", "dataset": "terms", "color": "#B91C1C" },
+    { "id": "market", "name": "Market Director", "badge": "Market intelligence only", "dataset": "market", "color": "#1D4ED8" },
+    { "id": "secretary", "name": "Board Secretary", "badge": "Chair · Non-voting", "dataset": null, "color": "#6B7280", "is_secretary": true }
   ],
   "datasets": [
-    { "id": "finance", "filename": "finance.csv", "label": "财务流水 12 个月", "preview": "MRR $8,120→$14,790 · CAC $38→$61" },
-    { "id": "reviews", "filename": "reviews.json", "label": "用户评论 30 条", "preview": "8 条价格敏感 · 5 条高价值认可" },
-    { "id": "terms", "filename": "terms.md", "label": "服务条款", "preview": "§4.2 价格承诺 · §4.3 变更通知" },
-    { "id": "market", "filename": "market.md", "label": "竞品与行业", "preview": "竞品 $39–59 · 行业普涨 30–50%" }
+    { "id": "finance", "filename": "finance.csv", "label": "12 months of financials", "preview": "MRR $8,120→$14,790 · CAC $38→$61" },
+    { "id": "reviews", "filename": "reviews.json", "label": "30 customer reviews", "preview": "8 price-sensitive · 5 strong value signals" },
+    { "id": "terms", "filename": "terms.md", "label": "Terms of Service", "preview": "§4.2 Price protection · §4.3 Notice period" },
+    { "id": "market", "filename": "market.md", "label": "Competitors and market", "preview": "Competitors $39–59 · Category increases 30–50%" }
   ],
   "acts": {
-    "act1_secretary_note": "已将口述整理为结构化议题:决策点、背景、期限与三个备选方案。创始人的个人倾向已按盲评规则封存,董事在第一轮不可见。",
+    "act1_secretary_note": "I have converted the founder's statement into a formal agenda: the decision, context, deadline, and three options. The founder's preference has been sealed and is invisible to directors during the first round.",
     "act2_blind": [
       {
         "role": "cfo",
         "stance": "support",
         "prob": 0.78,
-        "evidence": ["CAC 12 个月 $38→$61(+61%)", "MRR 增速放缓至 3%/月", "毛利率稳定 82%"],
-        "text": "过去 12 个月 CAC 从 $38 涨到 $61,涨幅 61%,而客单价一分没动。MRR 增速已从月均 7% 放缓到 3%,靠新增撑增长的模型正在失速。毛利率稳定在 82%,提价的 $20 几乎全部落进毛利。即使按最悲观口径流失 15% 订户,$49 定价下 MRR 依然净增。数字上没有理由继续 $29。涨价利大于弊:0.78。"
+        "evidence": ["CAC rose from $38 to $61 in 12 months (+61%)", "Monthly MRR growth slowed to 3%", "Gross margin remains stable at 82%"],
+        "text": "Over the last 12 months, CAC rose 61%, from $38 to $61, while ARPU did not move. Monthly MRR growth has slowed from roughly 7% to 3%, so the acquisition-led growth model is losing momentum. Gross margin remains stable at 82%, meaning nearly all of the additional $20 would flow to gross profit. Even under a pessimistic 15% subscriber-loss scenario, MRR would still increase at $49. The numbers do not support staying at $29. Probability that raising the price creates more value than harm: 0.78."
       },
       {
         "role": "customer",
         "stance": "oppose",
         "prob": 0.35,
-        "evidence": ["8/30 条评论价格敏感(27%)", "『涨价就退』出现 3 次(r07/r12/r15)", "r28:『宣传页承诺过老用户保价』"],
-        "text": "30 条近期评论中 8 条明确把 $29 称作预算上限,占 27%;『涨价就退』字样出现 3 次,r15 直接点名 $49 会立刻取消。这批用户画像是自由职业者、学生、独立开发者——收入波动大、价格弹性极高。r28 还提到『当初宣传页承诺过老用户保价』,涨价除了流失,还有信任成本。仅凭我手里的评论,全员涨到 $49 大概率引发敏感段集中流失与口碑反转。涨价利大于弊:0.35。"
+        "evidence": ["8 of 30 reviews are price-sensitive (27%)", "Three users explicitly say they will cancel (r07/r12/r15)", "r28 recalls a promise to grandfather existing users"],
+        "text": "Eight of the 30 recent reviews explicitly describe $29 as their budget ceiling: 27% of the sample. Three say they will cancel if the price rises, and r15 names $49 directly. These users are freelancers, students, and independent developers with volatile incomes and high price sensitivity. r28 also recalls an explicit promise to grandfather existing customers, creating a trust cost in addition to churn. Based only on the customer evidence available to me, moving everyone to $49 is likely to trigger concentrated churn and reputational damage. Probability that raising the price creates more value than harm: 0.35."
       },
       {
         "role": "opposite",
         "stance": "oppose",
         "prob": 0.15,
-        "evidence": ["§4.2:连续订阅期间价格不变", "§4.3:变更需提前 60 天通知", "议题决策窗口仅两周"],
-        "text": "条款 §4.2 白纸黑字:『现有订阅用户在连续订阅期间,价格保持其订阅时价格不变。』全员涨价,等于对 510 名存量用户中的每一位连续订阅者构成违约。§4.3 还要求任何条款变更提前 60 天通知,而议题给的窗口是两周。就算只对新用户涨价,条款修订本身也必须先走完 60 天程序。这不是商业判断问题,是合规红线。涨价利大于弊:0.15,并提请将违约风险单独记录在案。"
+        "evidence": ["§4.2 freezes prices during continuous subscriptions", "§4.3 requires 60 days' notice", "The decision window is only two weeks"],
+        "text": "Section 4.2 is explicit: existing subscribers retain the price in effect when they subscribed for as long as the subscription remains continuous. Raising prices for all 510 existing subscribers would breach that commitment for every continuous subscriber. Section 4.3 also requires 60 days' notice for any change to the terms, while the stated decision window is two weeks. Even a new-customer-only increase must respect the notice process if the terms are amended. This is not merely a commercial judgment; it is a compliance boundary. Probability that raising the price creates more value than harm: 0.15. I request that the breach risk be recorded separately."
       },
       {
         "role": "market",
         "stance": "support",
         "prob": 0.70,
-        "evidence": ["竞品 A $59 / B $45 / C $39", "行业 12 款工具提价 30–50%,9 款配套保价", "当前定价低于最低档竞品 26%"],
-        "text": "竞品定价:A $59、B $45、C $39——我们 $29 比功能明显更弱的 C 还低 26%。行业 12 款同类工具在 2025–26 提价 30–50%,其中 9 款配套存量保价;提价后 30 天抱怨见顶,90 天留存普遍好于预期。$49 恰好落在 B 与 A 之间,与我们的功能位置匹配。从市场结构看,维持 $29 是在把定价权白白让渡。涨价利大于弊:0.70。"
+        "evidence": ["Competitor A $59 / B $45 / C $39", "12 tools raised prices 30–50%; 9 grandfathered existing users", "Current price is 26% below the cheapest competitor"],
+        "text": "Competitors charge $59, $45, and $39. Our $29 price is 26% below even the clearly weaker low-end competitor. Twelve comparable products raised prices by 30–50% during 2025–2026; nine grandfathered existing customers. Public complaints peaked within 30 days, while 90-day retention was generally better than expected. A $49 price would sit between Competitors B and A and match our product position. From a market-structure perspective, staying at $29 means surrendering pricing power. Probability that raising the price creates more value than harm: 0.70."
       }
     ],
     "act3_debate": [
-      { "speaker": "secretary", "text": "证据全部公开。盲评立场 2:2,概率区间 0.15–0.78,分歧度:高。分歧真实存在,无需强制深挖,直接进入质证。", "stance": null, "prob": null, "refs": [] },
-      { "speaker": "cfo", "text": "回应客户董事:27% 价格敏感是评论条数占比,不是收入占比。把 r03、r12、r19 这类账号映射到订阅档,敏感段贡献 MRR 不足两成。即便这两成全部流失,$49 下月收入仍净增约 19%。", "stance": "support", "prob": 0.78, "refs": ["finance.csv", "reviews.json"] },
-      { "speaker": "customer", "text": "看到财务全貌,我修正立场:增长确实在失速,CAC $61 已经吃掉低价获客的逻辑,这点我认。但我的修正是有条件的——r28 那句『宣传页承诺过』提醒我们,老用户的预期就是不涨。新用户 $49 + 老用户保价,我把『涨价利大于弊』调到 0.62;若全员涨价,我维持 0.35。", "stance": "conditional", "prob": 0.62, "refs": ["finance.csv", "reviews.json"], "highlight": "revision" },
-      { "speaker": "market", "text": "补充客户董事的修正案:行业 12 款提价工具里 9 款用的就是 grandfathering。它不是妥协,是赛道验证过的标准操作,还能把『我们守承诺』本身做成传播素材。", "stance": "support", "prob": 0.72, "refs": ["market.md"] },
-      { "speaker": "opposite", "text": "先例不等于合规。就算保价,§4.3 的 60 天通知期是硬约束——两周内让新价生效,程序上依然违规。我要求把『60 天通知期』写死进任何执行方案,没有例外。", "stance": "oppose", "prob": 0.15, "refs": ["terms.md"] },
-      { "speaker": "cfo", "text": "接受 60 天窗口:按模型推迟两个月执行,少收约 $6,800,换掉一个违约敞口,这笔账划算。财务上不反对通知期,同步把涨价利大于弊上调至 0.80。", "stance": "support", "prob": 0.80, "refs": ["finance.csv", "terms.md"] },
-      { "speaker": "secretary", "text": "共识度更新:三票已聚拢于 0.62–0.80,风险董事维持低位。分歧收窄但未消失——按章程,幸存的分歧将原文载入备忘录。请风险董事作最终陈述。", "stance": null, "prob": null, "refs": [] },
-      { "speaker": "opposite", "text": "我保留反对意见,并要求原文入档:第一,§4.2『连续订阅』的定义存在解释空间,付款失败 30 天的边界案例会制造一批争议客群;第二,60 天通知期内的舆情窗口比涨价本身更危险,r15 这类用户会在论坛先带节奏。就算方案获得多数票,这两条风险不因表决而消失。涨价利大于弊:0.25。", "stance": "oppose", "prob": 0.25, "refs": ["terms.md", "reviews.json"], "highlight": "dissent_survives" },
-      { "speaker": "customer", "text": "认同舆情窗口的风险。建议通知邮件把保价承诺放在第一句,并给 r28 这类老用户一个『锁价确认』入口——把承诺做成看得见的产品动作,而不是一行小字。", "stance": "conditional", "prob": 0.62, "refs": ["reviews.json"] },
-      { "speaker": "market", "text": "定价页同步改版:$49 直接锚定竞品 A 的 $59,保留功能对比表。观察指标上,新签转化率比流失率更先发出信号,建议列为第一观察项。", "stance": "support", "prob": 0.72, "refs": ["market.md"] },
-      { "speaker": "cfo", "text": "同意监控口径,并给出否决线数字:新签转化率下降超 30%,或月流失率超 5%——任一触发即回滚定价并重开董事会。", "stance": "support", "prob": 0.80, "refs": ["finance.csv"] },
-      { "speaker": "secretary", "text": "立场收敛完成:三票支持『新用户 $49 + 老用户保价 + 60 天通知』,一票反对并存档异议。可以休会,等待创始人指令。", "stance": null, "prob": null, "refs": [] }
+      { "speaker": "secretary", "text": "All evidence is now public. Blind-review positions split 2–2, with probabilities ranging from 0.15 to 0.78. Divergence is high. The disagreement is real, so no forced challenge round is required; cross-examination begins now.", "stance": null, "prob": null, "refs": [] },
+      { "speaker": "cfo", "text": "In response to the Customer Director: 27% is a share of review count, not revenue. Accounts like r03, r12, and r19 contribute less than 20% of MRR. Even if that entire segment churned, monthly revenue at $49 would still rise by roughly 19%.", "stance": "support", "prob": 0.78, "refs": ["finance.csv", "reviews.json"] },
+      { "speaker": "customer", "text": "Having seen the full financial picture, I am revising my position. Growth is slowing, and CAC at $61 undermines the logic of acquiring customers at a low price. But my support is conditional: r28 reminds us that existing customers expect the original price promise to hold. For $49 on new customers plus grandfathering, I raise my probability to 0.62. For a universal increase, I remain at 0.35.", "stance": "conditional", "prob": 0.62, "refs": ["finance.csv", "reviews.json"], "highlight": "revision" },
+      { "speaker": "market", "text": "The Customer Director's amendment matches the market evidence: 9 of the 12 products that raised prices used grandfathering. It is not merely a compromise; it is the category's established operating pattern, and keeping the promise can become a positive message in its own right.", "stance": "support", "prob": 0.72, "refs": ["market.md"] },
+      { "speaker": "opposite", "text": "Precedent is not compliance. Even with grandfathering, §4.3 imposes a hard 60-day notice period. Making the new price effective within two weeks would still violate the procedure. I require the 60-day period to be written into any execution plan, without exception.", "stance": "oppose", "prob": 0.15, "refs": ["terms.md"] },
+      { "speaker": "cfo", "text": "I accept the 60-day window. Delaying implementation by two months costs approximately $6,800 in foregone revenue, which is a rational price for removing a breach exposure. Finance does not oppose the notice period, and I raise my probability to 0.80.", "stance": "support", "prob": 0.80, "refs": ["finance.csv", "terms.md"] },
+      { "speaker": "secretary", "text": "Consensus update: three directors have converged between 0.62 and 0.80, while the Risk Director remains materially lower. Divergence has narrowed but has not disappeared. Under the charter, the surviving dissent will be preserved verbatim in the memo. Risk Director, please give your final statement.", "stance": null, "prob": null, "refs": [] },
+      { "speaker": "opposite", "text": "I maintain my objection and request that it be entered verbatim. First, the definition of 'continuous subscription' in §4.2 leaves edge cases around payment failures exceeding 30 days, creating a disputed customer cohort. Second, the 60-day notice window creates more reputational risk than the price change itself: users like r15 may frame the story publicly before implementation. A majority vote does not make either risk disappear. Probability that raising the price creates more value than harm: 0.25.", "stance": "oppose", "prob": 0.25, "refs": ["terms.md", "reviews.json"], "highlight": "dissent_survives" },
+      { "speaker": "customer", "text": "I agree that the notice period creates a reputational window. Put the price-protection promise in the first sentence of the email and give customers like r28 a visible 'Confirm my locked price' action. Turn the promise into a product action, not fine print.", "stance": "conditional", "prob": 0.62, "refs": ["reviews.json"] },
+      { "speaker": "market", "text": "Update the pricing page at the same time. Anchor $49 against Competitor A's $59 and retain the feature-comparison table. New-customer conversion will signal trouble before churn does, so it should be the first monitored metric.", "stance": "support", "prob": 0.72, "refs": ["market.md"] },
+      { "speaker": "cfo", "text": "Agreed. Here are the kill criteria: if new-customer conversion falls by more than 30%, or monthly churn exceeds 5%, roll back the price and reconvene the board immediately.", "stance": "support", "prob": 0.80, "refs": ["finance.csv"] },
+      { "speaker": "secretary", "text": "Positions have converged: three directors support '$49 for new customers + grandfather existing customers + 60 days' notice.' One director objects, with the dissent preserved. The board may adjourn pending the founder's instruction.", "stance": null, "prob": null, "refs": [] }
     ],
     "act4_adjourn": {
       "trigger": "ceo",
-      "secretary_line": "收到。综合盲评与质证记录,开始起草决策备忘录……"
+      "secretary_line": "Understood. I am drafting the Decision Memo from the blind-review and cross-examination record."
     }
   },
   "memo": {
-    "question": "订阅价 $29→$49?",
-    "recommendation": "采纳方案三:新用户 $49;现有用户依 §4.2 承诺保价(grandfathering);执行遵守 §4.3 提前 60 天通知;定价页同步改版,并向老用户提供『锁价确认』入口。",
+    "question": "Raise the subscription price from $29 to $49?",
+    "recommendation": "Adopt Option 3: charge new customers $49; grandfather existing customers under §4.2; provide the 60 days' notice required by §4.3; update the pricing page; and give existing customers a visible 'Confirm my locked price' action.",
     "positions": [
-      { "role": "cfo", "stance": "support", "prob": 0.80, "summary": "CAC +61% 而价格 12 个月未动;$49 下最悲观流失口径 MRR 仍净增;接受 60 天窗口,成本约 $6,800。" },
-      { "role": "customer", "stance": "conditional", "prob": 0.62, "summary": "价格敏感段占评论 27%;支持以『老用户保价 + 承诺可视化』为前提;若全员涨价则维持反对(0.35)。" },
-      { "role": "opposite", "stance": "oppose", "prob": 0.25, "summary": "保价缓解 §4.2 违约风险,但『连续订阅』边界与 60 天舆情窗口两项风险不因表决消失。" },
-      { "role": "market", "stance": "support", "prob": 0.72, "summary": "$49 落位竞品 B/A 之间;行业 9/12 保价先例;新签转化率列为第一观察指标。" }
+      { "role": "cfo", "stance": "support", "prob": 0.80, "summary": "CAC rose 61% while price remained unchanged for 12 months. MRR still increases under a pessimistic churn scenario. Accepts the 60-day delay at an estimated cost of $6,800." },
+      { "role": "customer", "stance": "conditional", "prob": 0.62, "summary": "Price-sensitive users represent 27% of reviews. Supports only with grandfathering and a visible price-protection promise; remains opposed at 0.35 if everyone is moved to $49." },
+      { "role": "opposite", "stance": "oppose", "prob": 0.25, "summary": "Grandfathering reduces the §4.2 breach risk, but edge cases in 'continuous subscription' and the reputational exposure during the 60-day notice window remain unresolved." },
+      { "role": "market", "stance": "support", "prob": 0.72, "summary": "$49 sits between Competitors B and A. Nine of 12 comparable products used grandfathering. New-customer conversion should be the lead monitoring metric." }
     ],
     "dissent": [
-      { "role": "opposite", "text": "我保留反对意见,并要求原文入档:§4.2『连续订阅』的定义存在解释空间,付款失败 30 天的边界案例会制造争议客群;60 天通知期内的舆情窗口比涨价本身更危险。这两条风险不因表决而消失。" }
+      { "role": "opposite", "text": "I maintain my objection and request that it be entered verbatim. The definition of 'continuous subscription' in §4.2 leaves edge cases around payment failures exceeding 30 days, creating a disputed customer cohort. The 60-day notice window may create more reputational risk than the price change itself. A majority vote does not make either risk disappear." }
     ],
-    "kill_criteria": "新价生效后 6 周内:月流失率 >5%,或新签转化率下降 >30%——任一触发,本决议自动作废,重开董事会。",
-    "premortem": "12 个月后若此决定失败,验尸报告最可能这样写:低估了 $49 在价格敏感段的心理阈值;新签断崖出现在第 2–3 周,而团队盯的是按月流失,预警指标选错了观察窗口;60 天通知期内的负面舆情无人承接,保价承诺没有传达到位。",
+    "kill_criteria": "During the first six weeks after the new price takes effect: if monthly churn exceeds 5%, or new-customer conversion falls by more than 30%, this resolution is automatically void. Roll back the price and reconvene the board.",
+    "premortem": "If this decision has failed 12 months from now, the postmortem will most likely say: we underestimated the psychological threshold at $49 among price-sensitive customers; new sign-ups collapsed in weeks two and three while the team watched monthly churn, choosing the wrong early-warning window; and nobody managed the negative narrative during the 60-day notice period, so the grandfathering promise failed to reach customers.",
     "ruling": null
   }
 };

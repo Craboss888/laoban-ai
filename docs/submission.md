@@ -1,52 +1,53 @@
-# 提交材料(BUIDL_OPC_Hackathon_SG · 2026-07-12)
+# Submission Copy — BUIDL_OPC_Hackathon_SG · July 12, 2026
 
-> 用途:填写参赛表单/展示页时直接复制。首图一律用 `output/screenshots/memo-hero.png`(备忘录成品截图,异议记录与否决线清晰可见)。
+> Copy directly into the submission form or showcase page. Use `output/screenshots/memo-hero.png` as the lead image so the dissent log and kill criteria are immediately legible.
 
-## 一句话(首屏必用)
+## One-Line Pitch
 
-**ChatGPT 会同意你,董事会不会。** —— The Boardroom,一人公司的决策治理层。
+**ChatGPT will agree with you. Your board won't.** — The Boardroom, the decision-governance layer for the company of one.
 
-## 项目描述(表单版,~150 字)
+## Project Description
 
-一人公司最缺的不是执行力,是判断的压力测试。The Boardroom 把待决策问题交给一个数据驱动的虚拟董事会:四位董事在**信息隔离**下盲评(每人只看自己的专属数据管道,创始人倾向被隐藏),墙落后交叉质证、修正立场,风险董事被制度性授权唱反调;最终产出一份带**异议记录**、**各董事概率估计**和**否决线(kill criteria)**的正式决策备忘录——可追责的治理文件,不是聊天记录。建议权归董事会,裁决权永远归创始人。
+A one-person company does not lack execution; it lacks pressure-tested judgment. The Boardroom puts a consequential decision before a data-driven virtual board. Four directors begin in information isolation: each receives one exclusive evidence pipeline, and the founder's preference is hidden. The walls then fall for cross-examination and position revision, while a Risk Director is institutionally mandated to dissent. The result is a formal Decision Memo with a **dissent log**, **director probability estimates**, and **kill criteria**—an accountable governance artifact, not a conversation. The board advises. The founder always decides.
 
-## 痛点(pitch 用)
+## The Problem
 
-- AI 消灭了人手,却加重了决策重量:agent 升级上来的每个决定,创始人都要独自拍板
-- 直接问 LLM:谄媚(顺着你说)、和稀泥、无记录、无追责
-- 行业信号(二手来源,引用时注明):独立创业者高压力比例约 35%,约三分之一想过放弃
+- AI removes headcount but increases the weight of judgment: every decision escalated by an agent still lands on one founder.
+- Asking an LLM directly often produces agreement, hedging, no durable record, and no accountability.
+- A secondary research signal suggests roughly 35% of independent founders experience high stress, and about one-third have considered giving up. Cite as secondary evidence if used.
 
-## 机制差异(评委三连问的答案)
+## Three Judge Questions
 
-1. **和直接问强模型的区别?** 盲评防锚定防谄媚(程序保证);专属证据管道保证每条证据被榨干而非在长上下文里稀释;输出是有异议记录、概率、否决线的可追责文件。
-2. **故意制造吵架?** 不对称管的是信息进入讨论的**顺序**,不是总量——最终决议基于全量信息。信息差分歧自动消解,**幸存的分歧**才交给创始人,这是诊断信号分类,不是吵架。
-3. **多样性从哪来?** 数据管道和职责授权,不是模型品牌。同一个模型只因证据不同就分歧——恰好证明分歧来自信息。架构支持异构模型(路线图)。
+1. **How is this different from asking a stronger model?** Blind review prevents anchoring and sycophancy by construction. Exclusive evidence pipelines force deep extraction before fusion. The output is an accountable document with dissent, probabilities, and kill criteria.
+2. **Are you manufacturing an argument?** Information asymmetry governs the **order** in which evidence enters the process, not the final amount of evidence. All evidence is revealed before the memo. Information-gap disagreements resolve; surviving dissent identifies the real value or risk conflict that belongs to the founder.
+3. **Where does diversity come from if every director uses the same model?** From evidence pipelines and institutional mandates, not model brands. The same model disagrees when it sees different evidence, which isolates information as the source of diversity. Heterogeneous models remain a roadmap option.
 
-## Sovereignty 对齐(收尾段)
+## Sovereignty Close
 
-大家都在造 agent 员工;我们造的是主办方 thesis 里的那半句——**human judgment guides AI execution**。董事会只有建议权,备忘录的裁决栏永远留白,等创始人签。
+Most teams are building agent employees. We are building the other half of the organizer's thesis: **human judgment guides AI execution**. The board may recommend, object, quantify, and define kill criteria, but the ruling field remains blank until the founder signs. That is sovereignty made tangible.
 
-## Demo 操作指引(评委)
+## Demo Guide for Judges
 
-- 打开 `site/index.html`(零依赖)→ 首页点「召开董事会」走完六幕(约 3 分钟)
-- 赶时间:点「直接看决策备忘录」或访问 `#act5`
-- 关键看点:幕 2 信息舱(隔离可视化)→ 幕 3 两个高亮节拍(客户董事当众修正立场 / Mr. Opposite 异议幸存)→ 幕 5 备忘录(异议记录 · 概率 · 否决线 · 你来裁决,盖章)
+- Open `site/index.html` and select **Convene the Board** to play the six-act demo in about three minutes.
+- Short on time? Select **View the Decision Memo** or open `#act5`.
+- Watch for Act 2's isolated evidence chambers; Act 3's position revision and surviving dissent; and Act 5's probabilities, dissent log, kill criteria, and founder's ruling.
 
-## 截图清单(output/screenshots/)
+## Screenshot List
 
-| 文件 | 用途 |
+| File | Use |
 |---|---|
-| memo-hero.png | 首图(初筛生死线) |
-| act2-blind.png | 信息隔离可视化 |
-| act3-debate.png | 质证 + 异议幸存高亮 |
-| act0-assemble.png | 组建董事会 + 数据管道 |
-| landing.png | tagline 主视觉 |
+| `memo-hero.png` | Lead image; the primary screening asset |
+| `act2-blind.png` | Information isolation made visible |
+| `act3-debate.png` | Cross-examination and surviving dissent |
+| `act0-assemble.png` | Board assembly and evidence pipelines |
+| `landing.png` | Tagline and opening visual |
 
-## 商业模式(一句)
+## Business Model
 
-按董事会席位/决策次数订阅;领域董事 marketplace("最懂电商的产品董事"可单独上架)。
+Subscription by board seat or decision volume, followed by a specialist-director marketplace where domain seats can be added individually.
 
-## 用词纪律(自查过)
+## Language Discipline
 
-✅ 反谄媚决策系统 / 决策治理层 / dissent log / kill criteria
-❌ persona / roleplay / 角色扮演 / 模拟开会(全文未出现)
+Use: **anti-sycophancy decision system**, **decision-governance layer**, **dissent log**, **kill criteria**.
+
+Avoid framing the product as personas, roleplay, or a simulated meeting.

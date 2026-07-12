@@ -1,64 +1,64 @@
 # The Boardroom
 
-> **ChatGPT 会同意你,董事会不会。**
+> **ChatGPT will agree with you. Your board won't.**
 
 ![Decision Memo](output/screenshots/memo-hero.png)
 
-**The Boardroom 是一人公司创始人的反谄媚决策系统**:把一个待决策问题交给数据驱动的虚拟董事会,经过**盲评 → 交叉质证 → 事前验尸**,产出一份带**异议记录(dissent log)**和**否决线(kill criteria)**的正式决策备忘录。建议权归董事会,**裁决权永远归创始人**。
+**The Boardroom is an anti-sycophancy decision system for the company of one.** It puts a consequential decision before a data-driven virtual board, moves through **blind review → cross-examination → premortem**, and produces a formal Decision Memo with a **dissent log**, director probability estimates, and **kill criteria**. The board advises. **The founder always decides.**
 
-## 直接跑(零依赖)
+## Run It — Zero Dependencies
 
 ```bash
-open site/index.html        # 就这一步——纯静态,无网络、无 API、无安装
+open site/index.html
 ```
 
-深链:`site/index.html#act5` 直达决策备忘录;`#act2!` 快进到盲评完成态。
+It is a pure static demo: no network, API, package install, or build step. Use `site/index.html#act5` to open the Decision Memo directly, or `#act2!` to open the completed blind-review state.
 
-## 为什么不是又一个"AI 顾问"
+## Why This Is Not Another AI Adviser
 
-普通做法:同一份上下文、同一个大脑,用不同 prompt 立几个人设——它们的意见天然趋同,你的倾向写在上下文里,每个"顾问"都看得见,谄媚不可避免。
+The usual pattern gives one model one shared context, then assigns several personas through prompts. Every "adviser" sees the founder's preference, anchors on the same information, and naturally converges.
 
-The Boardroom 的差异是**程序性**的,不靠 prompt 恳求:
+The Boardroom makes disagreement structural:
 
-| 机制 | 实现 |
+| Mechanism | Implementation |
 |---|---|
-| **盲评隔离** | 每位董事是一次独立调用,prompt 里**只有**自己的数据切片——看不到同侪立场,看不到创始人倾向(物理上谄媚不起来) |
-| **专属证据管道** | CFO 只拿财务 CSV,客户董事只拿用户评论,风险董事只拿合同条款,市场董事只拿行业资料——每条证据流被逼着榨干 |
-| **制度性反对派** | 风险董事的绩效按「找出的最强反对理由」衡量,不按和气程度 |
-| **延迟融合** | 隔离只管第一轮;墙落后证据全公开、立场可修正——信息差引起的分歧自动修复,**幸存的分歧**原文载入备忘录 |
-| **治理文件输出** | 立场摘要 · 异议记录 · 各董事概率估计 · 否决线 · 创始人裁决留白——可追责,不是聊天记录 |
+| **Blind-review isolation** | Every director is a separate call whose prompt contains only that director's evidence slice. Peer positions and the founder's preference are absent by construction. |
+| **Exclusive evidence pipelines** | The CFO receives the financial CSV; the Customer Director receives reviews; the Risk Director receives the terms; the Market Director receives market intelligence. Each evidence stream must be fully developed before fusion. |
+| **Mandated dissenter** | The Risk Director is rewarded for finding the strongest objection, not for preserving harmony. |
+| **Delayed fusion** | Isolation governs only the first round. The walls then fall, all evidence is revealed, and directors may revise. Information-gap disagreements resolve; **surviving dissent** is preserved verbatim. |
+| **Governance output** | The result is a Decision Memo with positions, probabilities, dissent, kill criteria, and a blank founder's ruling—not a chat transcript. |
 
-一句话:**分歧的来源是数据管道和职责授权,不是人设。** 同一个模型,只因看到的证据不同就吵起来——这恰好证明分歧来自信息。
+In one sentence: **diversity comes from evidence pipelines and mandates, not personas.** The same model disagrees because it sees different evidence, demonstrating that the disagreement comes from information.
 
-## 仓库结构
+## Repository
 
-```
-site/index.html      六幕 demo(组建 → 议题 → 盲评 → 质证 → 休会 → 备忘录)
-site/cache.js        预跑缓存(演示态输出,与编排器 schema 同构)
-scripts/generate.py  编排器:隔离按构造实现,评委可读;--dry-run 打印管线
-scripts/validate_cache.py  缓存 schema 校验
-data/                mock 数据四件套 + 议题(demo 数据均为虚构)
-tests/               每个测试一个文件夹:验证什么 / 通过标准
-docs/                设计 spec 与提交材料
+```text
+site/index.html          Six-act demo: assemble → agenda → blind review → cross-examination → adjourn → memo
+site/cache.js            Precomputed scenario cache, aligned with the orchestrator schema
+scripts/generate.py      Judge-readable orchestrator; isolation enforced by construction
+scripts/validate_cache.py Cache and deliberation-beat validator
+data/                    Fictional financials, reviews, terms, market brief, and decision case
+tests/                   One folder per acceptance test, with explicit pass criteria
+docs/                    Design and submission materials
 ```
 
 ```bash
-python3 scripts/generate.py --dry-run   # 看编排结构(无需 API key)
-python3 scripts/validate_cache.py       # 校验缓存与节拍完整性
+python3 scripts/generate.py --dry-run
+python3 scripts/validate_cache.py
 ```
 
-## 与主题的对齐
+## Alignment with the Hackathon Thesis
 
-主办方 thesis:*Autonomous Agents & Sovereignty — human judgment guides AI execution。*
+The organizer's thesis is *Autonomous Agents & Sovereignty — human judgment guides AI execution.*
 
-大多数产品在做「替 OPC 干活的执行 agent」;The Boardroom 做的是那半句里的**判断层**:AI 出建议、出异议、出概率、出否决线,**投票权永远只属于创始人**——备忘录上的裁决栏空着,等你签。这就是 Sovereignty 的产品化。
+Most teams are building execution agents that do work for a one-person company. The Boardroom builds the missing **judgment layer**: AI produces recommendations, dissent, probability estimates, and kill criteria, but the ruling field remains blank until the founder signs it. That is sovereignty expressed as a product interaction.
 
-## 今天可证 vs 路线图(诚实边界)
+## What Is Real Today vs. Roadmap
 
-- **今天可证**:盲评隔离、专属数据管道、异议记录/否决线的治理文件输出(demo 为预跑缓存回放;编排器代码即架构)
-- **路线图**:领域语料强化(法务董事读判例、电商 PM 董事读方法论)→ 异构模型适配 → 董事 marketplace(按席位订阅,"最懂电商的产品董事"可单独上架)
-- 我们不承诺"多 agent 必然更准"——承诺的是机制:防锚定、防谄媚、保证证据开采深度,并把分歧变成可裁决的治理信号
+- **Demonstrated today:** isolated blind review, exclusive evidence pipelines, delayed evidence fusion, cross-examination, and a governance document with dissent and kill criteria. The demo uses a precomputed cache; the orchestrator code exposes the real architecture.
+- **Roadmap:** domain-specialist evidence and methods → heterogeneous-model support → a director marketplace where specialist seats can be subscribed to individually.
+- We do not claim that multi-agent debate is always more accurate. We claim a stronger decision procedure: less anchoring, less sycophancy, deeper evidence extraction, and disagreements converted into explicit governance signals.
 
-## 团队
+## Team
 
-一人公司,由一个虚拟董事会守着。🪑
+A company of one, protected by a board. 🪑

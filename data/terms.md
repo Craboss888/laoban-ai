@@ -1,31 +1,31 @@
-# 服务条款(节选)
+# Terms of Service (Excerpt)
 
-> 最近更新:2025-03-01 · 本文件为 demo 用 mock 条款
+> Last updated: March 1, 2025 · Mock terms created for this demo.
 
-## §1 服务内容
+## §1 Service
 
-本服务为面向独立开发者与单人公司的数据分析订阅工具,按"现状"提供。
+The service is a data analytics subscription product for independent developers and solo companies, provided on an "as is" basis.
 
-## §3 计费
+## §3 Billing
 
-### §3.1 计费周期
+### §3.1 Billing cycle
 
-月度订阅,按自然月自动续费;当前公开定价 **$29/月**。
+Subscriptions renew monthly. The current public price is **$29/month**.
 
-## §4 价格与条款变更
+## §4 Changes to Pricing and Terms
 
-### §4.1 定价调整权
+### §4.1 Right to adjust pricing
 
-服务方保留调整公开定价的权利,调整适用于调整生效后的新订阅用户。
+The provider may adjust its public pricing. Any adjustment applies to new subscriptions created after the effective date.
 
-### §4.2 价格承诺
+### §4.2 Price protection
 
-**现有订阅用户在连续订阅期间,价格保持其订阅时价格不变。** 连续订阅指未发生主动取消或付款失败超过 30 天的中断。
+**Existing subscribers will retain the price in effect when they subscribed for as long as their subscription remains continuous.** A continuous subscription is one that has not been voluntarily cancelled or interrupted by a payment failure lasting more than 30 days.
 
-### §4.3 条款变更通知
+### §4.3 Notice of changes
 
-任何对本条款的变更,服务方需**提前 60 天**通过注册邮箱通知用户;变更在通知期满后生效。
+The provider must notify users through their registered email address **at least 60 days before** changing these terms. A change takes effect only after the notice period expires.
 
-## §5 其他
+## §5 Other Provisions
 
-争议解决、责任限制等条款略。
+Dispute resolution, limitation of liability, and other provisions omitted.
