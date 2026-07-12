@@ -1,6 +1,6 @@
 # Market and Competitor Brief (June 2026)
 
-> Mock market intelligence prepared exclusively for the Market Director in this demo.
+> Mock market intelligence prepared exclusively for the CMO in this demo.
 
 ## Competitor pricing
 

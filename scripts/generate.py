@@ -7,8 +7,8 @@ private preference. Anti-sycophancy is therefore a program constraint, not a
 request in a shared prompt.
 
 Pipeline (matching the demo cache schema):
-    intake → 4 isolated blind reviews → consensus check → evidence reveal
-    → cross-examination → Decision Memo
+    intake → isolated blind reviews (4 permanent seats + adaptive seats)
+    → consensus check → evidence reveal → cross-examination → Decision Memo
 
 Usage:
     With a key: ANTHROPIC_API_KEY=... python3 scripts/generate.py
@@ -21,13 +21,17 @@ import pathlib
 DATA = pathlib.Path(__file__).parent.parent / "data"
 
 ROLES = {
-    "cfo": ("finance.csv", "You are the CFO Director. Support every claim with financial evidence."),
-    "customer": ("reviews.json", "You are the Customer Director. Focus on customer voice and churn risk."),
+    # Permanent seats: each guards one evidence pipeline.
+    "cfo": ("finance.csv", "You are the CFO. Support every claim with financial evidence."),
+    "cmo": ("market.md", "You are the CMO. Focus on competitors and category trends."),
+    "customer_rep": ("reviews.json", "You are the Customer Representative. Speak only from the voice of real customers and churn risk."),
+    "clo": ("terms.md", "You are the CLO. Argue only from the terms of service and compliance constraints."),
+    # Adaptive seat (recommended for agendas with a stated founder preference):
+    # no dataset by design — the mandate itself is the pipeline.
     "opposite": (
-        "terms.md",
-        "You are Mr. Opposite, the Risk Director. Your performance is measured by the strongest objection you uncover, not by harmony.",
+        None,
+        "You are Mr. Opposite, the mandated dissenter. You hold no dataset; attack the framing, the anchoring, and the irreversibility. Your performance is measured by the strongest objection you build, not by harmony.",
     ),
-    "market": ("market.md", "You are the Market Director. Focus on competitors and category trends."),
 }
 
 OUT_SPEC = (
@@ -39,7 +43,10 @@ OUT_SPEC = (
 
 def slice_for(role: str) -> str:
     """Return the role's exclusive evidence slice; no other dataset enters the prompt."""
-    return (DATA / ROLES[role][0]).read_text()
+    filename = ROLES[role][0]
+    if filename is None:
+        return "(no dataset — this seat sees only the agenda)"
+    return (DATA / filename).read_text()
 
 
 def call(client, system: str, user: str) -> str:
@@ -73,7 +80,7 @@ def consensus_check(blind: dict) -> float:
 def debate(client, question: str, blind: dict) -> list:
     """Reveal all evidence and positions, then let every director revise with attribution."""
     dossier = json.dumps(blind, ensure_ascii=False)
-    all_data = "\n\n".join(f"[{role}]\n{slice_for(role)}" for role in ROLES)
+    all_data = "\n\n".join(f"[{role}]\n{slice_for(role)}" for role in ROLES if ROLES[role][0])
     events = []
     for role in ROLES:
         system = (
@@ -113,7 +120,7 @@ def run(dry_run: bool) -> None:
                 {
                     "pipeline": [
                         "intake",
-                        "blind×4 (isolated)",
+                        "blind×%d (isolated)" % len(ROLES),
                         "consensus_check",
                         "reveal",
                         "cross_examination",

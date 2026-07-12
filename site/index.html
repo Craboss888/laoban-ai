@@ -266,7 +266,10 @@ main{flex:1;display:flex;flex-direction:column}
 .gauge .gv{font-family:var(--font-num);font-size:20px;font-weight:700;line-height:1.1}
 .gauge .gz{font-size:11px;font-weight:700}
 .gauge .gl{font-size:10px;color:var(--muted);letter-spacing:.1em}
-.pods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pods{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media (max-width:1100px){.pods{grid-template-columns:repeat(2,1fr)}}
+.pod.mandate{border-style:dashed}
+.pod.mandate .iso{color:var(--oppose)}
 .pod{
   background:#fff;border:1px solid var(--line);border-top:4px solid var(--pc,#999);
   border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;min-height:290px;
@@ -400,7 +403,7 @@ body:has(#act0.active) .controls{display:none}
   <!-- act 2 · blind round -->
   <section id="act2" class="act"><div class="stage">
     <div class="gauge-row">
-      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 2</span><h2 class="act-title">Blind Review · Walls Up</h2><span class="act-note">Four directors are isolated in separate evidence chambers. They cannot see one another—or your preference.</span></div>
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 2</span><h2 class="act-title">Blind Review · Walls Up</h2><span class="act-note">Five seats, isolated. Four evidence chambers—and one mandate with no data at all. None can see the others, or your preference.</span></div>
       <div class="gauge" id="gauge2"></div>
     </div>
     <div class="pods" id="pods"></div>
@@ -713,10 +716,13 @@ const ActScripts = {
       const r = roleById(e.role);
       const ds = B.datasets.find(d => d.id === r.dataset);
       const pod = document.createElement("div");
-      pod.className = "pod"; pod.style.setProperty("--pc", r.color);
+      pod.className = "pod" + (ds ? "" : " mandate"); pod.style.setProperty("--pc", r.color);
+      const isoLine = ds
+        ? `<span class="ic">🔒</span>ISOLATED · VISIBLE EVIDENCE: ${ds.label}`
+        : `<span class="ic">⚡</span>MANDATE · SEES ONLY THE AGENDA`;
       pod.innerHTML = `
         <div class="p-name"><span class="pd" style="background:${r.color}"></span>${r.name}</div>
-        <div class="iso"><span class="ic">🔒</span>ISOLATED · VISIBLE EVIDENCE: ${ds.label}</div>
+        <div class="iso">${isoLine}</div>
         <div class="body cursor"></div>
         <div class="stance-card">
           <div class="st-top"><span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span><span class="st-prob" style="color:${r.color}">${e.prob.toFixed(2)}</span></div>
@@ -729,7 +735,7 @@ const ActScripts = {
         pod.classList.add("done");
         latest[e.role] = e.prob;
         g.set(std(Object.values(latest)));
-        if (++done === 4) $("#a2cta").style.visibility = "visible";
+        if (++done === B.acts.act2_blind.length) $("#a2cta").style.visibility = "visible";
       } });
     });
   },
@@ -777,7 +783,7 @@ const ActScripts = {
     const gt = $("#gather");
     gt.classList.remove("go");
     gt.innerHTML = B.roles.filter(r => !r.is_secretary).map((r, i) => {
-      const pos = [[0, 0, -10], [156, 4, 9], [10, 58, 7], [148, 56, -8]][i];
+      const pos = [[0, 0, -10], [156, 4, 9], [10, 58, 7], [148, 56, -8], [78, 28, 4]][i] || [78, 28, 0];
       return `<div class="sheet" style="left:${pos[0]}px;top:${pos[1]}px;transform:rotate(${pos[2]}deg);border-top:3px solid ${r.color}"></div>`;
     }).join("");
     await new Promise(res => streamText(line, "Secretary: " + B.acts.act4_adjourn.secretary_line, { cps: 40, onDone: res }));
@@ -822,7 +828,7 @@ function renderMemo() {
   <article class="memo" aria-label="Decision Memo">
     <div class="memo-brand">THE BOARDROOM</div>
     <h1>DECISION MEMO<span class="en">THE BOARDROOM</span></h1>
-    <div class="memo-meta">No. 2026-001 · ${today} · Present: 4 directors + secretary · Recorded by the Board Secretary · 1 blind round / 1 cross-examination round</div>
+    <div class="memo-meta">No. 2026-001 · ${today} · Present: ${m.positions.length} directors + secretary · Recorded by the Board Secretary · 1 blind round / 1 cross-examination round</div>
     <section>
       <h2>DECISION BEFORE THE BOARD</h2>
       <div class="q">${m.question}</div>

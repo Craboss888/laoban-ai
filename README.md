@@ -23,8 +23,9 @@ The Boardroom makes disagreement structural:
 | Mechanism | Implementation |
 |---|---|
 | **Blind-review isolation** | Every director is a separate call whose prompt contains only that director's evidence slice. Peer positions and the founder's preference are absent by construction. |
-| **Exclusive evidence pipelines** | The CFO receives the financial CSV; the Customer Director receives reviews; the Risk Director receives the terms; the Market Director receives market intelligence. Each evidence stream must be fully developed before fusion. |
-| **Mandated dissenter** | The Risk Director is rewarded for finding the strongest objection, not for preserving harmony. |
+| **Fixed + adaptive board** | Four permanent seats guard the functions every company needs (CFO · CMO · Customer Representative · CLO). Up to two adaptive seats are matched to the agenda — smart-recommended or hand-picked. Maximum seven people at the table. |
+| **Exclusive evidence pipelines** | The CFO receives the financial CSV; the Customer Representative receives reviews; the CLO receives the terms; the CMO receives market intelligence. Each evidence stream must be fully developed before fusion. |
+| **Mandated dissenter** | Mr. Opposite — the recommended adaptive seat whenever the founder arrives with a stated preference — holds no dataset by design. He attacks the framing itself and is rewarded for the strongest objection, not for preserving harmony. In this session he is why the memo has kill criteria. |
 | **Delayed fusion** | Isolation governs only the first round. The walls then fall, all evidence is revealed, and directors may revise. Information-gap disagreements resolve; **surviving dissent** is preserved verbatim. |
 | **Governance output** | The result is a Decision Memo with positions, probabilities, dissent, kill criteria, and a blank founder's ruling—not a chat transcript. |
 

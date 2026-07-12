@@ -8,7 +8,7 @@
 
 ## Project Description
 
-A one-person company does not lack execution; it lacks pressure-tested judgment. The Boardroom puts a consequential decision before a data-driven virtual board. Four directors begin in information isolation: each receives one exclusive evidence pipeline, and the founder's preference is hidden. The walls then fall for cross-examination and position revision, while a Risk Director is institutionally mandated to dissent. The result is a formal Decision Memo with a **dissent log**, **director probability estimates**, and **kill criteria**—an accountable governance artifact, not a conversation. The board advises. The founder always decides.
+A one-person company does not lack execution; it lacks pressure-tested judgment. The Boardroom puts a consequential decision before a data-driven virtual board: four permanent directors (CFO, CMO, Customer Representative, CLO) plus up to two adaptive seats matched to the agenda — never more than seven people at the table. Directors begin in information isolation: each permanent seat receives one exclusive evidence pipeline, and the founder's preference is hidden. The walls then fall for cross-examination and position revision, while Mr. Opposite — the recommended adaptive seat whenever the founder arrives with a stated preference — is institutionally mandated to dissent. The result is a formal Decision Memo with a **dissent log**, **director probability estimates**, and **kill criteria**—an accountable governance artifact, not a conversation. The board advises. The founder always decides.
 
 ## The Problem
 
