@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Boardroom — ChatGPT will agree with you. Your board won't.</title>
+<title>laoban.ai — AI might agree with you. Your board won't.</title>
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="icon" href="data:,">
 <script src="cache.js"></script>
 <style>
@@ -36,8 +37,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;font-size:
   padding:14px 28px;border-bottom:1px solid var(--line);background:var(--paper);
   position:sticky;top:0;z-index:50;
 }
-.wordmark{font-weight:800;letter-spacing:.12em;font-size:13px;color:var(--baize)}
-.wordmark .dot{color:var(--seal)}
+.wordmark img{height:26px;display:block}
+.landing-logo{width:72px;height:72px;margin:0 auto 16px;display:block}
+.memo-brand img{height:24px;display:block}
 .stepper{display:flex;gap:4px;margin-left:auto}
 .step{
   padding:5px 12px;border-radius:999px;font-size:12px;color:var(--muted);
@@ -49,7 +51,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;font-size:
 
 /* ============ stage / acts ============ */
 main{flex:1;display:flex;flex-direction:column}
-.act{display:none;flex:1}
+.act{display:none;flex:1;scroll-margin-top:72px}
 .act.active{display:flex;flex-direction:column;animation:actIn .32s var(--ease)}
 @keyframes actIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
@@ -94,8 +96,8 @@ main{flex:1;display:flex;flex-direction:column}
 /* ============ placeholder acts (filled in T4) ============ */
 .act-todo{flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;letter-spacing:.1em}
 
-/* ============ act 5 · memo ============ */
-#act5.active{background:linear-gradient(180deg,var(--paper) 0%,#EFEEE8 100%);padding:40px 20px 80px;align-items:center}
+/* ============ act 6 · memo ============ */
+#act6.active{background:linear-gradient(180deg,var(--paper) 0%,#EFEEE8 100%);padding:40px 20px 80px;align-items:center}
 .memo{
   font-family:var(--font-doc);
   background:#fff;max-width:780px;width:100%;
@@ -212,7 +214,42 @@ main{flex:1;display:flex;flex-direction:column}
 .cta-row{display:flex;justify-content:center;margin-top:24px}
 .h3{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin:20px 0 8px}
 
-/* ============ act 0 ============ */
+/* ============ act 0 · company & evidence brief ============ */
+.brief-stage{max-width:1120px}.brief-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}.brief-head .act-head{margin:0}
+.brief-label{font-size:9px;font-weight:800;letter-spacing:.14em;color:var(--baize);text-transform:uppercase}
+.secretary-formal{margin-top:15px;padding:12px 13px;border:1px solid #D5E3DC;border-left:4px solid var(--baize);border-radius:10px;background:#F3F7F5}.secretary-formal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:8px;font-weight:800;letter-spacing:.12em;color:var(--baize);text-transform:uppercase}.secretary-formal-head span:last-child{color:#73857C}.secretary-formal h4{font-size:15px;line-height:1.3;margin:6px 0 9px}.formal-fields{display:grid;grid-template-columns:1fr 1fr;gap:6px}.formal-field{border-top:1px solid #D7E3DD;padding-top:5px;font-size:9px;color:#526158;line-height:1.35}.formal-field b{display:block;font-size:7px;color:#718178;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1px}
+.evidence-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:23px 0 10px}.evidence-heading h3{font-size:18px;margin:0}.evidence-heading p{font-size:10px;color:var(--muted);margin:0}.evidence-deck{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.evidence-card{position:relative;min-height:190px;border:1px solid var(--line);border-radius:15px;padding:15px;background:#fff;overflow:hidden;box-shadow:0 5px 16px rgba(31,36,33,.06)}.evidence-card .ev-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.evidence-card .ev-icon{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:800}.evidence-card .ev-file{font-family:var(--font-num);font-size:8px;color:var(--muted)}.evidence-card h4{font-size:13px;margin:10px 0 4px}.evidence-card>p{font-size:9px;line-height:1.45;color:var(--muted);margin:0}.evidence-card.finance{border-top:4px solid #0E7C66}.finance .ev-icon{background:#E3F2EE;color:#0E7C66}.mini-bars{height:48px;display:flex;align-items:end;gap:4px;margin-top:14px}.mini-bars i{display:block;flex:1;background:#9ECFC1;border-radius:2px 2px 0 0}.finance-foot{display:flex;justify-content:space-between;font-family:var(--font-num);font-size:8px;color:#0E7C66;margin-top:4px}
+.evidence-card.reviews{border-top:4px solid #B45309}.reviews .ev-icon{background:#FBF0E3;color:#B45309}.review-stack{margin-top:11px;display:flex;flex-direction:column;gap:5px}.review-line{font-size:8px;line-height:1.35;background:#FFF9F1;border-left:2px solid #D9A66D;padding:5px 6px;color:#6F4B25}.review-count{position:absolute;right:12px;bottom:10px;font-family:var(--font-num);font-size:22px;color:#B45309}.review-count small{display:block;font-family:var(--font-ui);font-size:7px;color:var(--muted);text-align:right}
+.evidence-card.terms{border-top:4px solid #6D28D9}.terms .ev-icon{background:#F0EAFE;color:#6D28D9}.clause{margin-top:12px;border:1px solid #DED2F5;background:#FAF7FF;border-radius:8px;padding:9px;font-family:var(--font-num);font-size:8px;line-height:1.45;color:#58466F}.clause b{display:block;color:#6D28D9;margin-bottom:3px}
+.evidence-card.market{border-top:4px solid #1D4ED8}.market .ev-icon{background:#E8EEFC;color:#1D4ED8}.price-bars{margin-top:12px;display:flex;flex-direction:column;gap:5px}.market-bar{display:flex;align-items:center;gap:5px;font-family:var(--font-num);font-size:7px}.market-bar i{height:7px;background:#8BA8EE;border-radius:999px}.market-bar.current i{background:#B91C1C}.market-bar span:last-child{margin-left:auto}
+.finance-foot{display:block}.review-count{display:none}
+.evidence-next{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:15px;padding:12px 15px;border:1px dashed #AEBEB7;border-radius:12px;background:#F3F7F5}.evidence-next p{font-size:10px;color:#56645E;margin:0}.evidence-next b{color:var(--baize)}.evidence-next .btn{white-space:nowrap}
+
+/* act 0 · three-scene narrative */
+.a0-progress{display:flex;gap:6px;padding-bottom:6px}.a0-progress span{width:26px;height:4px;border-radius:999px;background:#E2E0D7;transition:background .35s var(--ease)}.a0-progress span.on{background:var(--baize)}
+.a0scene{display:none}.a0scene.on{display:block;animation:sceneIn .55s var(--ease) both}
+@keyframes sceneIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.scene-kicker{font-family:var(--font-num);font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--muted);margin-bottom:12px}
+.a0-hero{font-size:31px;line-height:1.16;margin:0 0 12px;max-width:840px}
+.a0-lede{font-size:13px;line-height:1.62;color:var(--muted);max-width:730px;margin:0}
+.a0-next{display:flex;align-items:center;justify-content:flex-end;margin-top:24px}
+.pressure-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.pressure-chip{border:1px solid var(--line);border-left:4px solid var(--pc,var(--baize));border-radius:12px;background:#fff;padding:13px 14px;font-size:11px;color:var(--muted);box-shadow:0 5px 16px rgba(31,36,33,.05)}.pressure-chip b{display:block;font-size:15px;color:var(--ink);margin-top:3px}
+.a0-alone{margin-top:22px;border:1px dashed #AEBEB7;border-radius:12px;background:#F3F7F5;padding:14px 16px}.a0-alone p{font-size:12px;line-height:1.6;color:#56645E;margin:0}.a0-alone b{color:var(--ink)}
+.secretary-stage{display:grid;grid-template-columns:290px minmax(0,1fr);gap:30px;align-items:end}
+.secretary-figure{margin:0;align-self:end;opacity:0;transform:translateY(46px) scale(.965);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.secretary-figure.on{opacity:1;transform:none}
+.secretary-figure img{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 34px rgba(31,36,33,.16))}
+.secretary-panel{display:flex;flex-direction:column;gap:12px;padding-bottom:8px}
+.secretary-bubble{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 15px;font-size:12.5px;line-height:1.55;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.secretary-bubble::before{content:"";position:absolute;left:-7px;bottom:22px;width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.secretary-bubble.on{opacity:1;transform:none}
+.secretary-composer{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
+.secretary-composer.on{opacity:1;transform:none}
+#a0formal{display:none;margin-top:0}
+#a0formal.on{display:block;animation:sceneIn .5s var(--ease) both}
+
+/* ============ act 1 · assemble ============ */
 .a0-intro{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:12px}
 .a0-intro .act-head{margin:0}.a0-rule{font-size:11px;color:var(--muted);text-align:right;line-height:1.55}
 .a0-grid{display:grid;grid-template-columns:minmax(560px,1fr) 330px;gap:28px;align-items:stretch}
@@ -223,11 +260,11 @@ main{flex:1;display:flex;flex-direction:column}
   box-shadow:inset 0 0 0 12px rgba(255,255,255,.07),inset 0 2px 16px rgba(0,0,0,.3),0 20px 35px rgba(24,65,51,.2);
 }
 .table-agenda{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:205px;text-align:center;color:#E3EFEA}
-.table-agenda .ta-k{font-size:8px;letter-spacing:.14em;font-weight:800}.table-agenda strong{display:block;font-family:var(--font-display);font-size:19px;line-height:1.12;margin:7px 0}.table-agenda small{font-size:9px;color:#B8CFC7;line-height:1.4}
+.table-agenda .ta-k{font-size:8px;letter-spacing:.14em;font-weight:800}.table-agenda strong{display:block;font-family:var(--font-display);font-size:19px;line-height:1.12;margin:7px 0}
 .board-seat{position:absolute;width:154px;min-height:56px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:0 7px 18px rgba(31,36,33,.12);z-index:2;transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s}
 .board-seat .bs-type{float:right;font-size:7px;letter-spacing:.08em;color:#98948A;text-transform:uppercase}.board-seat b{display:block;font-size:11px;line-height:1.25;padding-right:36px}.board-seat small{display:block;font-size:8.5px;color:var(--muted);margin-top:2px;line-height:1.3}.board-seat .bs-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
 .board-seat.founder{left:50%;top:28px;transform:translateX(-50%);width:178px;background:var(--ink);border-color:var(--ink);color:#fff;text-align:center}.board-seat.founder b{padding:0;font-size:12px;letter-spacing:.08em}.board-seat.founder small{color:#C8CDC9}
-.board-seat.fixed::after{content:"LOCKED";position:absolute;right:9px;bottom:7px;font-size:6px;letter-spacing:.1em;color:#B4B0A6}.board-seat.cfo{left:5%;top:130px}.board-seat.cmo{right:5%;top:130px}.board-seat.customer-rep{left:2%;top:285px}.board-seat.clo{right:2%;top:285px}
+.board-seat.fixed{background:#E7ECE8;border-color:#C8D2CC;border-radius:8px;box-shadow:inset 3px 0 0 var(--seat-color,#7D9188)}.board-seat.fixed .bs-type{color:#60756B;font-weight:800}.board-seat.fixed::after{content:"LOCKED";position:absolute;right:9px;bottom:7px;font-size:6px;letter-spacing:.1em;color:#819087}.board-seat.cfo{left:5%;top:130px}.board-seat.cmo{right:5%;top:130px}.board-seat.customer-rep{left:2%;top:285px}.board-seat.clo{right:2%;top:285px}
 .board-seat.adaptive{top:470px;cursor:pointer}.board-seat.adaptive:hover,.board-seat.adaptive:focus-visible{transform:translateY(-3px);box-shadow:0 12px 24px rgba(31,36,33,.16);outline:none}.board-seat.adaptive.slot-0{left:12%}.board-seat.adaptive.slot-1{right:12%}.board-seat.adaptive.selected{border:2px solid var(--oppose)}.board-seat.adaptive.active{border-color:var(--support);box-shadow:0 0 0 4px rgba(14,124,102,.14)}.board-seat.adaptive.empty{border:2px dashed #AAA69B;background:#FBFAF5;color:#6F6B63}.board-seat .recommended{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:5px;background:#FBEAE8;color:var(--oppose);font-size:7px;font-weight:800;letter-spacing:.06em}
 .a0-side{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);min-height:570px;display:flex;flex-direction:column}.selector-head{display:flex;align-items:start;justify-content:space-between;gap:12px}.selector-head .eyebrow{font-size:9px;margin:0 0 5px}.selector-head h3{font-size:20px;margin:0}.selector-close{font-size:20px;color:var(--muted);line-height:1;padding:3px}.selector-copy{font-size:11px;color:var(--muted);line-height:1.5;margin:8px 0 12px}.candidate-list{display:flex;flex-direction:column;gap:7px}.candidate-btn{position:relative;width:100%;text-align:left;border:1px solid var(--line);border-radius:11px;padding:9px 11px;background:#fff;transition:.18s}.candidate-btn:hover,.candidate-btn:focus-visible{border-color:#9B978E;outline:none;transform:translateX(2px)}.candidate-btn.on{border-color:var(--oppose);background:#FFF8F6}.candidate-btn b{display:block;font-size:11px}.candidate-btn span{display:block;font-size:8.5px;color:var(--muted);line-height:1.35;margin-top:2px;padding-right:12px}.candidate-btn .why{color:var(--oppose);margin-top:4px}.candidate-btn .tick{position:absolute;right:10px;top:9px;color:var(--oppose);font-weight:900}.candidate-btn:disabled{opacity:.42;cursor:not-allowed;transform:none}.clear-seat{width:100%;margin-top:8px;border:1px dashed #B8B3A8;border-radius:10px;padding:8px;font-size:9px;color:var(--muted)}.selector-done{width:100%;margin-top:auto;padding-top:14px}.selector-done .btn{width:100%}
 .board-summary{display:flex;flex-direction:column;height:100%}.board-summary h3{font-size:20px;margin:0 0 7px}.board-summary>p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}.seat-count{display:flex;align-items:baseline;gap:7px;margin:18px 0}.seat-count strong{font-family:var(--font-num);font-size:38px;line-height:1;color:var(--baize)}.seat-count span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.charter-row{display:flex;gap:9px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}.charter-row b{display:block;font-size:11px}.charter-row span{display:block;font-size:9px;color:var(--muted);margin-top:2px}.charter-icon{width:24px;height:24px;border-radius:7px;background:var(--baize-soft);display:grid;place-items:center;font-size:11px;flex:none}.a0-actions{margin-top:auto;padding-top:16px}.a0-actions .btn{width:100%}.a0-actions small{display:block;text-align:center;font-size:9px;color:var(--muted);margin-top:8px}
@@ -258,7 +295,25 @@ main{flex:1;display:flex;flex-direction:column}
 }
 .bias.locked .lock{opacity:1}
 
-/* ============ act 2 · pods & gauge ============ */
+/* ============ act 2 · evidence routing ============ */
+.route-stage{max-width:980px}
+.route-header{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px;flex-wrap:wrap}
+.route-header .act-head{margin:0}
+.route-key{font-family:var(--font-num);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.route-board{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.route-labels{display:grid;grid-template-columns:1fr 112px 1fr;align-items:center;margin:0 8px 8px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.route-labels span:last-child{text-align:left}
+.route-lanes{display:flex;flex-direction:column;gap:9px}
+.route-lane{--route-color:var(--baize);display:grid;grid-template-columns:minmax(0,1fr) 112px minmax(0,1fr);align-items:center;gap:0;opacity:0;transform:translateY(8px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.route-lane.on{opacity:1;transform:none}
+.route-card{min-height:62px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#FCFCFA;display:flex;flex-direction:column;justify-content:center}
+.route-source{border-left:4px solid var(--route-color)}
+.route-file{font-family:var(--font-num);font-size:10px;color:var(--route-color);letter-spacing:.02em}.route-card b{font-size:12px;line-height:1.25;margin-top:2px}.route-card small{font-size:9px;color:var(--muted);margin-top:2px;line-height:1.35}
+.route-track{height:2px;background:#DCE3DF;position:relative;overflow:visible}.route-track::before{content:"";position:absolute;inset:0 auto 0 0;width:0;background:var(--route-color);transition:width .7s var(--ease)}.route-lane.on .route-track::before{width:100%}.route-track::after{content:"";position:absolute;right:-1px;top:50%;width:7px;height:7px;border-top:2px solid var(--route-color);border-right:2px solid var(--route-color);transform:translateY(-50%) rotate(45deg);opacity:0;transition:opacity .15s .62s}.route-lane.on .route-track::after{opacity:1}
+.route-destination{border-color:color-mix(in srgb,var(--route-color) 24%,var(--line));background:color-mix(in srgb,var(--route-color) 5%,#fff)}
+.route-destination .route-person{display:flex;align-items:center;gap:7px}.route-dot{width:8px;height:8px;border-radius:50%;background:var(--route-color);flex:none}.route-status{font-size:9px;font-weight:800;letter-spacing:.08em;color:var(--route-color);text-transform:uppercase}
+.route-mandate{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 14px;border:1px dashed #D49A95;border-radius:10px;background:#FFF9F8}.route-mandate-mark{width:25px;height:25px;border-radius:50%;background:#FBEAE8;color:var(--oppose);display:grid;place-items:center;font-size:14px;font-weight:800;flex:none}.route-mandate b{display:block;font-size:11px;color:var(--oppose)}.route-mandate p{font-size:10px;color:#7D5B58;margin:1px 0 0;line-height:1.4}
+
+/* ============ act 3 · pods & gauge ============ */
 .gauge-row{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px;flex-wrap:wrap}
 .gauge{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 16px;box-shadow:var(--shadow)}
 .gauge svg{display:block}
@@ -289,11 +344,11 @@ main{flex:1;display:flex;flex-direction:column}
 .ev{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.6}
 .pod.fall{border-top-color:transparent;transform:translateY(10px);opacity:.35}
 
-/* ============ act 3 · debate ============ */
+/* ============ act 4 · debate ============ */
 .table-evidence{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
 .table-evidence .ds-card{opacity:0;transform:translateY(-8px);transition:all .4s var(--ease)}
 .table-evidence .ds-card.on{opacity:1;transform:none}
-.feed{display:flex;flex-direction:column;gap:10px;max-height:52vh;overflow-y:auto;padding:2px 6px 2px 2px;scroll-behavior:smooth}
+.discussion-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:12px;align-items:start}.feed{display:flex;flex-direction:column;gap:10px;max-height:52vh;overflow-y:auto;padding:2px 6px 2px 2px;scroll-behavior:smooth}.founder-composer-mount{position:sticky;top:74px}
 .msg{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:flex;gap:10px;opacity:0;transform:translateY(6px);transition:all .3s var(--ease)}
 .msg.on{opacity:1;transform:none}
 .msg .md{width:9px;height:9px;border-radius:50%;margin-top:6px;flex:none}
@@ -307,9 +362,11 @@ main{flex:1;display:flex;flex-direction:column}
 .mbanner{font-size:11px;font-weight:800;letter-spacing:.06em;border-radius:6px;padding:3px 9px;display:inline-block;margin-bottom:6px}
 .mbanner.rev{background:#FBF0E3;color:var(--conditional)}
 .mbanner.dis{background:#FBEAE8;color:var(--oppose)}
+.round-divider{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.11em;line-height:1.3;margin:11px 0 2px}.round-divider::before,.round-divider::after{content:"";height:1px;background:var(--line);flex:1}.round-divider span{color:var(--baize);white-space:nowrap}
+.founder-composer{background:var(--baize-deep);border-radius:14px;padding:15px 16px;color:#fff;box-shadow:0 12px 26px rgba(21,58,46,.18);transition:box-shadow .25s var(--ease),background .25s var(--ease)}.founder-composer.is-pending{background:#294B3F}.founder-composer.is-ready{box-shadow:0 0 0 3px rgba(178,211,194,.5),0 12px 26px rgba(21,58,46,.18)}.founder-composer-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.founder-composer-head b{font-size:12px;letter-spacing:.04em}.founder-demo{font-size:8px;font-weight:800;letter-spacing:.1em;color:#BFD2CB;text-transform:uppercase}.founder-composer textarea{width:100%;min-height:118px;resize:vertical;border:1px solid rgba(255,255,255,.22);border-radius:9px;background:rgba(255,255,255,.08);padding:10px;color:#fff;font:12px/1.5 var(--font-ui);outline:none}.founder-composer textarea:disabled{opacity:.72;cursor:not-allowed}.founder-composer textarea:focus{border-color:#BFD2CB;box-shadow:0 0 0 3px rgba(191,210,203,.18)}.founder-composer textarea::placeholder{color:#BFD2CB}.founder-composer-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:9px}.founder-composer-foot small{font-size:9px;color:#C5D2CD}.founder-send{border-radius:999px;background:#fff;color:var(--baize-deep);font-size:11px;font-weight:800;padding:8px 13px;white-space:nowrap}.founder-send:disabled{opacity:.55;cursor:wait}.founder-composer.is-sent .founder-send{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}.msg.founder{background:var(--ink);border-color:var(--ink);color:#fff}.msg.founder .mname,.msg.founder .mtxt{color:#fff}.msg.founder .founder-mark{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--ink);font-size:9px;font-weight:900;display:grid;place-items:center;flex:none}.msg.founder .founder-note{font-size:9px;color:#C8CDC9;letter-spacing:.08em}
 
-/* ============ act 4 ============ */
-#act4.active{align-items:center;justify-content:center;text-align:center;padding:40px 24px}
+/* ============ act 5 · adjourn ============ */
+#act5.active{align-items:center;justify-content:center;text-align:center;padding:40px 24px}
 .gather{position:relative;width:230px;height:160px;margin:30px auto 0}
 .sheet{
   position:absolute;width:74px;height:98px;background:#fff;border:1px solid var(--line);
@@ -328,20 +385,38 @@ main{flex:1;display:flex;flex-direction:column}
 .controls button{padding:7px 14px;border-radius:999px;font-weight:600;color:var(--ink)}
 .controls button:hover{background:var(--baize-soft);color:var(--baize)}
 .controls .skip{color:var(--muted);font-size:12px}
-body:has(#act0.active) .controls{display:none}
+body:has(#act0.active) .controls,body:has(#act1.active) .controls,body:has(#act4.active) .controls{display:none}
 
 /* ============ responsive & motion ============ */
+/* 1140px 以下:act0 双栏放不下,提前收成单列;stepper 收紧 */
+@media (max-width:1240px){
+  .step{padding:5px 9px;font-size:11px}
+  .stepper{gap:2px}
+}
+@media (max-width:1140px){
+  .a0-grid{grid-template-columns:1fr}
+  .a0-side{min-height:auto}
+  .a0-rule{display:none}
+}
 @media (max-width:900px){
   .memo{padding:44px 30px}
   .pos-row{grid-template-columns:130px 96px 70px 1fr;gap:8px}
   .stepper{display:none}
   .a0-grid{grid-template-columns:1fr}.a0-side{min-height:auto}.a0-intro{align-items:start}.a0-rule{display:none}
+  .evidence-deck{grid-template-columns:1fr 1fr}.pressure-row{grid-template-columns:1fr}.secretary-stage{grid-template-columns:220px minmax(0,1fr);gap:18px}
+  .route-lane,.route-labels{grid-template-columns:minmax(0,1fr) 70px minmax(0,1fr)}
+  .discussion-layout{grid-template-columns:1fr}.founder-composer-mount{position:static}.feed{max-height:44vh}
 }
 @media (max-width:640px){
   .pos-row{grid-template-columns:1fr 1fr;grid-template-areas:"name chip" "prob sum"}
   .pos-name{grid-area:name}.pos-row .chip{grid-area:chip;justify-self:end}
   .pos-prob{grid-area:prob;text-align:left}.pos-sum{grid-area:sum}
   .table-stage{min-height:650px}.table-stage .felt{width:270px;height:250px;top:205px}.board-seat{width:132px}.board-seat.cfo{left:2%;top:125px}.board-seat.cmo{right:2%;top:125px}.board-seat.customer-rep{left:1%;top:370px}.board-seat.clo{right:1%;top:370px}.board-seat.adaptive{top:535px}.board-seat.adaptive.slot-0{left:4%}.board-seat.adaptive.slot-1{right:4%}
+  .brief-head{align-items:start}.a0-progress{display:none}.evidence-deck{grid-template-columns:1fr}.evidence-next{align-items:stretch;flex-direction:column}.evidence-next .btn{width:100%}
+  .a0-hero{font-size:24px}.secretary-stage{grid-template-columns:1fr}.secretary-figure{max-width:230px}.secretary-bubble::before{display:none}
+  .formal-fields{grid-template-columns:1fr}.secretary-formal-head{align-items:start;flex-direction:column;gap:2px}
+  .route-header{align-items:start}.route-board{padding:12px}.route-labels{display:none}.route-lane{grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr)}.route-card{min-height:74px;padding:8px}.route-card b{font-size:10px}.route-card small{font-size:8px}.route-track::after{width:6px;height:6px}
+  .founder-composer-foot{align-items:stretch;flex-direction:column}.founder-send{width:100%}.founder-composer textarea{min-height:88px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -351,19 +426,20 @@ body:has(#act0.active) .controls{display:none}
 <body>
 
 <header class="topbar">
-  <div class="wordmark">THE BOARDROOM<span class="dot">·</span></div>
+  <div class="wordmark"><img src="assets/logo-lockup.png" alt="laoban.ai"></div>
   <nav class="stepper" id="stepper" aria-label="Board meeting progress"></nav>
 </header>
 
 <main>
   <!-- landing -->
   <section id="landing" class="act">
-    <p class="eyebrow">The Boardroom · Governance for the company of one</p>
-    <h1 class="hero-title">ChatGPT will agree with you.<br><em>Your board won't.</em></h1>
+    <img class="landing-logo" src="assets/logo-mark.png" alt="" aria-hidden="true">
+    <p class="eyebrow">laoban.ai · Governance for the company of one</p>
+    <h1 class="hero-title">AI might agree with you.<br><em>Your board won't.</em></h1>
     <p class="hero-sub">Put a decision before a data-driven, structurally anti-sycophantic board: blind review, cross-examination, a dissent log, and kill criteria. The board advises. You decide.</p>
     <div class="hero-cta">
       <button class="btn btn-primary" onclick="App.next()">Convene the Board</button>
-      <button class="btn btn-ghost" onclick="App.goto('act5')">View the Decision Memo →</button>
+      <button class="btn btn-ghost" onclick="App.goto('act6')">View the Decision Memo →</button>
     </div>
     <div class="hero-table" id="heroTable" aria-hidden="true">
       <div class="felt"></div>
@@ -372,14 +448,73 @@ body:has(#act0.active) .controls{display:none}
   </section>
 
   <!-- act 0 · assemble -->
-  <section id="act0" class="act"><div class="stage">
+  <section id="act0" class="act"><div class="stage brief-stage">
+    <div class="brief-head">
+      <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">Frame the Decision</h2><span class="act-note">Before any director takes a seat: the company, the pressure, and a question fit to decide.</span></div>
+      <div class="a0-progress" id="a0progress" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- scene 1 · the company -->
+    <div class="a0scene" id="a0s1">
+      <div class="scene-kicker">SCENE 1 · THE COMPANY</div>
+      <h3 class="a0-hero">Imagine you run an AI newsletter company.</h3>
+      <p class="a0-lede">A paid daily briefing, $29 a month. It turns fast-moving research, product launches, policy shifts, and market signals into one clear read — and 510 subscribers trust you to keep the noise out.</p>
+      <div class="evidence-heading"><div><div class="brief-label">The data on your desk</div><h3>Everything you know lives in four files.</h3></div><p>Mock data prepared for this demonstration</p></div>
+      <div class="evidence-deck">
+      <article class="evidence-card finance"><div class="ev-top"><div class="ev-icon">$</div><span class="ev-file">finance.csv</span></div><h4>Financial pressure</h4><p>What the current price must sustain: acquisition, operations, and editorial depth.</p><div class="mini-bars"><i style="height:38%"></i><i style="height:46%"></i><i style="height:54%"></i><i style="height:63%"></i><i style="height:73%"></i><i style="height:82%"></i></div><div class="finance-foot">12-month trend</div></article>
+      <article class="evidence-card reviews"><div class="ev-top"><div class="ev-icon">“</div><span class="ev-file">reviews.json</span></div><h4>Reader feedback</h4><p>Customer voices reveal both price sensitivity and perceived value.</p><div class="review-stack"><div class="review-line">“$29 is already my limit.”</div><div class="review-line">“At this price, it feels like charity.”</div></div></article>
+      <article class="evidence-card terms"><div class="ev-top"><div class="ev-icon">§</div><span class="ev-file">terms.md</span></div><h4>Terms of Service</h4><p>The contract determines which pricing options are actually executable.</p><div class="clause"><b>§4.2 · Price protection</b>Existing subscribers retain their original price while continuously subscribed.</div></article>
+      <article class="evidence-card market"><div class="ev-top"><div class="ev-icon">↗</div><span class="ev-file">market.md</span></div><h4>Market and competitors</h4><p>Comparable products sit materially above the current price.</p><div class="price-bars"><div class="market-bar current"><span>Us</span><i style="width:38%"></i><span>$29</span></div><div class="market-bar"><span>C</span><i style="width:53%"></i><span>$39</span></div><div class="market-bar"><span>B</span><i style="width:67%"></i><span>$45</span></div><div class="market-bar"><span>A</span><i style="width:88%"></i><span>$59</span></div></div></article>
+    </div>
+      <div class="a0-next"><button class="btn btn-primary" onclick="a0go(2)">Then a question lands on your desk →</button></div>
+    </div>
+
+    <!-- scene 2 · the pressure -->
+    <div class="a0scene" id="a0s2">
+      <div class="scene-kicker">SCENE 2 · THE PRESSURE</div>
+      <h3 class="a0-hero">“We’ve outgrown $29 — but will readers feel punished if we ask $49?”</h3>
+      <p class="a0-lede">The briefing costs more to produce every month. Competitors charge up to twice as much. And the readers who got you here were promised their price would hold.</p>
+      <div class="pressure-row">
+        <div class="pressure-chip" style="--pc:#0E7C66">finance.csv says<b>Raise it.</b></div>
+        <div class="pressure-chip" style="--pc:#B45309">Your readers say<b>Don’t you dare.</b></div>
+        <div class="pressure-chip" style="--pc:#6D28D9">Your own terms say<b>You promised.</b></div>
+      </div>
+      <div class="a0-alone"><p><b>You are the only leader in this company.</b> No co-founder, no exec team — no one across the table to push back before a guess becomes an irreversible mistake.</p></div>
+      <div class="a0-next"><button class="btn btn-primary" onclick="a0go(3)">Call the Board Secretary →</button></div>
+    </div>
+
+    <!-- scene 3 · the board secretary -->
+    <div class="a0scene" id="a0s3">
+      <div class="scene-kicker">SCENE 3 · THE BOARD SECRETARY</div>
+      <div class="secretary-stage">
+        <figure class="secretary-figure" id="secretaryFigure"><img src="assets/secretary.png" alt="The Board Secretary" width="700" height="700"></figure>
+        <div class="secretary-panel">
+          <div class="secretary-bubble" id="secretaryBubble">I’m your Board Secretary. Tell me what keeps you up at night, and I will turn it into a question a board can actually decide.</div>
+          <form class="founder-composer secretary-composer is-pending" id="secretaryComposer">
+            <div class="founder-composer-head"><b>Founder input</b><span class="founder-demo" id="secretaryStatus">DEMO QUESTION INCOMING…</span></div>
+            <textarea id="secretaryQuestion" aria-label="Founder question" placeholder="Describe the decision you are stuck on…"></textarea>
+            <div class="founder-composer-foot"><small id="secretaryHint">Editable for the demo.</small><button class="founder-send" type="submit" disabled>Ask the Board Secretary →</button></div>
+          </form>
+          <div class="secretary-formal" id="a0formal">
+            <div class="secretary-formal-head"><span>Board Secretary</span><span>Formal decision</span></div>
+            <h4>Should the monthly subscription price move from $29 to $49?</h4>
+            <div class="formal-fields"><div class="formal-field"><b>Scope</b>New subscribers + existing-reader commitments</div><div class="formal-field"><b>Deadline</b>Decision required in two weeks</div></div>
+          </div>
+          <div class="evidence-next" id="a0assemble" style="visibility:hidden"><p><b>Agenda set.</b> Now convene directors who will not all agree.</p><button class="btn btn-primary" onclick="App.next()">Assemble the Board →</button></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- act 1 · assemble -->
+  <section id="act1" class="act"><div class="stage">
     <div class="a0-intro">
-      <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">Assemble the Board</h2><span class="act-note">Four permanent directors. Up to two adaptive experts. Empty seats are allowed.</span></div>
+      <div class="act-head"><span class="act-kicker">ACT 1</span><h2 class="act-title">Assemble the Board</h2><span class="act-note">Four permanent directors. Up to two adaptive experts. Empty seats are allowed.</span></div>
       <div class="a0-rule">Founder at the head of the table<br>Maximum: 7 people in the room</div>
     </div>
     <div class="a0-grid">
       <div class="table-stage" id="a0table">
-        <div class="felt"><div class="table-agenda"><div class="ta-k">DECISION BEFORE THE BOARD</div><strong>Raise the subscription price from $29 to $49?</strong><small>Evidence remains isolated until the walls fall.</small></div></div>
+        <div class="felt"><div class="table-agenda"><div class="ta-k">FORMAL DECISION</div><strong>Should the subscription move from $29 to $49?</strong></div></div>
         <div id="a0seats"></div>
         <div class="demo-guard" id="a0guard" role="dialog" aria-modal="true" aria-labelledby="guardTitle">
           <div class="guard-card">
@@ -394,47 +529,57 @@ body:has(#act0.active) .controls{display:none}
     </div>
   </div></section>
 
-  <!-- act 1 · intake -->
-  <section id="act1" class="act"><div class="stage">
-    <div class="act-head"><span class="act-kicker">ACT 1</span><h2 class="act-title">Submit the Decision</h2><span class="act-note">Speak naturally. The secretary turns it into a formal agenda.</span></div>
-    <div class="a1-wrap" id="a1mount"></div>
-  </div></section>
-
-  <!-- act 2 · blind round -->
+  <!-- act 2 · evidence routing -->
   <section id="act2" class="act"><div class="stage">
-    <div class="gauge-row">
-      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 2</span><h2 class="act-title">Blind Review · Walls Up</h2><span class="act-note">Five seats, isolated. Four evidence chambers—and one mandate with no data at all. None can see the others, or your preference.</span></div>
-      <div class="gauge" id="gauge2"></div>
+    <div class="route-stage">
+      <div class="route-header">
+        <div class="act-head"><span class="act-kicker">ACT 2</span><h2 class="act-title">Route the Evidence</h2><span class="act-note">Every permanent director receives one source of truth before the walls go up.</span></div>
+        <div class="route-key">Source → accountable challenge</div>
+      </div>
+      <div class="route-board">
+        <div class="route-labels"><span>Evidence source</span><span></span><span>Assigned director</span></div>
+        <div class="route-lanes" id="routeLanes"></div>
+        <div class="route-mandate"><div class="route-mandate-mark">!</div><div><b>Mr. Opposite receives no business data.</b><p>His adaptive seat carries one instruction only: challenge the founder’s strongest assumption.</p></div></div>
+      </div>
+      <div class="cta-row" id="routeCta" style="visibility:hidden"><button class="btn btn-primary" onclick="App.next()">Seal the Evidence · Begin Blind Review →</button></div>
     </div>
-    <div class="pods" id="pods"></div>
-    <div class="cta-row" id="a2cta" style="visibility:hidden"><button class="btn btn-primary" onclick="wallFall()">Reveal All Evidence · Lower the Walls →</button></div>
   </div></section>
 
-  <!-- act 3 · debate -->
+  <!-- act 3 · blind round -->
   <section id="act3" class="act"><div class="stage">
     <div class="gauge-row">
-      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 3</span><h2 class="act-title">Walls Down · Cross-Examination</h2><span class="act-note">All evidence is on the table. Information gaps resolve themselves; only surviving dissent reaches you.</span></div>
-      <div class="gauge" id="gauge3"></div>
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 3</span><h2 class="act-title">Blind Review · Walls Up</h2><span class="act-note">Five seats, isolated. Four evidence chambers—and one mandate with no data at all. None can see the others, or your preference.</span></div>
+      <div class="gauge" id="gaugeBlind"></div>
     </div>
-    <div class="table-evidence" id="a3evidence"></div>
-    <div class="feed" id="feed"></div>
-    <div class="cta-row" id="a4cta" style="visibility:hidden;flex-direction:column;align-items:center;gap:6px">
-      <button class="btn btn-primary" style="font-size:16px;padding:15px 34px" onclick="App.goto('act4')">End Discussion · Draft the Memo</button>
+    <div class="pods" id="blindPods"></div>
+    <div class="cta-row" id="blindCta" style="visibility:hidden"><button class="btn btn-primary" onclick="wallFall()">Reveal All Evidence · Lower the Walls →</button></div>
+  </div></section>
+
+  <!-- act 4 · debate -->
+  <section id="act4" class="act"><div class="stage">
+    <div class="gauge-row">
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 4</span><h2 class="act-title">Walls Down · Cross-Examination</h2><span class="act-note">The board debates in rounds. The founder can intervene before the record is closed.</span></div>
+      <div class="gauge" id="gaugeExamine"></div>
+    </div>
+    <div class="table-evidence" id="examineEvidence"></div>
+    <div class="discussion-layout"><div class="feed" id="discussionFeed"></div><aside class="founder-composer-mount" id="founderComposerMount"></aside></div>
+    <div class="cta-row" id="discussionCta" style="visibility:hidden;flex-direction:column;align-items:center;gap:6px">
+      <button class="btn btn-primary" style="font-size:16px;padding:15px 34px" onclick="App.goto('act5')">End Discussion · Draft the Memo</button>
       <span style="font-size:11px;color:var(--muted)">Only the founder can end deliberation</span>
     </div>
   </div></section>
 
-  <!-- act 4 · adjourn -->
-  <section id="act4" class="act">
+  <!-- act 5 · adjourn -->
+  <section id="act5" class="act">
     <div>
       <p class="eyebrow">BOARD ADJOURNED</p>
-      <p id="a4line" style="font-size:17px;max-width:26em;margin:0 auto"></p>
+      <p id="adjournLine" style="font-size:17px;max-width:26em;margin:0 auto"></p>
       <div class="gather" id="gather"></div>
     </div>
   </section>
 
-  <!-- act 5 · decision memo -->
-  <section id="act5" class="act"><div id="memoRoot"></div></section>
+  <!-- act 6 · decision memo -->
+  <section id="act6" class="act"><div id="memoRoot"></div></section>
 </main>
 
 <div class="controls">
@@ -461,7 +606,7 @@ const boardIsRecommended = () => {
 };
 
 function boardSeatMarkup(person, classes, type) {
-  return `<div class="board-seat ${classes}">
+  return `<div class="board-seat ${classes}" style="--seat-color:${person.color || "#7D9188"}">
     <span class="bs-type">${type}</span>
     <b><span class="bs-dot" style="background:${person.color || "#FFFFFF"}"></span>${person.name}</b>
     <small>${person.subtitle}</small>
@@ -596,8 +741,8 @@ function streamText(el, text, opt) { Stream.go(el, text, opt); }
 
 /* ---------- app state machine ---------- */
 const App = {
-  order: ["landing", "act0", "act1", "act2", "act3", "act4", "act5"],
-  labels: ["Assemble", "Agenda", "Blind", "Examine", "Adjourn", "Memo"],
+  order: ["landing", "act0", "act1", "act2", "act3", "act4", "act5", "act6"],
+  labels: ["Context", "Assemble", "Route", "Blind", "Examine", "Adjourn", "Memo"],
   act: "landing",
   instant: false,
   run: 0,
@@ -605,16 +750,17 @@ const App = {
     if (!this.order.includes(id)) return;
     this.act = id;
     this.run++;                       // Invalidate any script still running from the previous act.
+    history.replaceState(null, "", "#" + id);   // keep the URL hash honest across refreshes
     document.querySelectorAll(".act").forEach(s => s.classList.toggle("active", s.id === id));
     this.renderStepper();
-    if (id === "act5") renderMemo();
+    if (id === "act6") renderMemo();
     const script = ActScripts[id];
     if (script) script(this.run);
     window.scrollTo({ top: 0, behavior: "instant" });
   },
   next() { const i = this.order.indexOf(this.act); if (i < this.order.length - 1) this.goto(this.order[i + 1]); },
   prev() { const i = this.order.indexOf(this.act); if (i > 0) this.goto(this.order[i - 1]); },
-  skipAll() { this.instant = true; Stream.finishAll(); this.goto("act5"); this.instant = false; },
+  skipAll() { this.instant = true; Stream.finishAll(); this.goto("act6"); this.instant = false; },
   renderStepper() {
     const cur = this.order.indexOf(this.act);
     $("#stepper").innerHTML = this.labels.map((t, i) => {
@@ -649,7 +795,8 @@ const reveal = (el, ...cls) => {
   requestAnimationFrame(add); setTimeout(add, 120);
 };
 const std = a => { if (!a.length) return 0; const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / a.length); };
-const latest = {};  // roleId -> latest probability, used by the divergence gauge.
+function supportPercent(value) { return `${Math.round(value * 100)}%`; }
+const latest = {};  // roleId -> latest support score, used by the divergence gauge.
 
 function makeGauge(mount) {
   mount.innerHTML = `<svg width="118" height="64" viewBox="0 0 120 64" aria-hidden="true">
@@ -667,49 +814,258 @@ function makeGauge(mount) {
   } };
 }
 
+/* ---------- act 4 · deterministic multi-round discussion ---------- */
+const Discussion = { run: 0, feed: null, gauge: null, sending: false, instant: false };
+const discussionWait = ms => new Promise(resolve => setTimeout(resolve, Discussion.instant ? 0 : ms));
+
+function appendRoundDivider(label) {
+  const divider = document.createElement("div");
+  divider.className = "round-divider";
+  const text = document.createElement("span"); text.textContent = label;
+  divider.appendChild(text);
+  Discussion.feed.appendChild(divider);
+  Discussion.feed.scrollTop = Discussion.feed.scrollHeight;
+}
+
+async function appendDiscussionMessage(e, run) {
+  if (!alive(run)) return;
+  const feed = Discussion.feed;
+  const secretary = e.speaker === "secretary";
+  const role = secretary ? null : roleById(e.speaker);
+  const msg = document.createElement("div");
+  msg.className = "msg" + (secretary ? " sec" : "") +
+    (e.highlight === "revision" ? " hl-rev" : "") +
+    (e.highlight === "dissent_survives" ? " hl-dis" : "");
+  const banner = e.highlight === "revision" ? `<span class="mbanner rev">POSITION REVISED · OPPOSE → CONDITIONAL</span><br>` :
+    e.highlight === "dissent_survives" ? `<span class="mbanner dis">DISSENT SURVIVES → ENTERED INTO THE MEMO</span><br>` : "";
+  msg.innerHTML = secretary
+    ? `<div class="mtxt sect"></div>`
+    : `<span class="md" style="background:${role.color}"></span><div style="flex:1"><div class="mhead"><span class="mname">${role.name}</span>${e.stance ? `<span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span>` : ""}${e.prob != null ? `<span class="fn" style="font-size:11px">${supportPercent(e.prob)} SUPPORT</span>` : ""}${e.refs.map(f => `<span class="ref">${f}</span>`).join("")}</div>${banner}<span class="mtxt"></span></div>`;
+  feed.appendChild(msg);
+  reveal(msg, "on");
+  feed.scrollTop = feed.scrollHeight;
+  const target = msg.querySelector(secretary ? ".sect" : ".mtxt");
+  const text = secretary ? "── " + e.text + " ──" : e.text;
+  if (Discussion.instant) target.textContent = text;
+  else await new Promise(resolve => streamText(target, text, { cps: 76, onDone: resolve }));
+  if (!alive(run)) return;
+  if (e.prob != null && !secretary) {
+    latest[e.speaker] = e.prob;
+    Discussion.gauge.set(std(Object.values(latest)));
+  }
+  feed.scrollTop = feed.scrollHeight;
+  await discussionWait(150);
+}
+
+async function playDiscussionRound(index, run) {
+  const round = B.acts.act3_discussion.rounds[index];
+  appendRoundDivider(round.label);
+  for (const eventIndex of round.event_indexes) {
+    await appendDiscussionMessage(B.acts.act3_debate[eventIndex], run);
+    if (!alive(run)) return;
+  }
+}
+
+function showFounderComposer(run) {
+  const prompt = B.acts.act3_discussion.founder_prompt;
+  const composer = document.createElement("form");
+  composer.className = "founder-composer is-pending";
+  composer.id = "founderComposer";
+  composer.innerHTML = `<div class="founder-composer-head"><b>Founder input</b><span class="founder-demo" id="founderStatus">Waiting for Round 1</span></div><textarea id="founderMessage" aria-label="Founder message" disabled></textarea><div class="founder-composer-foot"><small id="founderHint">The Founder may intervene after the first exchange.</small><button class="founder-send" type="submit" disabled>Send to Board →</button></div>`;
+  const input = composer.querySelector("textarea");
+  input.placeholder = prompt.placeholder;
+  composer.addEventListener("submit", event => {
+    event.preventDefault();
+    sendFounderMessage(run);
+  });
+  $("#founderComposerMount").appendChild(composer);
+}
+
+function primeFounderComposer(run) {
+  if (!alive(run)) return;
+  const prompt = B.acts.act3_discussion.founder_prompt;
+  const composer = $("#founderComposer");
+  if (!composer) return;
+  const input = composer.querySelector("textarea");
+  input.value = prompt.default_text;
+  input.disabled = false;
+  composer.querySelector("button").disabled = false;
+  composer.querySelector("#founderStatus").textContent = prompt.label;
+  composer.querySelector("#founderHint").textContent = "Editable for the demo · replies remain precomputed.";
+  composer.classList.remove("is-pending");
+  composer.classList.add("is-ready");
+}
+
+async function appendFounderMessage(text, run) {
+  const msg = document.createElement("div");
+  msg.className = "msg founder";
+  msg.innerHTML = `<span class="founder-mark">F</span><div style="flex:1"><div class="mhead"><span class="mname">Founder</span><span class="founder-note">INTERVENTION</span></div><span class="mtxt"></span></div>`;
+  Discussion.feed.appendChild(msg);
+  reveal(msg, "on");
+  Discussion.feed.scrollTop = Discussion.feed.scrollHeight;
+  const target = msg.querySelector(".mtxt");
+  if (Discussion.instant) target.textContent = text;
+  else await new Promise(resolve => streamText(target, text, { cps: 76, onDone: resolve }));
+  if (alive(run)) Discussion.feed.scrollTop = Discussion.feed.scrollHeight;
+}
+
+async function sendFounderMessage(run = Discussion.run) {
+  if (Discussion.sending || !alive(run)) return;
+  const input = $("#founderMessage");
+  const composer = $("#founderComposer");
+  if (!input || !composer) return;
+  Discussion.sending = true;
+  const text = input.value.trim() || B.acts.act3_discussion.founder_prompt.default_text;
+  input.disabled = true;
+  const sendButton = composer.querySelector("button");
+  sendButton.disabled = true;
+  await appendFounderMessage(text, run);
+  if (!alive(run)) return;
+  composer.classList.remove("is-ready");
+  composer.classList.add("is-sent");
+  composer.querySelector("#founderStatus").textContent = "Founder message recorded";
+  composer.querySelector("#founderHint").textContent = "The board is responding to this intervention.";
+  sendButton.textContent = "Sent";
+  await playDiscussionRound(1, run);
+  if (!alive(run)) return;
+  await playDiscussionRound(2, run);
+  if (!alive(run)) return;
+  $("#discussionCta").style.visibility = "visible";
+  Discussion.feed.scrollTop = Discussion.feed.scrollHeight;
+}
+
+/* ---------- act 0 · three-scene narrative ---------- */
+const A0 = { intro: "" };
+
+function a0go(scene, run = App.run) {
+  document.querySelectorAll(".a0scene").forEach((el, i) => el.classList.toggle("on", i === scene - 1));
+  document.querySelectorAll("#a0progress span").forEach((el, i) => el.classList.toggle("on", i < scene));
+  window.scrollTo({ top: 0, behavior: "instant" });
+  if (scene === 3) enterSecretaryScene(run);
+}
+
+function a0reset() {
+  const bubble = $("#secretaryBubble");
+  if (!A0.intro) A0.intro = bubble.textContent;
+  bubble.textContent = A0.intro;
+  const composer = $("#secretaryComposer");
+  ["#secretaryFigure", "#secretaryBubble"].forEach(sel => $(sel).classList.remove("on"));
+  composer.classList.remove("on", "is-ready", "is-sent");
+  composer.classList.add("is-pending");
+  const input = $("#secretaryQuestion");
+  input.value = ""; input.disabled = false;
+  const send = composer.querySelector("button");
+  send.disabled = true; send.textContent = "Ask the Board Secretary →";
+  $("#secretaryStatus").textContent = "DEMO QUESTION INCOMING…";
+  $("#secretaryHint").textContent = "Editable for the demo.";
+  $("#a0formal").classList.remove("on");
+  $("#a0assemble").style.visibility = "hidden";
+}
+
+async function enterSecretaryScene(run) {
+  const composer = $("#secretaryComposer");
+  const input = $("#secretaryQuestion"), send = composer.querySelector("button");
+  if (App.instant) {
+    [$("#secretaryFigure"), $("#secretaryBubble"), composer].forEach(el => el.classList.add("on"));
+    input.value = B.meta.question_raw;
+    composer.classList.remove("is-pending");
+    a0formalize(run, true);
+    return;
+  }
+  reveal($("#secretaryFigure"), "on");
+  await wait(560);
+  if (!alive(run)) return;
+  reveal($("#secretaryBubble"), "on");
+  await wait(430);
+  if (!alive(run)) return;
+  reveal(composer, "on");
+  await wait(520);
+  if (!alive(run)) return;
+  $("#secretaryStatus").textContent = "DEMO QUESTION · TYPING…";
+  const text = B.meta.question_raw;
+  for (let i = 1; i <= text.length; i++) {
+    if (!alive(run)) return;
+    input.value = text.slice(0, i);
+    await wait(17);
+  }
+  $("#secretaryStatus").textContent = "DEMO QUESTION LOADED · EDITABLE";
+  composer.classList.remove("is-pending");
+  composer.classList.add("is-ready");
+  send.disabled = false;
+}
+
+function a0ask(run = App.run) {
+  const composer = $("#secretaryComposer");
+  const input = $("#secretaryQuestion"), send = composer.querySelector("button");
+  if (send.disabled) return;
+  if (!input.value.trim()) input.value = B.meta.question_raw;
+  input.disabled = true;
+  send.disabled = true; send.textContent = "Asked";
+  composer.classList.remove("is-ready");
+  composer.classList.add("is-sent");
+  $("#secretaryStatus").textContent = "Question recorded";
+  $("#secretaryHint").textContent = "The Secretary is drafting the formal agenda.";
+  $("#secretaryBubble").textContent = "One moment. A board cannot vote on a worry — it votes on a decision with a scope and a deadline.";
+  setTimeout(() => a0formalize(run), App.instant ? 0 : 1100);
+}
+
+function a0formalize(run, instantState = false) {
+  if (!alive(run)) return;
+  if (instantState) {
+    const composer = $("#secretaryComposer"), send = composer.querySelector("button");
+    $("#secretaryQuestion").disabled = true;
+    send.disabled = true; send.textContent = "Asked";
+    composer.classList.add("is-sent");
+    $("#secretaryStatus").textContent = "Question recorded";
+    $("#secretaryHint").textContent = "The Secretary is drafting the formal agenda.";
+  }
+  $("#secretaryBubble").textContent = "Here is your question, restated so a board can decide it. If this framing is wrong, correct it now — everything downstream inherits it.";
+  reveal($("#a0formal"), "on");
+  $("#a0assemble").style.visibility = "visible";
+}
+
+(function wireSecretaryComposer() {
+  $("#secretaryComposer").addEventListener("submit", event => {
+    event.preventDefault();
+    a0ask();
+  });
+})();
+
 /* ---------- act scripts ---------- */
 const ActScripts = {
   act0() {
+    a0reset();
+    a0go(App.instant ? 3 : 1);
+  },
+
+  act1() {
     closeBoardGuard();
     renderBoardBuilder();
   },
 
-  async act1(run) {
-    const m = $("#a1mount"); m.innerHTML = "";
-    const bub = document.createElement("div"); bub.className = "bubble";
-    bub.innerHTML = `<div class="who">CEO · SPOKEN BRIEF</div><span class="bt"></span>`;
-    m.appendChild(bub);
-    await new Promise(res => streamText(bub.querySelector(".bt"), "“" + B.meta.question_raw + "”", { cps: 34, onDone: res }));
-    if (!alive(run)) return;
-    const sl = document.createElement("div"); sl.className = "sec-line";
-    sl.innerHTML = `<span class="sd"></span><span class="st"></span>`;
-    m.appendChild(sl);
-    await new Promise(res => streamText(sl.querySelector(".st"), "Secretary: " + B.acts.act1_secretary_note, { cps: 46, onDone: res }));
-    if (!alive(run)) return;
-    await wait(250); if (!alive(run)) return;
-    const q = B.meta.question_structured;
-    const ag = document.createElement("div"); ag.className = "agenda";
-    ag.innerHTML = `<div class="h3" style="margin:0 0 6px">FORMAL AGENDA · STRUCTURED BY THE SECRETARY</div>
-      <div class="a-q">${q.decision}</div>
-      <div class="a-meta">${q.context} · ${q.deadline}</div>
-      <div class="opts">${q.options.map(o => `<span class="opt">${o}</span>`).join("")}</div>`;
-    m.appendChild(ag);
-    reveal(ag, "on");
-    await wait(500); if (!alive(run)) return;
-    const bi = document.createElement("div"); bi.className = "bias";
-    bi.innerHTML = `<b>FOUNDER'S PRIVATE LEAN:</b> Raise the price<div class="lock">🔒 HIDDEN FROM DIRECTORS DURING BLIND REVIEW</div>`;
-    m.appendChild(bi);
-    reveal(bi, "on", "locked");
-    await wait(700); if (!alive(run)) return;
-    const cta = document.createElement("div"); cta.className = "cta-row";
-    cta.innerHTML = `<button class="btn btn-primary" onclick="App.next()">Begin Blind Review →</button>`;
-    m.appendChild(cta);
+  async act2(run) {
+    const lanes = $("#routeLanes"); lanes.innerHTML = "";
+    $("#routeCta").style.visibility = "hidden";
+    B.roles.filter(role => role.dataset).forEach(role => {
+      const dataset = B.datasets.find(item => item.id === role.dataset);
+      const lane = document.createElement("div");
+      lane.className = "route-lane";
+      lane.style.setProperty("--route-color", role.color);
+      lane.innerHTML = `<div class="route-card route-source"><span class="route-file">${dataset.filename}</span><b>${dataset.label}</b><small>One sealed source</small></div><div class="route-track" aria-hidden="true"></div><div class="route-card route-destination"><div class="route-person"><span class="route-dot"></span><b>${role.name}</b></div><span class="route-status">Assigned for blind review</span></div>`;
+      lanes.appendChild(lane);
+    });
+    for (const lane of lanes.children) {
+      if (!alive(run)) return;
+      reveal(lane, "on");
+      await wait(180);
+    }
+    if (alive(run)) $("#routeCta").style.visibility = "visible";
   },
 
-  act2(run) {
-    const g = makeGauge($("#gauge2"));
-    $("#a2cta").style.visibility = "hidden";
-    const pods = $("#pods"); pods.innerHTML = "";
+  act3(run) {
+    const g = makeGauge($("#gaugeBlind"));
+    $("#blindCta").style.visibility = "hidden";
+    const pods = $("#blindPods"); pods.innerHTML = "";
     Object.keys(latest).forEach(k => delete latest[k]);
     let done = 0;
     B.acts.act2_blind.forEach((e, i) => {
@@ -725,7 +1081,7 @@ const ActScripts = {
         <div class="iso">${isoLine}</div>
         <div class="body cursor"></div>
         <div class="stance-card">
-          <div class="st-top"><span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span><span class="st-prob" style="color:${r.color}">${e.prob.toFixed(2)}</span></div>
+          <div class="st-top"><span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span><span class="st-prob" style="color:${r.color}">${supportPercent(e.prob)}</span></div>
           <div class="ev">${e.evidence.map(v => "· " + v).join("<br>")}</div>
         </div>`;
       pods.appendChild(pod);
@@ -735,51 +1091,37 @@ const ActScripts = {
         pod.classList.add("done");
         latest[e.role] = e.prob;
         g.set(std(Object.values(latest)));
-        if (++done === B.acts.act2_blind.length) $("#a2cta").style.visibility = "visible";
+        if (++done === B.acts.act2_blind.length) $("#blindCta").style.visibility = "visible";
       } });
     });
   },
 
-  async act3(run) {
-    const g = makeGauge($("#gauge3"));
+  async act4(run) {
+    const instant = App.instant;
+    const g = makeGauge($("#gaugeExamine"));
     B.acts.act2_blind.forEach(e => { latest[e.role] = e.prob; });
     g.set(std(Object.values(latest)));
-    $("#a4cta").style.visibility = "hidden";
-    const ev = $("#a3evidence");
+    $("#discussionCta").style.visibility = "hidden";
+    const ev = $("#examineEvidence");
     ev.innerHTML = B.datasets.map(d =>
       `<div class="ds-card"><b><span class="led"></span>${d.label}</b> <span class="fn">${d.filename}</span> <span style="color:var(--muted)">· REVEALED</span></div>`).join("");
-    for (const c of ev.children) { reveal(c, "on"); await wait(110); }
+    for (const c of ev.children) { reveal(c, "on"); await new Promise(resolve => setTimeout(resolve, instant ? 0 : 110)); }
     if (!alive(run)) return;
-    const feed = $("#feed"); feed.innerHTML = "";
-    for (const e of B.acts.act3_debate) {
-      if (!alive(run)) return;
-      const sec = e.speaker === "secretary";
-      const r = roleById(e.speaker);
-      const msg = document.createElement("div");
-      msg.className = "msg" + (sec ? " sec" : "") +
-        (e.highlight === "revision" ? " hl-rev" : "") +
-        (e.highlight === "dissent_survives" ? " hl-dis" : "");
-      const banner = e.highlight === "revision" ? `<span class="mbanner rev">POSITION REVISED · OPPOSE → CONDITIONAL</span><br>` :
-                     e.highlight === "dissent_survives" ? `<span class="mbanner dis">DISSENT SURVIVES → ENTERED INTO THE MEMO</span><br>` : "";
-      msg.innerHTML = sec
-        ? `<div class="mtxt sect"></div>`
-        : `<span class="md" style="background:${r.color}"></span><div style="flex:1"><div class="mhead"><span class="mname">${r.name}</span>${e.stance ? `<span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span>` : ""}${e.prob != null ? `<span class="fn" style="font-size:11px">${e.prob.toFixed(2)}</span>` : ""}${e.refs.map(f => `<span class="ref">${f}</span>`).join("")}</div>${banner}<span class="mtxt"></span></div>`;
-      feed.appendChild(msg);
-      reveal(msg, "on");
-      feed.scrollTop = feed.scrollHeight;
-      await new Promise(res => streamText(msg.querySelector(sec ? ".sect" : ".mtxt"), sec ? "── " + e.text + " ──" : e.text, { cps: 55, onDone: res }));
-      if (!alive(run)) return;
-      if (e.prob != null && !sec) { latest[e.speaker] = e.prob; g.set(std(Object.values(latest))); }
-      feed.scrollTop = feed.scrollHeight;
-      await wait(240);
-    }
+    Discussion.run = run;
+    Discussion.feed = $("#discussionFeed");
+    Discussion.gauge = g;
+    Discussion.sending = false;
+    Discussion.instant = instant;
+    Discussion.feed.innerHTML = "";
+    $("#founderComposerMount").innerHTML = "";
+    showFounderComposer(run);
+    await playDiscussionRound(0, run);
     if (!alive(run)) return;
-    $("#a4cta").style.visibility = "visible";
-    feed.scrollTop = feed.scrollHeight;
+    primeFounderComposer(run);
   },
 
-  async act4(run) {
-    const line = $("#a4line"); line.textContent = "";
+  async act5(run) {
+    const line = $("#adjournLine"); line.textContent = "";
     const gt = $("#gather");
     gt.classList.remove("go");
     gt.innerHTML = B.roles.filter(r => !r.is_secretary).map((r, i) => {
@@ -791,16 +1133,16 @@ const ActScripts = {
     await wait(300); if (!alive(run)) return;
     gt.classList.add("go");
     await wait(1300); if (!alive(run)) return;
-    App.goto("act5");
+    App.goto("act6");
   }
 };
 
 function wallFall() {
-  document.querySelectorAll("#pods .pod").forEach(p => p.classList.add("fall"));
-  setTimeout(() => App.goto("act3"), App.instant ? 0 : 480);
+  document.querySelectorAll("#blindPods .pod").forEach(p => p.classList.add("fall"));
+  setTimeout(() => App.goto("act4"), App.instant ? 0 : 480);
 }
 
-/* ---------- act 5 · decision memo ---------- */
+/* ---------- act 6 · decision memo ---------- */
 let memoRendered = false;
 function renderMemo() {
   if (memoRendered) return;
@@ -812,7 +1154,7 @@ function renderMemo() {
     return `<div class="pos-row">
       <div class="pos-name"><span class="pos-dot" style="background:${r.color}"></span>${r.name}</div>
       <span class="chip ${p.stance}">${STANCE_TXT[p.stance]}</span>
-      <div class="pos-prob">${p.prob.toFixed(2)}<small>PROBABILITY OF NET BENEFIT</small></div>
+      <div class="pos-prob">${supportPercent(p.prob)}<small>SUPPORT FOR THIS DECISION</small></div>
       <div class="pos-sum">${p.summary}</div>
     </div>`;
   }).join("");
@@ -826,8 +1168,8 @@ function renderMemo() {
   }).join("");
   $("#memoRoot").innerHTML = `
   <article class="memo" aria-label="Decision Memo">
-    <div class="memo-brand">THE BOARDROOM</div>
-    <h1>DECISION MEMO<span class="en">THE BOARDROOM</span></h1>
+    <div class="memo-brand"><img src="assets/logo-lockup.png" alt="laoban.ai"></div>
+    <h1>DECISION MEMO<span class="en">LAOBAN.AI</span></h1>
     <div class="memo-meta">No. 2026-001 · ${today} · Present: ${m.positions.length} directors + secretary · Recorded by the Board Secretary · 1 blind round / 1 cross-examination round</div>
     <section>
       <h2>DECISION BEFORE THE BOARD</h2>
@@ -839,7 +1181,7 @@ function renderMemo() {
       <div class="reco">${m.recommendation}</div>
     </section>
     <section>
-      <h2>DIRECTOR POSITIONS & PROBABILITY ESTIMATES</h2>
+      <h2>DIRECTOR POSITIONS & SUPPORT SCORES</h2>
       ${posRows}
     </section>
     <section>
@@ -868,7 +1210,7 @@ function renderMemo() {
     </section>
     <div class="memo-foot">
       <span>THE BOARD ADVISES · THE FOUNDER DECIDES</span>
-      <span>Generated by The Boardroom from the full deliberation record</span>
+      <span>Generated by laoban.ai from the full deliberation record</span>
     </div>
   </article>`;
 }
@@ -885,7 +1227,7 @@ function rule(kind) {
     <h2>FOUNDER'S RULING</h2>
     <div class="ruled">
       <div class="seal" aria-hidden="true">
-        <span class="s-top">THE BOARDROOM</span>
+        <span class="s-top">LAOBAN.AI</span>
         <span class="s-main">RULED</span>
         <span class="s-sub">FOUNDER RULED</span>
       </div>
@@ -902,7 +1244,7 @@ addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") App.prev();
 });
 
-/* ---------- boot (#act3 deep link / #act3! instant-complete state) ---------- */
+/* ---------- boot (#act4 deep link / #act4! instant-complete state) ---------- */
 (function boot() {
   const h = location.hash.replace("#", "");
   const inst = h.endsWith("!");

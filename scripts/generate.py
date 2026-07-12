@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The Boardroom orchestrator — hand-rolled and framework-free.
+"""laoban.ai orchestrator — hand-rolled and framework-free.
 
 Isolation is enforced by construction: director_blind() receives only that
 director's evidence slice. It receives neither peer positions nor the founder's
@@ -36,8 +36,8 @@ ROLES = {
 
 OUT_SPEC = (
     'Return strict JSON: {"stance":"support|oppose|conditional","prob":0.0,'
-    '"evidence":["..."],"text":"..."}. "prob" is your subjective probability '
-    'that raising the price creates more value than harm. Give a number, not a vague attitude.'
+    '"evidence":["..."],"text":"..."}. "prob" is your support score for the decision '
+    '(1.0 = fully supports; 0.0 = does not support). Give a number, not a vague attitude.'
 )
 
 
@@ -71,7 +71,7 @@ def director_blind(client, role: str, question: str) -> dict:
 
 
 def consensus_check(blind: dict) -> float:
-    """Divergence is probability standard deviation; values below .05 require challenge."""
+    """Divergence is support-score standard deviation; values below .05 require challenge."""
     probs = [position["prob"] for position in blind.values()]
     mean = sum(probs) / len(probs)
     return (sum((prob - mean) ** 2 for prob in probs) / len(probs)) ** 0.5
@@ -159,6 +159,6 @@ def run(dry_run: bool) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="The Boardroom orchestrator")
+    parser = argparse.ArgumentParser(description="laoban.ai orchestrator")
     parser.add_argument("--dry-run", action="store_true", help="Print the pipeline without calling an API")
     run(parser.parse_args().dry_run)

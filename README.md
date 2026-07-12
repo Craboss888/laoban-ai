@@ -1,10 +1,10 @@
-# The Boardroom
+# laoban.ai
 
-> **ChatGPT will agree with you. Your board won't.**
+> **AI might agree with you. Your board won't.**
 
 ![Decision Memo](output/screenshots/memo-hero.png)
 
-**The Boardroom is an anti-sycophancy decision system for the company of one.** It puts a consequential decision before a data-driven virtual board, moves through **blind review → cross-examination → premortem**, and produces a formal Decision Memo with a **dissent log**, director probability estimates, and **kill criteria**. The board advises. **The founder always decides.**
+**laoban.ai is an anti-sycophancy decision system for the company of one.** It puts a consequential decision before a data-driven virtual board, moves through **blind review → cross-examination → premortem**, and produces a formal Decision Memo with a **dissent log**, director probability estimates, and **kill criteria**. The board advises. **The founder always decides.**
 
 ## Run It — Zero Dependencies
 
@@ -12,13 +12,13 @@
 open site/index.html
 ```
 
-It is a pure static demo: no network, API, package install, or build step. Use `site/index.html#act5` to open the Decision Memo directly, or `#act2!` to open the completed blind-review state.
+It is a pure static demo: no network, API, package install, or build step. Use `site/index.html#act6` to open the Decision Memo directly, or `#act3!` to open the completed blind-review state.
 
 ## Why This Is Not Another AI Adviser
 
 The usual pattern gives one model one shared context, then assigns several personas through prompts. Every "adviser" sees the founder's preference, anchors on the same information, and naturally converges.
 
-The Boardroom makes disagreement structural:
+laoban.ai makes disagreement structural:
 
 | Mechanism | Implementation |
 |---|---|
@@ -52,7 +52,7 @@ python3 scripts/validate_cache.py
 
 The organizer's thesis is *Autonomous Agents & Sovereignty — human judgment guides AI execution.*
 
-Most teams are building execution agents that do work for a one-person company. The Boardroom builds the missing **judgment layer**: AI produces recommendations, dissent, probability estimates, and kill criteria, but the ruling field remains blank until the founder signs it. That is sovereignty expressed as a product interaction.
+Most teams are building execution agents that do work for a one-person company. laoban.ai builds the missing **judgment layer**: AI produces recommendations, dissent, probability estimates, and kill criteria, but the ruling field remains blank until the founder signs it. That is sovereignty expressed as a product interaction.
 
 ## What Is Real Today vs. Roadmap
 

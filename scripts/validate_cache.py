@@ -15,6 +15,11 @@ assert d["board"]["adaptive_slots"] == 2 and "opposite" in d["board"]["recommend
 assert len(d["memo"]["dissent"]) >= 2, "expected dissents from both CLO and Mr. Opposite"
 hs = [e.get("highlight") for e in d["acts"]["act3_debate"]]
 assert "revision" in hs and "dissent_survives" in hs, "missing required deliberation beats"
+discussion = d["acts"]["act3_discussion"]
+assert discussion["founder_prompt"]["default_text"].strip(), "missing preloaded founder prompt"
+assert len(discussion["rounds"]) == 3, "expected three discussion rounds"
+round_indexes = [i for rnd in discussion["rounds"] for i in rnd["event_indexes"]]
+assert round_indexes == list(range(len(d["acts"]["act3_debate"]))), "discussion rounds must cover the transcript once, in order"
 assert d["memo"]["ruling"] is None and d["memo"]["dissent"] and d["memo"]["kill_criteria"]
 for e in d["acts"]["act2_blind"]:
     assert e["evidence"], f"{e['role']} blind review has no evidence citation"

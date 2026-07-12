@@ -4,11 +4,11 @@
 
 ## One-Line Pitch
 
-**ChatGPT will agree with you. Your board won't.** — The Boardroom, the decision-governance layer for the company of one.
+**AI might agree with you. Your board won't.** — laoban.ai, the decision-governance layer for the company of one.
 
 ## Project Description
 
-A one-person company does not lack execution; it lacks pressure-tested judgment. The Boardroom puts a consequential decision before a data-driven virtual board: four permanent directors (CFO, CMO, Customer Representative, CLO) plus up to two adaptive seats matched to the agenda — never more than seven people at the table. Directors begin in information isolation: each permanent seat receives one exclusive evidence pipeline, and the founder's preference is hidden. The walls then fall for cross-examination and position revision, while Mr. Opposite — the recommended adaptive seat whenever the founder arrives with a stated preference — is institutionally mandated to dissent. The result is a formal Decision Memo with a **dissent log**, **director probability estimates**, and **kill criteria**—an accountable governance artifact, not a conversation. The board advises. The founder always decides.
+A one-person company does not lack execution; it lacks pressure-tested judgment. laoban.ai puts a consequential decision before a data-driven virtual board: four permanent directors (CFO, CMO, Customer Representative, CLO) plus up to two adaptive seats matched to the agenda — never more than seven people at the table. Directors begin in information isolation: each permanent seat receives one exclusive evidence pipeline, and the founder's preference is hidden. The walls then fall for cross-examination and position revision, while Mr. Opposite — the recommended adaptive seat whenever the founder arrives with a stated preference — is institutionally mandated to dissent. The result is a formal Decision Memo with a **dissent log**, **director probability estimates**, and **kill criteria**—an accountable governance artifact, not a conversation. The board advises. The founder always decides.
 
 ## The Problem
 
@@ -29,7 +29,7 @@ Most teams are building agent employees. We are building the other half of the o
 ## Demo Guide for Judges
 
 - Open `site/index.html` and select **Convene the Board** to play the six-act demo in about three minutes.
-- Short on time? Select **View the Decision Memo** or open `#act5`.
+- Short on time? Select **View the Decision Memo** or open `#act6`.
 - Watch for Act 2's isolated evidence chambers; Act 3's position revision and surviving dissent; and Act 5's probabilities, dissent log, kill criteria, and founder's ruling.
 
 ## Screenshot List

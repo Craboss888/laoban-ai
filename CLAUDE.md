@@ -1,10 +1,11 @@
-# The Boardroom — 一人公司的虚拟董事会
+# laoban.ai — 一人公司的虚拟董事会（原 The Boardroom）
 
 > 本文件 = 本项目操作手册：只放最重要的背景、规则、结论、当前状态，保持精简。过程细节一律进《开发日志.md》。
 > 完整规格书见 [boardroom_hackathon_spec.md](boardroom_hackathon_spec.md)——那是项目的权威 spec，本文件不复述，只放规则与当前状态。
 
 ## 项目信息
 
+- **项目名**：**laoban.ai**（2026-07-12 16:4x 用户定名，原 The Boardroom；内核与机制不变）。demo UI/README/submission/编排器/缓存 meta 已全量改名（16:5x）；spec 与开发日志保留历史名。
 - **目标**：把一个决策问题交给数据驱动、程序性反谄媚的多 agent 董事会（CFO / 市场 / 客户 / 风险董事 + 主持 Chair），经「盲评 → 交叉质证 → premortem」，产出带**异议记录（dissent log）**和**否决线（kill criteria）**的正式 Decision Memo。建议权归董事会，**裁决权永远归创始人**。
 - **验收标准**（= spec 第 7 节 MoSCoW 的 Must，目标 11:00–15:30 完成）：
   1. LangGraph 图端到端跑通：4 董事隔离并行 → 证据全公开 → 交叉质证 1 轮 → memo 生成
@@ -12,7 +13,7 @@
   3. Decision Memo 渲染页结构完整：异议记录、各董事概率估计、否决线、创始人裁决按钮
   4. 主场景预跑缓存 + 流式回放可用（现场默认播缓存，保留 live 重跑备份）
   5. 提交材料就绪：tagline 首图 +Memo 成品截图 + 描述文案守 spec 第 6 节纪律
-- **当前状态**：2026-07-12 13:xx，单场景六幕静态 Demo、缓存、手写 Python 编排器、README 与提交文案均已完成英文改造；缓存/schema、Python 编译与 dry-run 通过。待正常前台浏览器做完整英文 E2E、生成提交截图并决定是否部署。
+- **当前状态**：2026-07-12 16:3x，七幕英文 Demo（landing + act0–act6）；act0 已重设为三场景叙事（公司介绍 → 业务压力 → 秘书抠像出场 + 打字机输入框正式化问题），act4 为三回合质证 + 常驻 Founder channel，数值统一为支持度百分比。全部校验器 + Playwright 真浏览器 E2E（含 `#act0!`/`#act4!`/`#act6` 深链冷加载）通过，console 0 errors。Pitch deck 就绪：`docs/pitch-deck.html`（laoban.ai 品牌 + demo 色板 + 缓存同源数字，9 页逐页截图验证，demo link 留位于 VI 页 DEMO SLOT 注释）。待办：提交截图刷新（现有 5 张不含 Route 幕与新 act0）、README/submission 终检、demo 打磨完成后回填 deck 的 DEMO SLOT、大量未提交改动的 commit 决策。
 - **时间预算**：约 7 小时（11:00 开赛 → 18:00 提交）。开发原则：先端到端跑通骨架（哪怕丑），再逐层加光；骨架断了优先修骨架。
 - **技术栈**：纯静态 HTML/CSS/JS 六幕 Demo + 预跑缓存；评委可读的手写 Python 编排器（Anthropic API 接口形态，现场不做 live）；本地 mock 数据，生产态留 MCP 接口位。
 - **范围红线（Won't，坚决不做）**：语音/TTS、任意话题现场即兴、>5 个董事、真实第三方账号接入、用户系统/登录/部署上线。详见 spec 第 7 节。

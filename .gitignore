@@ -5,3 +5,4 @@ __pycache__/
 .claude/
 .superpowers/
 .playwright-cli/
+.playwright-mcp/

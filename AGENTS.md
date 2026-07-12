@@ -1,4 +1,4 @@
-# The Boardroom — 一人公司的虚拟董事会
+# laoban.ai — 一人公司的虚拟董事会（原 The Boardroom）
 
 > 本文件 = 本项目操作手册：只放最重要的背景、规则、结论、当前状态，保持精简。过程细节一律进《开发日志.md》。
 > 完整规格书见 [boardroom_hackathon_spec.md](boardroom_hackathon_spec.md)——那是项目的权威 spec，本文件不复述，只放规则与当前状态。
