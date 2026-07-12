@@ -202,6 +202,128 @@ main{flex:1;display:flex;flex-direction:column}
   display:flex;justify-content:space-between;letter-spacing:.06em;
 }
 
+/* ============ shared act chrome ============ */
+.stage{width:100%;max-width:1180px;margin:0 auto;padding:30px 24px 90px}
+.act-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.act-kicker{font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--baize)}
+.act-title{font-size:23px;font-weight:800}
+.act-note{font-size:13px;color:var(--muted)}
+.cta-row{display:flex;justify-content:center;margin-top:24px}
+.h3{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin:20px 0 8px}
+
+/* ============ act 0 ============ */
+.a0-grid{display:grid;grid-template-columns:420px 1fr;gap:44px;align-items:center}
+.table-stage{position:relative;width:420px;height:420px;margin:0 auto}
+.table-stage .felt{
+  position:absolute;inset:64px;border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,#2A614E,var(--baize-deep));
+  box-shadow:inset 0 2px 16px rgba(0,0,0,.3),var(--shadow);
+}
+.table-stage .ceo{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:#fff;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:700;
+  letter-spacing:.08em;color:var(--baize-deep);box-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+.plate{
+  position:absolute;transform:translate(-50%,-50%);background:#fff;border-radius:10px;
+  padding:7px 12px;font-size:12px;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.16);
+  display:flex;align-items:center;gap:7px;white-space:nowrap;
+  opacity:0;animation:plateIn .45s var(--ease) forwards;
+}
+.plate .pd{width:8px;height:8px;border-radius:50%;flex:none}
+@keyframes plateIn{from{opacity:0}to{opacity:1}}
+.roster{display:flex;flex-direction:column;gap:8px}
+.r-row{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 14px;font-size:14px;font-weight:600}
+.r-row .pd{width:9px;height:9px;border-radius:50%;flex:none}
+.r-row .sub{font-size:11px;color:var(--muted);font-weight:400}
+.r-ok{margin-left:auto;color:var(--support);font-size:12px;font-weight:700}
+.badge{font-size:11px;color:var(--muted);background:var(--paper);border:1px solid var(--line);padding:2px 8px;border-radius:999px;font-weight:400;white-space:nowrap}
+.soon{display:flex;gap:8px;flex-wrap:wrap}
+.s-chip{font-size:11px;color:var(--muted);border:1px dashed #D5D3CA;padding:4px 12px;border-radius:999px}
+.ds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ds-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:12px;line-height:1.5}
+.ds-card b{font-size:12.5px}
+.led{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--support);margin-right:6px;box-shadow:0 0 0 3px #E3F2EE}
+.fn{font-family:var(--font-num);font-size:10.5px;color:var(--muted)}
+
+/* ============ act 1 ============ */
+.a1-wrap{max-width:660px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.bubble{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:13px 18px;font-size:15px;max-width:36em;box-shadow:var(--shadow)}
+.bubble .who{font-size:11px;color:var(--muted);margin-bottom:3px;font-weight:700;letter-spacing:.06em}
+.sec-line{display:flex;gap:8px;align-items:baseline;color:var(--muted);font-size:13px;padding-left:4px}
+.sec-line .sd{width:8px;height:8px;border-radius:50%;background:#6B7280;flex:none;align-self:center}
+.agenda{background:#fff;border:1px solid var(--line);border-left:4px solid var(--baize);border-radius:12px;padding:18px 22px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);transition:all .35s var(--ease)}
+.agenda.on{opacity:1;transform:none}
+.agenda .a-q{font-size:19px;font-weight:800}
+.agenda .a-meta{font-size:12.5px;color:var(--muted);margin-top:4px}
+.opts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.opt{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--paper)}
+.bias{position:relative;border:1px solid var(--line);border-radius:12px;padding:13px 18px;background:#fff;font-size:13px;overflow:hidden;opacity:0;transition:opacity .3s var(--ease)}
+.bias.on{opacity:1}
+.bias .lock{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:repeating-linear-gradient(-45deg,#F2F1EB,#F2F1EB 8px,#EBEAE3 8px,#EBEAE3 16px);
+  font-weight:700;font-size:12.5px;color:#5A625E;opacity:0;transition:opacity .4s var(--ease) .5s;
+}
+.bias.locked .lock{opacity:1}
+
+/* ============ act 2 · pods & gauge ============ */
+.gauge-row{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px;flex-wrap:wrap}
+.gauge{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 16px;box-shadow:var(--shadow)}
+.gauge svg{display:block}
+.g-needle{transform-origin:60px 58px;transition:transform .8s var(--ease)}
+.gauge .gv{font-family:var(--font-num);font-size:20px;font-weight:700;line-height:1.1}
+.gauge .gz{font-size:11px;font-weight:700}
+.gauge .gl{font-size:10px;color:var(--muted);letter-spacing:.1em}
+.pods{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pod{
+  background:#fff;border:1px solid var(--line);border-top:4px solid var(--pc,#999);
+  border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;min-height:290px;
+  transition:all .4s var(--ease);
+}
+.pod .p-name{font-weight:700;font-size:14px;display:flex;align-items:center;gap:7px}
+.pod .p-name .pd{width:9px;height:9px;border-radius:50%}
+.pod .iso{font-size:10.5px;letter-spacing:.04em;color:var(--muted);margin:6px 0 10px;display:flex;align-items:center;gap:5px}
+.pod .iso .ic{font-size:11px}
+.pod .body{font-size:13px;line-height:1.75;color:#333;flex:1}
+.pod .body.cursor::after{content:"▌";animation:blink 1s steps(1) infinite;color:var(--muted)}
+@keyframes blink{50%{opacity:0}}
+.stance-card{border-top:1px solid var(--line);margin-top:10px;padding-top:10px;display:none}
+.pod.done .stance-card{display:block;animation:actIn .3s var(--ease)}
+.st-top{display:flex;align-items:center;justify-content:space-between}
+.st-prob{font-family:var(--font-num);font-size:20px;font-weight:700}
+.ev{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.6}
+.pod.fall{border-top-color:transparent;transform:translateY(10px);opacity:.35}
+
+/* ============ act 3 · debate ============ */
+.table-evidence{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.table-evidence .ds-card{opacity:0;transform:translateY(-8px);transition:all .4s var(--ease)}
+.table-evidence .ds-card.on{opacity:1;transform:none}
+.feed{display:flex;flex-direction:column;gap:10px;max-height:52vh;overflow-y:auto;padding:2px 6px 2px 2px;scroll-behavior:smooth}
+.msg{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:flex;gap:10px;opacity:0;transform:translateY(6px);transition:all .3s var(--ease)}
+.msg.on{opacity:1;transform:none}
+.msg .md{width:9px;height:9px;border-radius:50%;margin-top:6px;flex:none}
+.msg .mhead{display:flex;align-items:center;gap:8px;margin-bottom:3px;flex-wrap:wrap}
+.msg .mname{font-weight:700;font-size:13px}
+.msg .mtxt{font-size:13.5px;line-height:1.75}
+.msg .ref{font-family:var(--font-num);font-size:10px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--muted)}
+.msg.sec{background:transparent;border:none;justify-content:center;color:var(--muted);font-size:12.5px;padding:3px;text-align:center}
+.msg.hl-rev{border-left:4px solid var(--conditional);background:#FFFDF8}
+.msg.hl-dis{border-left:4px solid var(--oppose);background:#FFFBFA}
+.mbanner{font-size:11px;font-weight:800;letter-spacing:.06em;border-radius:6px;padding:3px 9px;display:inline-block;margin-bottom:6px}
+.mbanner.rev{background:#FBF0E3;color:var(--conditional)}
+.mbanner.dis{background:#FBEAE8;color:var(--oppose)}
+
+/* ============ act 4 ============ */
+#act4.active{align-items:center;justify-content:center;text-align:center;padding:40px 24px}
+.gather{position:relative;width:230px;height:160px;margin:30px auto 0}
+.sheet{
+  position:absolute;width:74px;height:98px;background:#fff;border:1px solid var(--line);
+  border-radius:4px;box-shadow:var(--shadow);
+  transition:all .9s var(--ease);
+}
+.gather.go .sheet{left:78px !important;top:30px !important;transform:rotate(0deg) !important}
+
 /* ============ footer controls ============ */
 .controls{
   position:fixed;bottom:22px;right:24px;z-index:60;
@@ -252,12 +374,61 @@ main{flex:1;display:flex;flex-direction:column}
     </div>
   </section>
 
-  <!-- acts 0-4: built in T4 -->
-  <section id="act0" class="act"><div class="act-todo">第 0 幕 · 组建董事会</div></section>
-  <section id="act1" class="act"><div class="act-todo">第 1 幕 · 提交议题</div></section>
-  <section id="act2" class="act"><div class="act-todo">第 2 幕 · 盲评轮</div></section>
-  <section id="act3" class="act"><div class="act-todo">第 3 幕 · 交叉质证</div></section>
-  <section id="act4" class="act"><div class="act-todo">第 4 幕 · 休会</div></section>
+  <!-- act 0 · assemble -->
+  <section id="act0" class="act"><div class="stage">
+    <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">组建董事会</h2><span class="act-note">每位董事只接入自己的数据管道——分歧来自信息,不是人设。</span></div>
+    <div class="a0-grid">
+      <div class="table-stage" id="a0table" aria-hidden="true"><div class="felt"></div><div class="ceo">CEO · 你</div></div>
+      <div>
+        <div class="h3">今日出席</div>
+        <div class="roster" id="a0roster"></div>
+        <div class="h3">更多领域董事 · 即将上线</div>
+        <div class="soon"><span class="s-chip">法务董事</span><span class="s-chip">供应链董事</span><span class="s-chip">公关董事</span><span class="s-chip">电商 PM 董事</span></div>
+        <div class="h3">已连接数据源</div>
+        <div class="ds-grid" id="a0ds"></div>
+        <div class="cta-row" style="justify-content:flex-start"><button class="btn btn-primary" onclick="App.next()">进入会议室 →</button></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- act 1 · intake -->
+  <section id="act1" class="act"><div class="stage">
+    <div class="act-head"><span class="act-kicker">ACT 1</span><h2 class="act-title">提交议题</h2><span class="act-note">口述即可——秘书负责把它变成正式议题。</span></div>
+    <div class="a1-wrap" id="a1mount"></div>
+  </div></section>
+
+  <!-- act 2 · blind round -->
+  <section id="act2" class="act"><div class="stage">
+    <div class="gauge-row">
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 2</span><h2 class="act-title">盲评轮 · 墙起</h2><span class="act-note">四位董事被隔离在各自的信息舱内,互相不可见,也看不到你的倾向。</span></div>
+      <div class="gauge" id="gauge2"></div>
+    </div>
+    <div class="pods" id="pods"></div>
+    <div class="cta-row" id="a2cta" style="visibility:hidden"><button class="btn btn-primary" onclick="wallFall()">公开全部证据 · 墙落 →</button></div>
+  </div></section>
+
+  <!-- act 3 · debate -->
+  <section id="act3" class="act"><div class="stage">
+    <div class="gauge-row">
+      <div class="act-head" style="margin:0"><span class="act-kicker">ACT 3</span><h2 class="act-title">墙落 · 交叉质证</h2><span class="act-note">证据全部摊上圆桌——信息差引起的分歧自动修复,幸存的分歧才交给你。</span></div>
+      <div class="gauge" id="gauge3"></div>
+    </div>
+    <div class="table-evidence" id="a3evidence"></div>
+    <div class="feed" id="feed"></div>
+    <div class="cta-row" id="a4cta" style="visibility:hidden;flex-direction:column;align-items:center;gap:6px">
+      <button class="btn btn-primary" style="font-size:16px;padding:15px 34px" onclick="App.goto('act4')">结束讨论,请秘书起草备忘录</button>
+      <span style="font-size:11px;color:var(--muted)">结束权属于创始人</span>
+    </div>
+  </div></section>
+
+  <!-- act 4 · adjourn -->
+  <section id="act4" class="act">
+    <div>
+      <p class="eyebrow">休会</p>
+      <p id="a4line" style="font-size:17px;max-width:26em;margin:0 auto"></p>
+      <div class="gather" id="gather"></div>
+    </div>
+  </section>
 
   <!-- act 5 · decision memo -->
   <section id="act5" class="act"><div id="memoRoot"></div></section>
@@ -311,12 +482,16 @@ const App = {
   labels: ["组建", "议题", "盲评", "质证", "休会", "备忘录"],
   act: "landing",
   instant: false,
+  run: 0,
   goto(id) {
     if (!this.order.includes(id)) return;
     this.act = id;
+    this.run++;                       // 使一切进行中的幕脚本失效
     document.querySelectorAll(".act").forEach(s => s.classList.toggle("active", s.id === id));
     this.renderStepper();
     if (id === "act5") renderMemo();
+    const script = ActScripts[id];
+    if (script) script(this.run);
     window.scrollTo({ top: 0, behavior: "instant" });
   },
   next() { const i = this.order.indexOf(this.act); if (i < this.order.length - 1) this.goto(this.order[i + 1]); },
@@ -346,6 +521,176 @@ const App = {
     tbl.appendChild(d);
   });
 })();
+
+/* ---------- act scripts helpers ---------- */
+const alive = id => App.run === id;
+const wait = ms => new Promise(r => setTimeout(r, App.instant ? 0 : ms));
+/* rAF + 定时器双触发:后台/节流环境下 CSS 过渡类也能可靠挂上(幂等) */
+const reveal = (el, ...cls) => {
+  const add = () => el.classList.add(...cls);
+  requestAnimationFrame(add); setTimeout(add, 120);
+};
+const std = a => { if (!a.length) return 0; const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((s, x) => s + (x - m) ** 2, 0) / a.length); };
+const latest = {};  // roleId -> 最新概率(分歧仪表数据源)
+
+function makeGauge(mount) {
+  mount.innerHTML = `<svg width="118" height="64" viewBox="0 0 120 64" aria-hidden="true">
+    <path d="M12 58 A48 48 0 0 1 108 58" fill="none" stroke="#ECEAE2" stroke-width="9" stroke-linecap="round"/>
+    <line class="g-needle" x1="60" y1="58" x2="60" y2="20" stroke="#1F2421" stroke-width="3" stroke-linecap="round" style="transform:rotate(-80deg)"/>
+    <circle cx="60" cy="58" r="4" fill="#1F2421"/>
+  </svg>
+  <div><div class="gv">–</div><div class="gz">待数据</div><div class="gl">分歧度 · DIVERGENCE</div></div>`;
+  const needle = mount.querySelector(".g-needle"), gv = mount.querySelector(".gv"), gz = mount.querySelector(".gz");
+  return { set(v) {
+    needle.style.transform = `rotate(${-80 + Math.min(v, 0.35) / 0.35 * 160}deg)`;
+    gv.textContent = v.toFixed(2);
+    const [t, c] = v >= 0.22 ? ["高分歧", "#B91C1C"] : v >= 0.12 ? ["分歧收窄", "#B45309"] : ["趋同", "#0E7C66"];
+    gz.textContent = t; gz.style.color = c; gv.style.color = c;
+  } };
+}
+
+/* ---------- act scripts ---------- */
+const ActScripts = {
+  act0() {
+    $("#a0roster").innerHTML = B.roles.map(r =>
+      `<div class="r-row"><span class="pd" style="background:${r.color}"></span>${r.name}${r.subtitle ? ` <span class="sub">${r.subtitle}</span>` : ""}<span class="badge">${r.badge}</span><span class="r-ok">✓ 已就座</span></div>`).join("");
+    $("#a0ds").innerHTML = B.datasets.map(d =>
+      `<div class="ds-card"><b><span class="led"></span>${d.label}</b><br><span class="fn">${d.filename}</span><br><span style="color:var(--muted)">${d.preview}</span></div>`).join("");
+    const tbl = $("#a0table");
+    tbl.querySelectorAll(".plate").forEach(p => p.remove());
+    const R = 185, cx = 210, cy = 210;
+    B.roles.forEach((r, i, arr) => {
+      const a = -Math.PI / 2 + (i * 2 * Math.PI) / arr.length;
+      const p = document.createElement("div");
+      p.className = "plate";
+      p.style.cssText = `left:${cx + R * Math.cos(a)}px;top:${cy + R * Math.sin(a)}px;animation-delay:${i * 0.12}s`;
+      p.innerHTML = `<span class="pd" style="background:${r.color}"></span>${r.name}`;
+      tbl.appendChild(p);
+    });
+  },
+
+  async act1(run) {
+    const m = $("#a1mount"); m.innerHTML = "";
+    const bub = document.createElement("div"); bub.className = "bubble";
+    bub.innerHTML = `<div class="who">CEO · 口述</div><span class="bt"></span>`;
+    m.appendChild(bub);
+    await new Promise(res => streamText(bub.querySelector(".bt"), "「" + B.meta.question_raw + "」", { cps: 34, onDone: res }));
+    if (!alive(run)) return;
+    const sl = document.createElement("div"); sl.className = "sec-line";
+    sl.innerHTML = `<span class="sd"></span><span class="st"></span>`;
+    m.appendChild(sl);
+    await new Promise(res => streamText(sl.querySelector(".st"), "秘书:" + B.acts.act1_secretary_note, { cps: 46, onDone: res }));
+    if (!alive(run)) return;
+    await wait(250); if (!alive(run)) return;
+    const q = B.meta.question_structured;
+    const ag = document.createElement("div"); ag.className = "agenda";
+    ag.innerHTML = `<div class="h3" style="margin:0 0 6px">结构化议题 · 秘书整理</div>
+      <div class="a-q">${q.decision}</div>
+      <div class="a-meta">${q.context} · 期限:${q.deadline}</div>
+      <div class="opts">${q.options.map(o => `<span class="opt">${o}</span>`).join("")}</div>`;
+    m.appendChild(ag);
+    reveal(ag, "on");
+    await wait(500); if (!alive(run)) return;
+    const bi = document.createElement("div"); bi.className = "bias";
+    bi.innerHTML = `<b>创始人个人倾向:</b>倾向涨价<div class="lock">🔒 盲评期间对董事隐藏</div>`;
+    m.appendChild(bi);
+    reveal(bi, "on", "locked");
+    await wait(700); if (!alive(run)) return;
+    const cta = document.createElement("div"); cta.className = "cta-row";
+    cta.innerHTML = `<button class="btn btn-primary" onclick="App.next()">开始盲评轮 →</button>`;
+    m.appendChild(cta);
+  },
+
+  act2(run) {
+    const g = makeGauge($("#gauge2"));
+    $("#a2cta").style.visibility = "hidden";
+    const pods = $("#pods"); pods.innerHTML = "";
+    Object.keys(latest).forEach(k => delete latest[k]);
+    let done = 0;
+    B.acts.act2_blind.forEach((e, i) => {
+      const r = roleById(e.role);
+      const ds = B.datasets.find(d => d.id === r.dataset);
+      const pod = document.createElement("div");
+      pod.className = "pod"; pod.style.setProperty("--pc", r.color);
+      pod.innerHTML = `
+        <div class="p-name"><span class="pd" style="background:${r.color}"></span>${r.name}</div>
+        <div class="iso"><span class="ic">🔒</span>隔离中 · 仅可见:${ds.label}</div>
+        <div class="body cursor"></div>
+        <div class="stance-card">
+          <div class="st-top"><span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span><span class="st-prob" style="color:${r.color}">${e.prob.toFixed(2)}</span></div>
+          <div class="ev">${e.evidence.map(v => "· " + v).join("<br>")}</div>
+        </div>`;
+      pods.appendChild(pod);
+      streamText(pod.querySelector(".body"), e.text, { cps: 30 + i * 5, onDone() {
+        if (!alive(run)) return;
+        pod.querySelector(".body").classList.remove("cursor");
+        pod.classList.add("done");
+        latest[e.role] = e.prob;
+        g.set(std(Object.values(latest)));
+        if (++done === 4) $("#a2cta").style.visibility = "visible";
+      } });
+    });
+  },
+
+  async act3(run) {
+    const g = makeGauge($("#gauge3"));
+    B.acts.act2_blind.forEach(e => { latest[e.role] = e.prob; });
+    g.set(std(Object.values(latest)));
+    $("#a4cta").style.visibility = "hidden";
+    const ev = $("#a3evidence");
+    ev.innerHTML = B.datasets.map(d =>
+      `<div class="ds-card"><b><span class="led"></span>${d.label}</b> <span class="fn">${d.filename}</span> <span style="color:var(--muted)">· 已公开</span></div>`).join("");
+    for (const c of ev.children) { reveal(c, "on"); await wait(110); }
+    if (!alive(run)) return;
+    const feed = $("#feed"); feed.innerHTML = "";
+    for (const e of B.acts.act3_debate) {
+      if (!alive(run)) return;
+      const sec = e.speaker === "secretary";
+      const r = roleById(e.speaker);
+      const msg = document.createElement("div");
+      msg.className = "msg" + (sec ? " sec" : "") +
+        (e.highlight === "revision" ? " hl-rev" : "") +
+        (e.highlight === "dissent_survives" ? " hl-dis" : "");
+      const banner = e.highlight === "revision" ? `<span class="mbanner rev">立场已修正 · 反对 → 有条件支持</span><br>` :
+                     e.highlight === "dissent_survives" ? `<span class="mbanner dis">异议幸存 → 将载入备忘录</span><br>` : "";
+      msg.innerHTML = sec
+        ? `<div class="mtxt sect"></div>`
+        : `<span class="md" style="background:${r.color}"></span><div style="flex:1"><div class="mhead"><span class="mname">${r.name}</span>${e.stance ? `<span class="chip ${e.stance}">${STANCE_TXT[e.stance]}</span>` : ""}${e.prob != null ? `<span class="fn" style="font-size:11px">${e.prob.toFixed(2)}</span>` : ""}${e.refs.map(f => `<span class="ref">${f}</span>`).join("")}</div>${banner}<span class="mtxt"></span></div>`;
+      feed.appendChild(msg);
+      reveal(msg, "on");
+      feed.scrollTop = feed.scrollHeight;
+      await new Promise(res => streamText(msg.querySelector(sec ? ".sect" : ".mtxt"), sec ? "── " + e.text + " ──" : e.text, { cps: 55, onDone: res }));
+      if (!alive(run)) return;
+      if (e.prob != null && !sec) { latest[e.speaker] = e.prob; g.set(std(Object.values(latest))); }
+      feed.scrollTop = feed.scrollHeight;
+      await wait(240);
+    }
+    if (!alive(run)) return;
+    $("#a4cta").style.visibility = "visible";
+    feed.scrollTop = feed.scrollHeight;
+  },
+
+  async act4(run) {
+    const line = $("#a4line"); line.textContent = "";
+    const gt = $("#gather");
+    gt.classList.remove("go");
+    gt.innerHTML = B.roles.filter(r => !r.is_secretary).map((r, i) => {
+      const pos = [[0, 0, -10], [156, 4, 9], [10, 58, 7], [148, 56, -8]][i];
+      return `<div class="sheet" style="left:${pos[0]}px;top:${pos[1]}px;transform:rotate(${pos[2]}deg);border-top:3px solid ${r.color}"></div>`;
+    }).join("");
+    await new Promise(res => streamText(line, "秘书:" + B.acts.act4_adjourn.secretary_line, { cps: 40, onDone: res }));
+    if (!alive(run)) return;
+    await wait(300); if (!alive(run)) return;
+    gt.classList.add("go");
+    await wait(1300); if (!alive(run)) return;
+    App.goto("act5");
+  }
+};
+
+function wallFall() {
+  document.querySelectorAll("#pods .pod").forEach(p => p.classList.add("fall"));
+  setTimeout(() => App.goto("act3"), App.instant ? 0 : 480);
+}
 
 /* ---------- act 5 · decision memo ---------- */
 let memoRendered = false;
@@ -449,8 +794,18 @@ addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") App.prev();
 });
 
-/* ---------- boot ---------- */
-App.goto("landing");
+/* ---------- boot(支持 #act3 深链 / #act3! 直达完成态)---------- */
+(function boot() {
+  const h = location.hash.replace("#", "");
+  const inst = h.endsWith("!");
+  const id = inst ? h.slice(0, -1) : h;
+  if (App.order.includes(id)) {
+    if (inst) App.instant = true;   // `!` = 快进模式:该会话内各幕瞬时完成
+    App.goto(id);
+  } else {
+    App.goto("landing");
+  }
+})();
 </script>
 </body>
 </html>
