@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Boardroom — ChatGPT 会同意你,董事会不会。</title>
+<script src="cache.js"></script>
+<style>
+/* ============ tokens ============ */
+:root{
+  --paper:#F7F6F2; --ink:#1F2421; --muted:#6C7470;
+  --baize:#1E4D3D; --baize-deep:#153A2E; --baize-soft:#E8F0EC;
+  --card:#FFFFFF; --line:#E4E2DA;
+  --support:#0E7C66; --oppose:#B91C1C; --conditional:#B45309; --info:#1D4ED8;
+  --seal:#C2372B;
+  --font-ui:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --font-doc:"Songti SC","STSong","Noto Serif SC","SimSun",serif;
+  --font-num:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:14px; --shadow:0 1px 2px rgba(21,58,46,.06),0 8px 28px rgba(21,58,46,.09);
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--font-ui); background:var(--paper); color:var(--ink);
+  display:flex; flex-direction:column; min-height:100vh;
+  -webkit-font-smoothing:antialiased; line-height:1.6;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;font-size:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--baize);outline-offset:2px;border-radius:4px}
+
+/* ============ topbar ============ */
+.topbar{
+  display:flex;align-items:center;gap:20px;
+  padding:14px 28px;border-bottom:1px solid var(--line);background:var(--paper);
+  position:sticky;top:0;z-index:50;
+}
+.wordmark{font-weight:800;letter-spacing:.12em;font-size:13px;color:var(--baize)}
+.wordmark .dot{color:var(--seal)}
+.stepper{display:flex;gap:4px;margin-left:auto}
+.step{
+  padding:5px 12px;border-radius:999px;font-size:12px;color:var(--muted);
+  border:1px solid transparent;transition:all .18s var(--ease);
+}
+.step.done{color:var(--baize)}
+.step.active{background:var(--baize);color:#fff;font-weight:600}
+.step:hover:not(.active){border-color:var(--line)}
+
+/* ============ stage / acts ============ */
+main{flex:1;display:flex;flex-direction:column}
+.act{display:none;flex:1}
+.act.active{display:flex;flex-direction:column;animation:actIn .32s var(--ease)}
+@keyframes actIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ============ landing ============ */
+#landing.active{align-items:center;justify-content:center;text-align:center;padding:40px 24px}
+.eyebrow{
+  font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;
+  margin-bottom:22px;font-weight:600;
+}
+.hero-title{
+  font-size:clamp(38px,6vw,64px);line-height:1.15;font-weight:800;letter-spacing:-.01em;
+  max-width:14em;
+}
+.hero-title em{font-style:normal;color:var(--baize)}
+.hero-sub{margin:22px auto 0;max-width:34em;color:var(--muted);font-size:16px}
+.hero-cta{display:flex;gap:14px;justify-content:center;margin-top:34px;align-items:center}
+.btn{
+  border-radius:999px;padding:13px 30px;font-size:15px;font-weight:600;
+  transition:transform .15s var(--ease),box-shadow .15s var(--ease);
+}
+.btn-primary{background:var(--baize);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(21,58,46,.22)}
+.btn-ghost{color:var(--baize);padding:13px 18px}
+.btn-ghost:hover{background:var(--baize-soft);border-radius:999px}
+/* hero table art */
+.hero-table{position:relative;width:280px;height:280px;margin:44px auto 0}
+.hero-table .felt{
+  position:absolute;inset:36px;border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,#2A614E,var(--baize-deep));
+  box-shadow:inset 0 2px 14px rgba(0,0,0,.28),var(--shadow);
+}
+.hero-table .ceo{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:#fff;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;
+  letter-spacing:.08em;color:var(--baize-deep);box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.hero-table .seat{
+  position:absolute;width:18px;height:18px;border-radius:50%;
+  border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.18);
+}
+
+/* ============ placeholder acts (filled in T4) ============ */
+.act-todo{flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;letter-spacing:.1em}
+
+/* ============ act 5 · memo ============ */
+#act5.active{background:linear-gradient(180deg,var(--paper) 0%,#EFEEE8 100%);padding:40px 20px 80px;align-items:center}
+.memo{
+  font-family:var(--font-doc);
+  background:#fff;max-width:780px;width:100%;
+  border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.05),0 24px 60px rgba(21,58,46,.13);
+  padding:64px 72px;position:relative;
+  animation:memoIn .5s var(--ease);
+}
+@keyframes memoIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.memo-brand{
+  font-family:var(--font-ui);font-size:11px;font-weight:800;letter-spacing:.28em;
+  color:var(--baize);margin-bottom:8px;
+}
+.memo h1{font-size:30px;font-weight:700;letter-spacing:.06em}
+.memo h1 .en{font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:.24em;color:var(--muted);margin-left:12px;vertical-align:3px}
+.memo-meta{
+  font-family:var(--font-ui);font-size:12px;color:var(--muted);
+  margin:10px 0 0;padding-bottom:24px;border-bottom:2px solid var(--ink);
+}
+.memo section{margin-top:30px}
+.memo h2{
+  font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:.18em;
+  color:var(--muted);margin-bottom:12px;
+}
+.memo .q{font-size:20px;font-weight:700}
+.memo .q-ctx{font-family:var(--font-ui);font-size:13px;color:var(--muted);margin-top:4px}
+.reco{
+  border-left:4px solid var(--baize);background:var(--baize-soft);
+  padding:16px 20px;border-radius:0 8px 8px 0;font-size:16px;line-height:1.8;
+}
+/* positions table */
+.pos-row{
+  display:grid;grid-template-columns:170px 110px 86px 1fr;gap:14px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--line);
+}
+.pos-row:last-child{border-bottom:none}
+.pos-name{font-family:var(--font-ui);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.pos-dot{width:10px;height:10px;border-radius:50%;flex:none}
+.chip{
+  font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:.04em;
+  padding:3px 10px;border-radius:999px;white-space:nowrap;justify-self:start;
+}
+.chip.support{background:#E3F2EE;color:var(--support)}
+.chip.oppose{background:#FBEAE8;color:var(--oppose)}
+.chip.conditional{background:#FBF0E3;color:var(--conditional)}
+.pos-prob{font-family:var(--font-num);font-size:22px;font-weight:600;text-align:right}
+.pos-prob small{font-size:10px;color:var(--muted);display:block;font-weight:400;letter-spacing:.05em}
+.pos-sum{font-family:var(--font-ui);font-size:13px;color:var(--muted);line-height:1.6}
+/* dissent */
+.dissent{
+  border-left:4px solid var(--oppose);background:#FDF7F6;
+  padding:18px 22px;border-radius:0 8px 8px 0;position:relative;
+}
+.dissent .who{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--oppose);margin-bottom:6px;letter-spacing:.06em}
+.dissent p{font-size:15px;line-height:1.9}
+.dissent .tag{
+  position:absolute;top:16px;right:16px;font-family:var(--font-ui);
+  font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--oppose);
+  border:1px solid currentColor;padding:2px 8px;border-radius:3px;opacity:.75;
+}
+/* kill criteria */
+.kill{
+  border:2px dashed var(--conditional);border-radius:10px;padding:18px 22px;
+  background:#FFFDF7;
+}
+.kill .k-label{font-family:var(--font-ui);font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--conditional);margin-bottom:8px}
+.kill p{font-size:16px;font-weight:600;line-height:1.8}
+.premortem p{font-size:14px;color:#3E4642;line-height:1.9}
+/* ruling */
+.ruling{
+  margin-top:36px;border-top:2px solid var(--ink);padding-top:26px;
+}
+.ruling-btns{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--font-ui)}
+.rbtn{
+  border-radius:10px;padding:12px 22px;font-size:14px;font-weight:600;
+  border:1.5px solid var(--line);background:#fff;transition:all .15s var(--ease);
+}
+.rbtn:hover{border-color:var(--baize);color:var(--baize);transform:translateY(-1px)}
+.rbtn.primary{background:var(--baize);border-color:var(--baize);color:#fff}
+.rbtn.primary:hover{color:#fff;box-shadow:0 4px 14px rgba(21,58,46,.25)}
+.ruling-hint{font-family:var(--font-ui);font-size:12px;color:var(--muted);margin-top:12px}
+.ruled{position:relative;min-height:110px}
+.ruled .r-text{font-size:17px;font-weight:700}
+.ruled .r-time{font-family:var(--font-num);font-size:12px;color:var(--muted);margin-top:6px}
+.ruled .r-reset{font-family:var(--font-ui);font-size:11px;color:var(--muted);margin-top:14px;text-decoration:underline;opacity:.6}
+/* seal */
+.seal{
+  position:absolute;right:8px;top:-14px;width:112px;height:112px;border-radius:50%;
+  border:3.5px solid var(--seal);color:var(--seal);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  font-family:var(--font-ui);transform:rotate(-9deg);
+  animation:stamp .38s var(--ease) both;mix-blend-mode:multiply;opacity:.88;
+}
+.seal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid var(--seal)}
+.seal .s-top{font-size:10px;letter-spacing:.3em;font-weight:800}
+.seal .s-main{font-size:26px;font-weight:800;letter-spacing:.14em}
+.seal .s-sub{font-size:9px;letter-spacing:.18em}
+@keyframes stamp{
+  0%{transform:scale(2.1) rotate(-16deg);opacity:0}
+  62%{transform:scale(.94) rotate(-8deg);opacity:.92}
+  100%{transform:scale(1) rotate(-9deg);opacity:.88}
+}
+.memo-foot{
+  margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+  font-family:var(--font-ui);font-size:11px;color:var(--muted);
+  display:flex;justify-content:space-between;letter-spacing:.06em;
+}
+
+/* ============ footer controls ============ */
+.controls{
+  position:fixed;bottom:22px;right:24px;z-index:60;
+  display:flex;gap:8px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:6px 8px;box-shadow:var(--shadow);font-size:13px;
+}
+.controls button{padding:7px 14px;border-radius:999px;font-weight:600;color:var(--ink)}
+.controls button:hover{background:var(--baize-soft);color:var(--baize)}
+.controls .skip{color:var(--muted);font-size:12px}
+
+/* ============ responsive & motion ============ */
+@media (max-width:900px){
+  .memo{padding:44px 30px}
+  .pos-row{grid-template-columns:130px 96px 70px 1fr;gap:8px}
+  .stepper{display:none}
+}
+@media (max-width:640px){
+  .pos-row{grid-template-columns:1fr 1fr;grid-template-areas:"name chip" "prob sum"}
+  .pos-name{grid-area:name}.pos-row .chip{grid-area:chip;justify-self:end}
+  .pos-prob{grid-area:prob;text-align:left}.pos-sum{grid-area:sum}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">THE BOARDROOM<span class="dot">·</span></div>
+  <nav class="stepper" id="stepper" aria-label="会议进程"></nav>
+</header>
+
+<main>
+  <!-- landing -->
+  <section id="landing" class="act">
+    <p class="eyebrow">The Boardroom · 一人公司的虚拟董事会</p>
+    <h1 class="hero-title">ChatGPT 会同意你,<br><em>董事会不会。</em></h1>
+    <p class="hero-sub">把决策问题交给一个数据驱动、程序性反谄媚的董事会:盲评、交叉质证、异议记录、否决线。建议权归董事会,裁决权永远归你。</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="App.next()">召开董事会</button>
+      <button class="btn btn-ghost" onclick="App.goto('act5')">直接看决策备忘录 →</button>
+    </div>
+    <div class="hero-table" id="heroTable" aria-hidden="true">
+      <div class="felt"></div>
+      <div class="ceo">CEO · 你</div>
+    </div>
+  </section>
+
+  <!-- acts 0-4: built in T4 -->
+  <section id="act0" class="act"><div class="act-todo">第 0 幕 · 组建董事会</div></section>
+  <section id="act1" class="act"><div class="act-todo">第 1 幕 · 提交议题</div></section>
+  <section id="act2" class="act"><div class="act-todo">第 2 幕 · 盲评轮</div></section>
+  <section id="act3" class="act"><div class="act-todo">第 3 幕 · 交叉质证</div></section>
+  <section id="act4" class="act"><div class="act-todo">第 4 幕 · 休会</div></section>
+
+  <!-- act 5 · decision memo -->
+  <section id="act5" class="act"><div id="memoRoot"></div></section>
+</main>
+
+<div class="controls">
+  <button onclick="App.prev()" aria-label="上一幕">‹ 上一幕</button>
+  <button onclick="App.next()" aria-label="下一幕">下一幕 ›</button>
+  <button class="skip" onclick="App.skipAll()" aria-label="跳到结尾">⏭ 跳到结尾</button>
+</div>
+
+<script>
+"use strict";
+const B = window.BOARDROOM;
+const $ = (s, el) => (el || document).querySelector(s);
+const roleById = id => B.roles.find(r => r.id === id);
+const STANCE_TXT = { support: "支持", oppose: "反对", conditional: "有条件支持" };
+
+/* ---------- streaming engine ---------- */
+const Stream = {
+  live: new Set(),
+  go(el, text, opt = {}) {
+    const cps = opt.cps || 40;
+    if (App.instant || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = text; opt.onDone && opt.onDone(); return;
+    }
+    const st = { el, text, i: 0, done: false, onDone: opt.onDone };
+    this.live.add(st);
+    let last = performance.now();
+    const tick = now => {
+      if (st.done) return;
+      st.i = Math.min(st.text.length, st.i + ((now - last) / 1000) * cps);
+      last = now;
+      el.textContent = st.text.slice(0, Math.floor(st.i));
+      if (st.i >= st.text.length) { this.finish(st); } else { requestAnimationFrame(tick); }
+    };
+    requestAnimationFrame(tick);
+  },
+  finish(st) {
+    if (st.done) return;
+    st.done = true; st.el.textContent = st.text; this.live.delete(st);
+    st.onDone && st.onDone();
+  },
+  finishAll() { [...this.live].forEach(st => this.finish(st)); }
+};
+function streamText(el, text, opt) { Stream.go(el, text, opt); }
+
+/* ---------- app state machine ---------- */
+const App = {
+  order: ["landing", "act0", "act1", "act2", "act3", "act4", "act5"],
+  labels: ["组建", "议题", "盲评", "质证", "休会", "备忘录"],
+  act: "landing",
+  instant: false,
+  goto(id) {
+    if (!this.order.includes(id)) return;
+    this.act = id;
+    document.querySelectorAll(".act").forEach(s => s.classList.toggle("active", s.id === id));
+    this.renderStepper();
+    if (id === "act5") renderMemo();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  },
+  next() { const i = this.order.indexOf(this.act); if (i < this.order.length - 1) this.goto(this.order[i + 1]); },
+  prev() { const i = this.order.indexOf(this.act); if (i > 0) this.goto(this.order[i - 1]); },
+  skipAll() { this.instant = true; Stream.finishAll(); this.goto("act5"); this.instant = false; },
+  renderStepper() {
+    const cur = this.order.indexOf(this.act);
+    $("#stepper").innerHTML = this.labels.map((t, i) => {
+      const id = this.order[i + 1];
+      const cls = "step" + (id === this.act ? " active" : "") + (i + 1 < cur ? " done" : "");
+      return `<button class="${cls}" onclick="App.goto('${id}')">${i}·${t}</button>`;
+    }).join("");
+  }
+};
+
+/* ---------- hero table seats ---------- */
+(function heroSeats() {
+  const tbl = $("#heroTable");
+  const dirs = B.roles.filter(r => !r.is_secretary);
+  const R = 128, cx = 140, cy = 140;
+  dirs.concat(B.roles.filter(r => r.is_secretary)).forEach((r, i, arr) => {
+    const a = -Math.PI / 2 + (i * 2 * Math.PI) / arr.length;
+    const d = document.createElement("div");
+    d.className = "seat";
+    d.style.cssText = `left:${cx + R * Math.cos(a) - 9}px;top:${cy + R * Math.sin(a) - 9}px;background:${r.color}`;
+    d.title = r.name;
+    tbl.appendChild(d);
+  });
+})();
+
+/* ---------- act 5 · decision memo ---------- */
+let memoRendered = false;
+function renderMemo() {
+  if (memoRendered) return;
+  memoRendered = true;
+  const m = B.memo;
+  const today = "2026-07-12";
+  const posRows = m.positions.map(p => {
+    const r = roleById(p.role);
+    return `<div class="pos-row">
+      <div class="pos-name"><span class="pos-dot" style="background:${r.color}"></span>${r.name}</div>
+      <span class="chip ${p.stance}">${STANCE_TXT[p.stance]}</span>
+      <div class="pos-prob">${p.prob.toFixed(2)}<small>涨价利大于弊</small></div>
+      <div class="pos-sum">${p.summary}</div>
+    </div>`;
+  }).join("");
+  const dissent = m.dissent.map(d => {
+    const r = roleById(d.role);
+    return `<div class="dissent">
+      <span class="tag">原文存档</span>
+      <div class="who">${r.name} · 少数派意见</div>
+      <p>${d.text}</p>
+    </div>`;
+  }).join("");
+  $("#memoRoot").innerHTML = `
+  <article class="memo" aria-label="决策备忘录">
+    <div class="memo-brand">THE BOARDROOM</div>
+    <h1>决策备忘录<span class="en">DECISION MEMO</span></h1>
+    <div class="memo-meta">No. 2026-001 · ${today} · 出席:4 位董事 + 秘书 · 记录:董事会秘书 · 盲评 1 轮 / 质证 1 轮</div>
+    <section>
+      <h2>案由</h2>
+      <div class="q">${m.question}</div>
+      <div class="q-ctx">${B.meta.question_structured.context} · 期限:${B.meta.question_structured.deadline}</div>
+    </section>
+    <section>
+      <h2>董事会建议</h2>
+      <div class="reco">${m.recommendation}</div>
+    </section>
+    <section>
+      <h2>董事立场与概率估计</h2>
+      ${posRows}
+    </section>
+    <section>
+      <h2>异议记录</h2>
+      ${dissent}
+    </section>
+    <section>
+      <h2>否决线</h2>
+      <div class="kill">
+        <div class="k-label">KILL CRITERIA · 触线即废止</div>
+        <p>${m.kill_criteria}</p>
+      </div>
+    </section>
+    <section class="premortem">
+      <h2>事前验尸 · PREMORTEM</h2>
+      <p>${m.premortem}</p>
+    </section>
+    <section class="ruling" id="rulingBox">
+      <h2>创始人裁决</h2>
+      <div class="ruling-btns">
+        <button class="rbtn primary" onclick="rule('approve')">批准建议方案</button>
+        <button class="rbtn" onclick="rule('modify')">修改后批准</button>
+        <button class="rbtn" onclick="rule('reject')">否决</button>
+      </div>
+      <p class="ruling-hint">董事会已履行建议职责。此栏永远留给你——投票权不属于任何 AI。</p>
+    </section>
+    <div class="memo-foot">
+      <span>建议权归董事会 · 裁决权归创始人</span>
+      <span>The Boardroom 自动生成于会议纪要</span>
+    </div>
+  </article>`;
+}
+const RULINGS = {
+  approve: "批准:按董事会建议方案执行——新用户 $49,老用户保价,遵守 60 天通知期。",
+  modify:  "修改后批准:采纳建议方案,另将观察期从 6 周延长至 8 周。",
+  reject:  "否决:维持现价,三个月后携新数据重开董事会。"
+};
+function rule(kind) {
+  const box = $("#rulingBox");
+  const t = new Date();
+  const ts = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")} ${String(t.getHours()).padStart(2,"0")}:${String(t.getMinutes()).padStart(2,"0")}`;
+  box.innerHTML = `
+    <h2>创始人裁决</h2>
+    <div class="ruled">
+      <div class="seal" aria-hidden="true">
+        <span class="s-top">THE BOARDROOM</span>
+        <span class="s-main">已裁决</span>
+        <span class="s-sub">FOUNDER RULED</span>
+      </div>
+      <p class="r-text">${RULINGS[kind]}</p>
+      <p class="r-time">签署于 ${ts} · 本备忘录连同异议记录一并归档</p>
+      <button class="r-reset" onclick="resetRule()">撤销重签(演示)</button>
+    </div>`;
+}
+function resetRule() { memoRendered = false; renderMemo(); }
+
+/* ---------- keyboard ---------- */
+addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") App.next();
+  if (e.key === "ArrowLeft") App.prev();
+});
+
+/* ---------- boot ---------- */
+App.goto("landing");
+</script>
+</body>
+</html>
