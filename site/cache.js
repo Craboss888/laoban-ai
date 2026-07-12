@@ -11,6 +11,25 @@ window.BOARDROOM = {
     },
     "hidden_bias": "The founder leans toward raising the price (hidden from directors during blind review)"
   },
+  "board": {
+    "founder": { "id": "founder", "name": "Founder", "subtitle": "Head of the table · Final ruling" },
+    "permanent": [
+      { "id": "cfo", "name": "CFO", "subtitle": "Finance", "color": "#0E7C66" },
+      { "id": "cmo", "name": "CMO", "subtitle": "Market & Growth", "color": "#1D4ED8" },
+      { "id": "customer_rep", "name": "Customer Representative", "subtitle": "Voice of real customers", "color": "#B45309" },
+      { "id": "clo", "name": "CLO", "subtitle": "Legal & Compliance", "color": "#6D28D9" }
+    ],
+    "adaptive_slots": 2,
+    "recommended": ["opposite", null],
+    "candidates": [
+      { "id": "opposite", "name": "Mr. Opposite", "subtitle": "Mandated dissenter", "expertise": "Challenges the founder's strongest assumption", "why": "Recommended because this decision begins with a stated founder preference", "color": "#B91C1C", "recommended": true },
+      { "id": "cto", "name": "CTO", "subtitle": "Technology & Delivery", "expertise": "Technical constraints, delivery cost, and platform risk", "color": "#0369A1" },
+      { "id": "cpo", "name": "Chief Product Officer", "subtitle": "Product & Adoption", "expertise": "Packaging, product value, and adoption trade-offs", "color": "#7C3AED" },
+      { "id": "cdo", "name": "Chief Design Officer", "subtitle": "Experience & Communication", "expertise": "Experience quality, trust, and communication clarity", "color": "#DB2777" },
+      { "id": "psychologist", "name": "Behavioral Psychologist", "subtitle": "Behavior & Decision Science", "expertise": "Pricing thresholds, anchoring, and customer response", "color": "#C2410C" },
+      { "id": "people", "name": "Chief People Officer", "subtitle": "People & Organization", "expertise": "Capacity, incentives, and organizational impact", "color": "#4D7C0F" }
+    ]
+  },
   "roles": [
     { "id": "cfo", "name": "CFO Director", "badge": "Financials only", "dataset": "finance", "color": "#0E7C66" },
     { "id": "customer", "name": "Customer Director", "badge": "Customer reviews only", "dataset": "reviews", "color": "#B45309" },

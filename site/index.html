@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Boardroom — ChatGPT will agree with you. Your board won't.</title>
+<link rel="icon" href="data:,">
 <script src="cache.js"></script>
 <style>
 /* ============ tokens ============ */
@@ -212,35 +213,25 @@ main{flex:1;display:flex;flex-direction:column}
 .h3{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin:20px 0 8px}
 
 /* ============ act 0 ============ */
-.a0-grid{display:grid;grid-template-columns:420px 1fr;gap:44px;align-items:center}
-.table-stage{position:relative;width:420px;height:420px;margin:0 auto}
+.a0-intro{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:12px}
+.a0-intro .act-head{margin:0}.a0-rule{font-size:11px;color:var(--muted);text-align:right;line-height:1.55}
+.a0-grid{display:grid;grid-template-columns:minmax(560px,1fr) 330px;gap:28px;align-items:stretch}
+.table-stage{position:relative;min-height:570px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#F8F6EF,#EEECE4);overflow:hidden;box-shadow:var(--shadow)}
 .table-stage .felt{
-  position:absolute;inset:64px;border-radius:50%;
+  position:absolute;width:350px;height:270px;left:50%;top:190px;transform:translateX(-50%);border-radius:50%;
   background:radial-gradient(circle at 38% 32%,#2A614E,var(--baize-deep));
-  box-shadow:inset 0 2px 16px rgba(0,0,0,.3),var(--shadow);
+  box-shadow:inset 0 0 0 12px rgba(255,255,255,.07),inset 0 2px 16px rgba(0,0,0,.3),0 20px 35px rgba(24,65,51,.2);
 }
-.table-stage .ceo{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  background:#fff;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:700;
-  letter-spacing:.08em;color:var(--baize-deep);box-shadow:0 2px 8px rgba(0,0,0,.3);
-}
-.plate{
-  position:absolute;transform:translate(-50%,-50%);background:#fff;border-radius:10px;
-  padding:7px 12px;font-size:12px;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.16);
-  display:flex;align-items:center;gap:7px;white-space:nowrap;
-  opacity:0;animation:plateIn .45s var(--ease) forwards;
-}
-.plate .pd{width:8px;height:8px;border-radius:50%;flex:none}
-@keyframes plateIn{from{opacity:0}to{opacity:1}}
-.roster{display:flex;flex-direction:column;gap:8px}
-.r-row{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 14px;font-size:14px;font-weight:600}
-.r-row .pd{width:9px;height:9px;border-radius:50%;flex:none}
-.r-row .sub{font-size:11px;color:var(--muted);font-weight:400}
-.r-ok{margin-left:auto;color:var(--support);font-size:12px;font-weight:700}
-.badge{font-size:11px;color:var(--muted);background:var(--paper);border:1px solid var(--line);padding:2px 8px;border-radius:999px;font-weight:400;white-space:nowrap}
-.soon{display:flex;gap:8px;flex-wrap:wrap}
-.s-chip{font-size:11px;color:var(--muted);border:1px dashed #D5D3CA;padding:4px 12px;border-radius:999px}
-.ds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.table-agenda{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:205px;text-align:center;color:#E3EFEA}
+.table-agenda .ta-k{font-size:8px;letter-spacing:.14em;font-weight:800}.table-agenda strong{display:block;font-family:var(--font-display);font-size:19px;line-height:1.12;margin:7px 0}.table-agenda small{font-size:9px;color:#B8CFC7;line-height:1.4}
+.board-seat{position:absolute;width:154px;min-height:56px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:0 7px 18px rgba(31,36,33,.12);z-index:2;transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s}
+.board-seat .bs-type{float:right;font-size:7px;letter-spacing:.08em;color:#98948A;text-transform:uppercase}.board-seat b{display:block;font-size:11px;line-height:1.25;padding-right:36px}.board-seat small{display:block;font-size:8.5px;color:var(--muted);margin-top:2px;line-height:1.3}.board-seat .bs-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
+.board-seat.founder{left:50%;top:28px;transform:translateX(-50%);width:178px;background:var(--ink);border-color:var(--ink);color:#fff;text-align:center}.board-seat.founder b{padding:0;font-size:12px;letter-spacing:.08em}.board-seat.founder small{color:#C8CDC9}
+.board-seat.fixed::after{content:"LOCKED";position:absolute;right:9px;bottom:7px;font-size:6px;letter-spacing:.1em;color:#B4B0A6}.board-seat.cfo{left:5%;top:130px}.board-seat.cmo{right:5%;top:130px}.board-seat.customer-rep{left:2%;top:285px}.board-seat.clo{right:2%;top:285px}
+.board-seat.adaptive{top:470px;cursor:pointer}.board-seat.adaptive:hover,.board-seat.adaptive:focus-visible{transform:translateY(-3px);box-shadow:0 12px 24px rgba(31,36,33,.16);outline:none}.board-seat.adaptive.slot-0{left:12%}.board-seat.adaptive.slot-1{right:12%}.board-seat.adaptive.selected{border:2px solid var(--oppose)}.board-seat.adaptive.active{border-color:var(--support);box-shadow:0 0 0 4px rgba(14,124,102,.14)}.board-seat.adaptive.empty{border:2px dashed #AAA69B;background:#FBFAF5;color:#6F6B63}.board-seat .recommended{display:inline-block;margin-top:6px;padding:2px 6px;border-radius:5px;background:#FBEAE8;color:var(--oppose);font-size:7px;font-weight:800;letter-spacing:.06em}
+.a0-side{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);min-height:570px;display:flex;flex-direction:column}.selector-head{display:flex;align-items:start;justify-content:space-between;gap:12px}.selector-head .eyebrow{font-size:9px;margin:0 0 5px}.selector-head h3{font-size:20px;margin:0}.selector-close{font-size:20px;color:var(--muted);line-height:1;padding:3px}.selector-copy{font-size:11px;color:var(--muted);line-height:1.5;margin:8px 0 12px}.candidate-list{display:flex;flex-direction:column;gap:7px}.candidate-btn{position:relative;width:100%;text-align:left;border:1px solid var(--line);border-radius:11px;padding:9px 11px;background:#fff;transition:.18s}.candidate-btn:hover,.candidate-btn:focus-visible{border-color:#9B978E;outline:none;transform:translateX(2px)}.candidate-btn.on{border-color:var(--oppose);background:#FFF8F6}.candidate-btn b{display:block;font-size:11px}.candidate-btn span{display:block;font-size:8.5px;color:var(--muted);line-height:1.35;margin-top:2px;padding-right:12px}.candidate-btn .why{color:var(--oppose);margin-top:4px}.candidate-btn .tick{position:absolute;right:10px;top:9px;color:var(--oppose);font-weight:900}.candidate-btn:disabled{opacity:.42;cursor:not-allowed;transform:none}.clear-seat{width:100%;margin-top:8px;border:1px dashed #B8B3A8;border-radius:10px;padding:8px;font-size:9px;color:var(--muted)}.selector-done{width:100%;margin-top:auto;padding-top:14px}.selector-done .btn{width:100%}
+.board-summary{display:flex;flex-direction:column;height:100%}.board-summary h3{font-size:20px;margin:0 0 7px}.board-summary>p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}.seat-count{display:flex;align-items:baseline;gap:7px;margin:18px 0}.seat-count strong{font-family:var(--font-num);font-size:38px;line-height:1;color:var(--baize)}.seat-count span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.charter-row{display:flex;gap:9px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}.charter-row b{display:block;font-size:11px}.charter-row span{display:block;font-size:9px;color:var(--muted);margin-top:2px}.charter-icon{width:24px;height:24px;border-radius:7px;background:var(--baize-soft);display:grid;place-items:center;font-size:11px;flex:none}.a0-actions{margin-top:auto;padding-top:16px}.a0-actions .btn{width:100%}.a0-actions small{display:block;text-align:center;font-size:9px;color:var(--muted);margin-top:8px}
+.demo-guard{position:absolute;inset:0;background:rgba(31,36,33,.38);backdrop-filter:blur(3px);z-index:10;display:none;align-items:center;justify-content:center;padding:24px}.demo-guard.on{display:flex}.guard-card{width:min(430px,100%);background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.25)}.guard-card .eyebrow{font-size:9px;margin:0 0 7px;color:var(--oppose)}.guard-card h3{font-size:22px;margin:0 0 8px}.guard-card p{font-size:12px;line-height:1.6;color:var(--muted)}.guard-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .ds-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:12px;line-height:1.5}
 .ds-card b{font-size:12.5px}
 .led{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--support);margin-right:6px;box-shadow:0 0 0 3px #E3F2EE}
@@ -334,17 +325,20 @@ main{flex:1;display:flex;flex-direction:column}
 .controls button{padding:7px 14px;border-radius:999px;font-weight:600;color:var(--ink)}
 .controls button:hover{background:var(--baize-soft);color:var(--baize)}
 .controls .skip{color:var(--muted);font-size:12px}
+body:has(#act0.active) .controls{display:none}
 
 /* ============ responsive & motion ============ */
 @media (max-width:900px){
   .memo{padding:44px 30px}
   .pos-row{grid-template-columns:130px 96px 70px 1fr;gap:8px}
   .stepper{display:none}
+  .a0-grid{grid-template-columns:1fr}.a0-side{min-height:auto}.a0-intro{align-items:start}.a0-rule{display:none}
 }
 @media (max-width:640px){
   .pos-row{grid-template-columns:1fr 1fr;grid-template-areas:"name chip" "prob sum"}
   .pos-name{grid-area:name}.pos-row .chip{grid-area:chip;justify-self:end}
   .pos-prob{grid-area:prob;text-align:left}.pos-sum{grid-area:sum}
+  .table-stage{min-height:650px}.table-stage .felt{width:270px;height:250px;top:205px}.board-seat{width:132px}.board-seat.cfo{left:2%;top:125px}.board-seat.cmo{right:2%;top:125px}.board-seat.customer-rep{left:1%;top:370px}.board-seat.clo{right:1%;top:370px}.board-seat.adaptive{top:535px}.board-seat.adaptive.slot-0{left:4%}.board-seat.adaptive.slot-1{right:4%}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -376,18 +370,24 @@ main{flex:1;display:flex;flex-direction:column}
 
   <!-- act 0 · assemble -->
   <section id="act0" class="act"><div class="stage">
-    <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">Assemble the Board</h2><span class="act-note">Each director connects to one evidence pipeline. The disagreement comes from information, not personas.</span></div>
+    <div class="a0-intro">
+      <div class="act-head"><span class="act-kicker">ACT 0</span><h2 class="act-title">Assemble the Board</h2><span class="act-note">Four permanent directors. Up to two adaptive experts. Empty seats are allowed.</span></div>
+      <div class="a0-rule">Founder at the head of the table<br>Maximum: 7 people in the room</div>
+    </div>
     <div class="a0-grid">
-      <div class="table-stage" id="a0table" aria-hidden="true"><div class="felt"></div><div class="ceo">CEO · YOU</div></div>
-      <div>
-        <div class="h3">Today's Board</div>
-        <div class="roster" id="a0roster"></div>
-        <div class="h3">More Specialist Directors · Coming Soon</div>
-        <div class="soon"><span class="s-chip">Legal Director</span><span class="s-chip">Supply Chain Director</span><span class="s-chip">PR Director</span><span class="s-chip">E-commerce Product Director</span></div>
-        <div class="h3">Connected Evidence Sources</div>
-        <div class="ds-grid" id="a0ds"></div>
-        <div class="cta-row" style="justify-content:flex-start"><button class="btn btn-primary" onclick="App.next()">Enter the Boardroom →</button></div>
+      <div class="table-stage" id="a0table">
+        <div class="felt"><div class="table-agenda"><div class="ta-k">DECISION BEFORE THE BOARD</div><strong>Raise the subscription price from $29 to $49?</strong><small>Evidence remains isolated until the walls fall.</small></div></div>
+        <div id="a0seats"></div>
+        <div class="demo-guard" id="a0guard" role="dialog" aria-modal="true" aria-labelledby="guardTitle">
+          <div class="guard-card">
+            <p class="eyebrow">PRECOMPUTED DEMO</p>
+            <h3 id="guardTitle">This board needs a different run.</h3>
+            <p>The interactive selector is real, but this cached pricing demonstration was generated for the recommended board: Mr. Opposite plus one open seat.</p>
+            <div class="guard-actions"><button class="btn btn-primary" onclick="restoreRecommendedBoard(true)">Restore Recommended Board</button><button class="btn btn-ghost" onclick="closeBoardGuard()">Keep Editing</button></div>
+          </div>
+        </div>
       </div>
+      <aside class="a0-side" id="a0side"></aside>
     </div>
   </div></section>
 
@@ -446,6 +446,121 @@ const B = window.BOARDROOM;
 const $ = (s, el) => (el || document).querySelector(s);
 const roleById = id => B.roles.find(r => r.id === id);
 const STANCE_TXT = { support: "SUPPORT", oppose: "OPPOSE", conditional: "CONDITIONAL" };
+const BoardBuilder = {
+  adaptive: [...B.board.recommended],
+  activeSlot: null
+};
+
+const boardCandidate = id => B.board.candidates.find(candidate => candidate.id === id);
+const boardIsRecommended = () => {
+  const selected = BoardBuilder.adaptive.filter(Boolean);
+  return selected.length === 1 && selected[0] === "opposite";
+};
+
+function boardSeatMarkup(person, classes, type) {
+  return `<div class="board-seat ${classes}">
+    <span class="bs-type">${type}</span>
+    <b><span class="bs-dot" style="background:${person.color || "#FFFFFF"}"></span>${person.name}</b>
+    <small>${person.subtitle}</small>
+  </div>`;
+}
+
+function renderBoardSeats() {
+  const mount = $("#a0seats");
+  if (!mount) return;
+  const fixedClasses = { cfo: "cfo", cmo: "cmo", customer_rep: "customer-rep", clo: "clo" };
+  const founder = B.board.founder;
+  let html = `<div class="board-seat founder"><b>${founder.name.toUpperCase()}</b><small>${founder.subtitle}</small></div>`;
+  html += B.board.permanent.map(person => boardSeatMarkup(person, `fixed ${fixedClasses[person.id]}`, "Permanent")).join("");
+  html += BoardBuilder.adaptive.map((id, index) => {
+    const active = BoardBuilder.activeSlot === index ? " active" : "";
+    if (!id) {
+      return `<button class="board-seat adaptive empty slot-${index}${active}" onclick="openAdaptiveSeat(${index})" aria-label="Choose a director for adaptive seat ${index + 1}">
+        <span class="bs-type">Adaptive</span><b>＋ OPEN SEAT</b><small>Optional · Click to add</small>
+      </button>`;
+    }
+    const person = boardCandidate(id);
+    return `<button class="board-seat adaptive selected slot-${index}${active}" onclick="openAdaptiveSeat(${index})" aria-label="Change ${person.name} in adaptive seat ${index + 1}">
+      <span class="bs-type">Adaptive</span><b><span class="bs-dot" style="background:${person.color}"></span>${person.name}</b><small>${person.subtitle}</small>${person.recommended ? `<span class="recommended">AI RECOMMENDED</span>` : ""}
+    </button>`;
+  }).join("");
+  mount.innerHTML = html;
+}
+
+function renderBoardSide() {
+  const side = $("#a0side");
+  if (!side) return;
+  if (BoardBuilder.activeSlot == null) {
+    const seated = 1 + B.board.permanent.length + BoardBuilder.adaptive.filter(Boolean).length;
+    side.innerHTML = `<div class="board-summary">
+      <p class="eyebrow">BOARD CHARTER</p>
+      <h3>Built for this decision.</h3>
+      <p>Permanent directors protect the functions every company needs. Adaptive seats bring in expertise only when the decision calls for it.</p>
+      <div class="seat-count"><strong>${seated}</strong><span>people seated<br>maximum 7</span></div>
+      <div class="charter-row"><div class="charter-icon">▣</div><div><b>4 permanent directors</b><span>CFO · CMO · Customer Representative · CLO</span></div></div>
+      <div class="charter-row"><div class="charter-icon">＋</div><div><b>Up to 2 adaptive directors</b><span>Choose specialists—or leave the seats open.</span></div></div>
+      <div class="charter-row"><div class="charter-icon">◎</div><div><b>Secretary is the system layer</b><span>Facilitates the process without taking a seat or vote.</span></div></div>
+      <div class="a0-actions"><button class="btn btn-primary" onclick="attemptConveneBoard()">Convene This Board →</button><small>Click either adaptive seat to change the board.</small></div>
+    </div>`;
+    return;
+  }
+
+  const slot = BoardBuilder.activeSlot;
+  const current = BoardBuilder.adaptive[slot];
+  side.innerHTML = `<div class="selector-head"><div><p class="eyebrow">ADAPTIVE SEAT ${slot + 1}</p><h3>Choose an expert</h3></div><button class="selector-close" onclick="closeAdaptiveSeat()" aria-label="Close director selector">×</button></div>
+    <p class="selector-copy">Use the recommendation or choose manually. Selecting a candidate updates the chair immediately.</p>
+    <div class="candidate-list">${B.board.candidates.map(candidate => {
+      const usedElsewhere = BoardBuilder.adaptive.some((id, index) => index !== slot && id === candidate.id);
+      return `<button class="candidate-btn${current === candidate.id ? " on" : ""}" onclick="selectAdaptiveDirector('${candidate.id}')" ${usedElsewhere ? "disabled" : ""}>
+        <b>${candidate.name}</b><span>${candidate.expertise}</span>${candidate.why ? `<span class="why">${candidate.why}</span>` : ""}${current === candidate.id ? `<span class="tick">✓</span>` : ""}
+      </button>`;
+    }).join("")}</div>
+    <button class="clear-seat" onclick="clearAdaptiveSeat()">Leave this seat open</button>
+    <div class="selector-done"><button class="btn btn-primary" onclick="closeAdaptiveSeat()">Done</button></div>`;
+}
+
+function renderBoardBuilder() {
+  renderBoardSeats();
+  renderBoardSide();
+}
+
+function openAdaptiveSeat(index) {
+  BoardBuilder.activeSlot = index;
+  renderBoardBuilder();
+  requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
+
+function closeAdaptiveSeat() {
+  BoardBuilder.activeSlot = null;
+  renderBoardBuilder();
+}
+
+function selectAdaptiveDirector(id) {
+  if (BoardBuilder.activeSlot == null) return;
+  BoardBuilder.adaptive[BoardBuilder.activeSlot] = id;
+  renderBoardBuilder();
+}
+
+function clearAdaptiveSeat() {
+  if (BoardBuilder.activeSlot == null) return;
+  BoardBuilder.adaptive[BoardBuilder.activeSlot] = null;
+  renderBoardBuilder();
+}
+
+function attemptConveneBoard() {
+  if (boardIsRecommended()) { App.next(); return; }
+  $("#a0guard").classList.add("on");
+}
+
+function closeBoardGuard() { $("#a0guard").classList.remove("on"); }
+
+function restoreRecommendedBoard(continueToMeeting = false) {
+  BoardBuilder.adaptive = [...B.board.recommended];
+  BoardBuilder.activeSlot = null;
+  closeBoardGuard();
+  renderBoardBuilder();
+  if (continueToMeeting) App.next();
+}
 
 /* ---------- streaming engine ---------- */
 const Stream = {
@@ -552,21 +667,8 @@ function makeGauge(mount) {
 /* ---------- act scripts ---------- */
 const ActScripts = {
   act0() {
-    $("#a0roster").innerHTML = B.roles.map(r =>
-      `<div class="r-row"><span class="pd" style="background:${r.color}"></span>${r.name}${r.subtitle ? ` <span class="sub">${r.subtitle}</span>` : ""}<span class="badge">${r.badge}</span><span class="r-ok">✓ SEATED</span></div>`).join("");
-    $("#a0ds").innerHTML = B.datasets.map(d =>
-      `<div class="ds-card"><b><span class="led"></span>${d.label}</b><br><span class="fn">${d.filename}</span><br><span style="color:var(--muted)">${d.preview}</span></div>`).join("");
-    const tbl = $("#a0table");
-    tbl.querySelectorAll(".plate").forEach(p => p.remove());
-    const R = 185, cx = 210, cy = 210;
-    B.roles.forEach((r, i, arr) => {
-      const a = -Math.PI / 2 + (i * 2 * Math.PI) / arr.length;
-      const p = document.createElement("div");
-      p.className = "plate";
-      p.style.cssText = `left:${cx + R * Math.cos(a)}px;top:${cy + R * Math.sin(a)}px;animation-delay:${i * 0.12}s`;
-      p.innerHTML = `<span class="pd" style="background:${r.color}"></span>${r.name}`;
-      tbl.appendChild(p);
-    });
+    closeBoardGuard();
+    renderBoardBuilder();
   },
 
   async act1(run) {
