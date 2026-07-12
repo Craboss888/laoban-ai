@@ -223,11 +223,20 @@ body[data-dir="back"] .slide{transform:translateY(-26px) scale(.988)}
 }
 
 /* ============ II · PROBLEM ============ */
-.contrast{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.contrast{display:grid;grid-template-columns:1fr 1.08fr;gap:22px;margin-top:30px;align-items:center}
 .panel{
   border:1px solid var(--line);background:var(--card);border-radius:var(--r);
   padding:22px 24px;position:relative;box-shadow:var(--shadow);
 }
+.panel.lose{background:#F1EFE9;border-color:#E0DDD3;box-shadow:none;zoom:.92;filter:saturate(.45)}
+.panel.lose .panel-head{color:#A8A79E}
+.panel.win{border-color:rgba(14,124,102,.45);box-shadow:0 16px 38px rgba(14,124,102,.13)}
+.verdict{
+  position:absolute;top:-13px;right:-13px;width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;font-size:14px;font-weight:900;color:#fff;box-shadow:var(--shadow);
+}
+.panel.lose .verdict{background:var(--seal)}
+.panel.win .verdict{background:var(--support)}
 .panel-head{
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
   color:var(--faint);margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;
@@ -636,12 +645,14 @@ body[data-dir="back"] .slide{transform:translateY(-26px) scale(.988)}
       And the obvious advisor is the worst one:
     </p>
     <div class="contrast">
-      <div class="panel" data-reveal style="--d:3">
+      <div class="panel lose" data-reveal style="--d:3">
+        <span class="verdict" aria-hidden="true">✕</span>
         <div class="panel-head"><span>Asking your assistant</span><span>no record · no accountability</span></div>
         <div class="bubble you">I&rsquo;m thinking of raising our price from $29 to $49.</div>
         <div class="bubble bot">Great instinct — $49 signals premium positioning. <em>You should absolutely go for it!</em> Want me to draft the announcement? 🎉</div>
       </div>
-      <div class="panel" data-reveal style="--d:4">
+      <div class="panel win" data-reveal style="--d:4">
+        <span class="verdict" aria-hidden="true">✓</span>
         <div class="panel-head"><span>Putting it to the board</span><span>on the record</span></div>
         <div class="board-lines">
           <div class="board-line"><span class="who">CFO</span><span class="what">Raise. <b>Support 80%</b> — CAC up 61%, price flat 12 months.</span></div>
