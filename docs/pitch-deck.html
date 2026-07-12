@@ -70,8 +70,9 @@ body::before{ /* faint baize wash */
 .chrome-bottom{
   position:fixed;bottom:0;left:0;right:0;z-index:50;
   display:flex;justify-content:space-between;align-items:center;
-  padding:0 clamp(24px,3.4vw,48px) 22px;
+  padding:34px clamp(24px,3.4vw,48px) 22px;
   pointer-events:none;
+  background:linear-gradient(180deg,rgba(250,248,245,0) 0%,var(--paper) 46%);
 }
 .motto{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--faint);text-transform:uppercase}
 .motto em{color:var(--baize);font-style:normal}
@@ -107,8 +108,10 @@ body::before{ /* faint baize wash */
 .rail .lbl{
   font-family:var(--mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;
   opacity:0;transform:translateX(-6px);white-space:nowrap;
+  background:var(--paper);box-shadow:0 0 0 5px var(--paper);border-radius:3px;
   transition:opacity .45s var(--ease),transform .45s var(--ease);
 }
+@media (max-width:1240px){.rail .lbl{display:none}}
 .rail a:hover .lbl{opacity:.85;transform:none}
 .rail a.on{color:var(--baize)}
 .rail a.on .tick{width:30px}
@@ -118,12 +121,16 @@ body::before{ /* faint baize wash */
 .slide{
   position:absolute;inset:0;
   display:grid;place-items:center;
-  padding:clamp(70px,10vh,110px) clamp(84px,10vw,150px);
+  padding:clamp(70px,10vh,110px) clamp(84px,10vw,150px) clamp(96px,14vh,132px);
   opacity:0;visibility:hidden;
   transform:translateY(26px) scale(.988);
   transition:opacity .65s var(--ease),transform .65s var(--ease),visibility 0s linear .65s;
 }
 body[data-dir="back"] .slide{transform:translateY(-26px) scale(.988)}
+/* short viewports: shrink slide content so nothing collides with the fixed chrome */
+@media (max-height:800px){.slide .wrap{zoom:.86}}
+@media (max-height:660px){.slide .wrap{zoom:.72}}
+@media (max-height:540px){.slide .wrap{zoom:.6}}
 .slide.is-active{
   opacity:1;visibility:visible;transform:none;
   transition:opacity .7s var(--ease) .12s,transform .7s var(--ease) .12s,visibility 0s;
